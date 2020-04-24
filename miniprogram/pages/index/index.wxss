@@ -111,3 +111,26 @@
   transform: rotate(45deg);
   margin: 5rpx 10rpx 0 5rpx;
 }
+.course-list{
+  width: 100%;
+}
+
+.course-contnet{
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  padding: 20rpx 30rpx;
+  box-shadow: 2rpx 2rpx 10rpx 2rpx #ddd;
+  min-height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.course-contnet-title{
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+}
+.course-contnet-txt{
+  font-size: 30rpx;
+  color: #666;
+}

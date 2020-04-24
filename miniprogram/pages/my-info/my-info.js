@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+const app = getApp()
 Page({
 
   /**
@@ -78,6 +79,7 @@ Page({
         }
       }).then(res => {
         console.log(res.result)
+        app.globalData.myClass=myClass;
         wx.showToast({
           title: '设置成功',
           icon: 'success',

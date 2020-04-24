@@ -233,3 +233,16 @@
   /* right: 20rpx; */
   margin: 5rpx 40rpx 0rpx 10rpx;
 }
+
+.test-week{
+  background-color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 30rpx;
+}
+.statement{
+  padding: 40rpx;
+  font-size: 26rpx;
+  color: #777;
+  text-align: center;
+}

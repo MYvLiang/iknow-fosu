@@ -1,0 +1,18 @@
+<!--miniprogram/pages/opinion/opinion.wxml-->
+<view class="title">
+  <input type="text"
+  placeholder="标题（不多于20字）" 
+  maxlength="20"
+  cursor-spacing="10px"
+  auto-focus="true">
+  </input>
+</view>
+<view class="details">
+  <input type="text"
+  placeholder="正文(不多于300字）" 
+  maxlength="300"
+  cursor-spacing="10px"
+  auto-focus="true">
+  </input>
+</view>
+<button style="margin-left: 170rpx; margin-top: 900rpx; border-radius: 40rpx;" type="primary">提交</button>

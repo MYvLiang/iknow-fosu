@@ -1,0 +1,21 @@
+/* miniprogram/pages/opinion/opinion.wxss */
+
+.title{
+  position: absolute;
+  top: 10%;
+  left: 3%;
+  width: 94%;
+  height: 7%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.details{
+  position: absolute;
+  top: 20%;
+  left: 3%;
+  width: 94%;
+  height: 40%;
+  border: 1px solid black;
+  border-radius: 5px;
+
+}

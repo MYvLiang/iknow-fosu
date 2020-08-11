@@ -15,4 +15,4 @@
   auto-focus="true">
   </input>
 </view>
-<button style="margin-left: 170rpx; margin-top: 900rpx; border-radius: 40rpx;" type="primary">提交</button>
+<button style="width: 70%;position: absolute; top: 60%; left: 15%; border-radius: 40rpx;" type="primary">提交</button>

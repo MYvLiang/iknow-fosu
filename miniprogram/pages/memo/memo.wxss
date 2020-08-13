@@ -2,18 +2,15 @@
 .header{
   width: 100%;
   height: 90rpx;
-  background-color: white;
+  background-color: #fafafa;
 }
 .hdCon{
   display: flex;
   height: 100%;
-  flex-direction: column;
   box-sizing: border-box;
-  padding: 0 26rpx;
   justify-content: space-between;
+  padding: 0 26rpx 10rpx;
   align-items: center;
-  position: absolute;
-
 }
 .hdCon navigator{
   height: 50rpx;
@@ -21,5 +18,22 @@
 .hdCon image{
   height: 100%;
   width: 50rpx;
-  padding: 20rpx 0 0;
+  padding: 0 0;
+}
+.txt{
+  font-size: 50rpx;
+  font-weight: 600;
+  letter-spacing: 5rpx;
+}
+.words{
+  font-size: 45rpx;
+  color: #959499;
+  padding: 50% 230rpx;
+  letter-spacing: 5rpx;
+}
+.words text{
+  font-size: 30rpx;
+  color: #959499;
+  letter-spacing: 3rpx;
+  padding: 50% 20rpx;
 }

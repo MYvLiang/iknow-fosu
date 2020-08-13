@@ -1,7 +1,17 @@
 <view class="header">
   <view class="hdCon">
+    <view class="txt">备忘</view>
     <navigator open-type="navigate" url="/pages/addMemo/addMemo">
       <image src="/images/jia.png"></image>
     </navigator>
   </view>
+</view>
+
+<view class="words">
+  <view>你还没有备忘</view>
+  <text>点击 + 新建备忘</text>
+</view>
+
+<view  class="">
+
 </view>

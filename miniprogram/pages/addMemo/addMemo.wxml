@@ -1,8 +1,54 @@
 <view class="hd">
-  <view class="hd-con">
-    <textarea class="txt"placeholder="备忘..." name="dimension">
+  <form class="hd-con">
+    <!-- 备忘内容 -->
+    <textarea class="txt" placeholder="备忘..." name="dimension">
     </textarea>
     <view class="lines"></view>
-  </view>
+
+    <!-- 图片上传 -->
+    <view class='ui_uploader_cell'>
+      <view class='ui_uploader_item' wx:for="{{uploaderList}}" wx:key="{{index}}">
+        <icon class='ui_uploader_item_icon' bindtap='clearImg' data-index="{{index}}" type="clear" size="20" color="red" />
+        <image bindtap='showImg' data-index="{{index}}" src='{{item}}'></image>
+      </view>
+      <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
+    </view>
+    <!-- 备忘日期 -->
+    <navigator class="pubTitle" bindtap="pickerHandler">
+      <text class="words">备忘日期</text>
+      <text>{{year}}年{{month}}月{{day}}日></text>
+    </navigator>
+  
+
+
+    <!-- 底部弹出滚动选择器 -->
+    <view class='com-picker-view {{pickerShow}}'>
+      <view class='com-picker-title'>
+        <view class='com-picker-result'>
+          <slot></slot>
+        </view>
+        <view class='com-picker-finish' bindtap='pickerFinish'>完成</view>
+      </view>
+      <view class='com-title' wx:if="{{propTitle.length!=0}}">
+        <view wx:for="{{title}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+          <view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;">{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <view class='com-picker-shadow {{pickerShow}}' bindtap='pickerHandler' wx:if="{{isShadow}}"></view>
+
+
+    <!-- 保存提交按钮 -->
+    <button bindtap="addData" class="button" form-type="submit">保存</button>
+  </form>
 </view>
-<button onclick="savefunction()" form-type="submit" class="button">保存</button>

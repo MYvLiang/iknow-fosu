@@ -1,0 +1,25 @@
+/* 头部logo */
+.header{
+  width: 100%;
+  height: 90rpx;
+  background-color: white;
+}
+.hdCon{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+
+}
+.hdCon navigator{
+  height: 50rpx;
+}
+.hdCon image{
+  height: 100%;
+  width: 50rpx;
+  padding: 20rpx 0 0;
+}

@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  padding: 0 26rpx;
 } 
 
 button {
@@ -20,7 +21,8 @@ button::after{
 
 
 page {
-  background: #f6f6f6;
+  /*background: #f6f6f6;*/
+  background: #f0f3f8;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

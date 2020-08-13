@@ -1,0 +1,8 @@
+<view class="hd">
+  <view class="hd-con">
+    <textarea class="txt"placeholder="备忘..." name="dimension">
+    </textarea>
+    <view class="lines"></view>
+  </view>
+</view>
+<button onclick="savefunction()" form-type="submit" class="button">保存</button>

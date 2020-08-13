@@ -1,0 +1,7 @@
+<view class="header">
+  <view class="hdCon">
+    <navigator open-type="navigate" url="/pages/addMemo/addMemo">
+      <image src="/images/jia.png"></image>
+    </navigator>
+  </view>
+</view>

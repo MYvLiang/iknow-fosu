@@ -1,0 +1,22 @@
+.hd{
+  padding: 20rpx 0 0;
+}
+.hd-con{
+  background: white;
+}
+.txt{
+  background: white;
+  height: 150rpx;
+  width: 750rpx;
+}
+.lines{
+  width: 650rpx;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  border-top:2px #f8f8f8 solid;
+}
+.button{
+  margin-top: 30rpx;
+  background: #84c1ff;
+  border-radius:25px;
+}

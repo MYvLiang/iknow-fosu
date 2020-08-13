@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/course/course"
+    "pages/course/course",
+    "pages/school-map/school-map"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

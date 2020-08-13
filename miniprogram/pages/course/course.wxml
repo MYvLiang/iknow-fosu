@@ -1,4 +1,0 @@
-<text>{{courseData[0].name}}</text>
-<text>{{courseData[0].teacher}}</text>
-<text>{{courseData[0].place}}</text>
-<text>{{courseData[0].weeks}}[周]</text>

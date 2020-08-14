@@ -1,5 +1,7 @@
 <view class="hd">
-  <form class="hd-con">
+  <form class="hd-con" bindsubmit="addData">
+    <!-- 备忘标题 -->
+    <input class="" placeholder="备忘标题" name="title"></input>
     <!-- 备忘内容 -->
     <textarea class="txt" placeholder="备忘..." name="dimension">
     </textarea>
@@ -14,41 +16,14 @@
       <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
     </view>
     <!-- 备忘日期 -->
-    <navigator class="pubTitle" bindtap="pickerHandler">
-      <text class="words">备忘日期</text>
-      <text>{{year}}年{{month}}月{{day}}日></text>
-    </navigator>
-  
-
-
-    <!-- 底部弹出滚动选择器 -->
-    <view class='com-picker-view {{pickerShow}}'>
-      <view class='com-picker-title'>
-        <view class='com-picker-result'>
-          <slot></slot>
-        </view>
-        <view class='com-picker-finish' bindtap='pickerFinish'>完成</view>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <view class="pubTitle">
+        <text class="words">备忘日期</text>
+        <text>{{date}}></text>
       </view>
-      <view class='com-title' wx:if="{{propTitle.length!=0}}">
-        <view wx:for="{{title}}" wx:key="{{index}}">{{item}}</view>
-      </view>
-
-      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
-        <picker-view-column>
-          <view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;">{{item}}年</view>
-        </picker-view-column>
-        <picker-view-column>
-          <view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;">{{item}}月</view>
-        </picker-view-column>
-        <picker-view-column>
-          <view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;">{{item}}日</view>
-        </picker-view-column>
-      </picker-view>
-    </view>
-    <view class='com-picker-shadow {{pickerShow}}' bindtap='pickerHandler' wx:if="{{isShadow}}"></view>
-
+    </picker>
 
     <!-- 保存提交按钮 -->
-    <button bindtap="addData" class="button" form-type="submit">保存</button>
+    <button class="button" type="primary" form-type="submit">保存</button>
   </form>
 </view>

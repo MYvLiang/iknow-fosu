@@ -1,9 +1,14 @@
 <view class="section">
-  <view class="section__title">教学周历</view>
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array1}}">
-    <view class="picker">
-      当前选择：{{objectArray[index].name}}
-      <image src="{{array[index]}}" class="pic" mode="widthFix"></image>
-    </view>
-  </picker>
+	<picker bindchange="bindPickerChange" value="{{index}}" range="{{array1}}">
+		<view class="picker">
+			<view class="change">
+				<view class="cal">
+					<image src="/images/calendar/cal.png"></image>
+				</view>
+				<view>{{objectArray[index].name}}></view>
+			</view>
+			<image src="{{array[index]}}" class="pic" mode="widthFix"></image>
+		</view>
+
+	</picker>
 </view>

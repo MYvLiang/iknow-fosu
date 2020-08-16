@@ -10,7 +10,10 @@
     <!-- 备忘日期 -->
     <picker mode="date" value="{{datalist.date}}" start="2000-01-01" end="9999-01-01" bindchange="bindDateChange">
       <view class="pubTitle">
-        <text class="words">备忘日期</text>
+      <view class="date">
+      <image src="/images/memo/time.png"></image>
+      <text class="words">备忘日期</text>
+      </view>
         <text>{{datalist.date}}></text>
       </view>
     </picker>

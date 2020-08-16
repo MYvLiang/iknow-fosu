@@ -61,3 +61,11 @@
 .list{
   padding: 20rpx 0 0;
 }
+.date{
+  padding: 10rpx 0 0;
+}
+.date image{
+  height: 30rpx;
+  width: 30rpx;
+
+}

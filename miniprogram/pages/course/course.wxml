@@ -1,0 +1,37 @@
+<view class="top-view">
+  <view class="top-set">
+    <image mode="aspectFit" class="set-image" src="/images/set.png"></image>
+  </view>
+  <view wx:for="{{weeks}}" wx:for-item="week" wx:key="*this" class="top-week">{{week}}</view>
+</view>
+<view class="course">
+  <view class="course-time-container">
+    <view wx:for="{{time}}" wx:key="*this" class="course-time-item">
+      <view class="time-num">{{index+1}}</view>
+      <view class="time">{{item[0]}}</view>
+      <view class="time">{{item[1]}}</view>
+    </view>
+  </view>
+  <view class="course-body">
+    <view wx:for="{{[1,2,3,4,5,6,7]}}" wx:for-item="day" wx:for-index="d" wx:key="*this"  class="course-day">
+      <view  wx:for="{{time}}" wx:key="*this" class="course-grid"></view>
+
+      <view data-course="{{course}}" bindtap="bindtapCourse" wx:for="{{courses[day-1]}}" wx:for-item="course" wx:for-index="c" wx:key="*this" 
+      class="course-day-item" style="background-color:{{colors[(c+(d*3))%colors.length]}};top:{{course.time[0]*120-120}}rpx;height:{{(course.time[1]-course.time[0]+1)*120-10}}rpx;">
+        <view class="course-text course-name">{{course.name}}</view>
+        <view class="course-text classroom">{{course.place}}</view>
+        <view class="course-text week-num">{{course.weeks[0]}}-{{course.weeks[course.weeks.length-1]}}周</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="{{showDialog?'':'dialog-hide'}}">
+  <view class="course-details-dialog" bindtap="closeDialog"></view>
+  <view class="course-details">
+    <view class="course-details-name">{{selectCourse.name}}</view>
+    <view class="course-details-other">教室：{{selectCourse.place}}</view>
+    <view class="course-details-other">教师：{{selectCourse.teacher}}</view>
+    <view class="course-details-other">周数：{{selectCourse.weeks}}周</view>
+    <view class="course-details-other">{{weeks[selectCourse.date-1]}} 第{{selectCourse.time[0]}}-{{selectCourse.time[1]}}节</view>
+  </view>
+</view>

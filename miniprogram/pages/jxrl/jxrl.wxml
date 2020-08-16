@@ -1,1 +1,9 @@
-<image src="/images/jxzl.png"></image>
+<view class="section">
+  <view class="section__title">教学周历</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array1}}">
+    <view class="picker">
+      当前选择：{{objectArray[index].name}}
+      <image src="{{array[index]}}" class="pic" mode="widthFix"></image>
+    </view>
+  </picker>
+</view>

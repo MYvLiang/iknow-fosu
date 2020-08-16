@@ -25,6 +25,27 @@
   font-weight: 600;
   letter-spacing: 5rpx;
 }
+
+/* 备忘列表 */
+.memolist{
+  background-color: white;
+  height: 120rpx;
+  margin-top: 15rpx;
+  padding: 0rpx 20rpx 0;
+}
+.memolist::before{
+  display: block;
+  width: 8rpx;
+  height: 120rpx;
+  background: #e15241;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 5rpx;
+  
+}
+
+
 .words{
   font-size: 45rpx;
   color: #959499;
@@ -36,4 +57,7 @@
   color: #959499;
   letter-spacing: 3rpx;
   padding: 50% 20rpx;
+}
+.list{
+  padding: 20rpx 0 0;
 }

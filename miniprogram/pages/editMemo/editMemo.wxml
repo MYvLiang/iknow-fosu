@@ -1,0 +1,21 @@
+<view class="hd">
+  <form class="hd-con" bindsubmit="editData">
+    <!-- 备忘标题 -->
+    <input class="title" placeholder="备忘标题" name="title" value="{{datalist.title}}"></input>
+    <view class="lines"></view>
+    <!-- 备忘内容 -->
+    <textarea class="txt" placeholder="备忘..." name="dimension" value="{{datalist.dimension}}">
+    </textarea>
+
+    <!-- 备忘日期 -->
+    <picker mode="date" value="{{datalist.date}}" start="2000-01-01" end="9999-01-01" bindchange="bindDateChange">
+      <view class="pubTitle">
+        <text class="words">备忘日期</text>
+        <text>{{datalist.date}}></text>
+      </view>
+    </picker>
+
+    <!-- 完成提交按钮 -->
+    <button class="button" type="primary" form-type="submit">完成</button>
+  </form>
+</view>

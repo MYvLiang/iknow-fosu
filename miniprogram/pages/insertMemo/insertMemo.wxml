@@ -1,0 +1,17 @@
+<view class="hd">
+	<view class="vw">
+		<image src="/images/memo/title.png"></image>
+		<text>标题:{{datalist.title}}</text>
+	</view>
+	<view class="lines"></view>
+	<view class="vw">
+		<image src="/images/memo/date.png"></image>
+		<text>日期时间：{{datalist.date}}</text>
+	</view>
+	<view class="lines"></view>
+	<view class="vw">
+		<image src="/images/memo/dimension.png"></image>
+		<text>备忘内容</text>
+	</view>
+	<textarea value="{{datalist.dimension}}" class="dimension"></textarea>
+</view>

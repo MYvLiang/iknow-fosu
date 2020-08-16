@@ -1,23 +1,16 @@
 <view class="hd">
   <form class="hd-con" bindsubmit="addData">
     <!-- 备忘标题 -->
-    <input class="" placeholder="备忘标题" name="title"></input>
+    <input class="title" placeholder="备忘标题" name="title"></input>
+    <view class="lines"></view>
     <!-- 备忘内容 -->
     <textarea class="txt" placeholder="备忘..." name="dimension">
     </textarea>
-    <view class="lines"></view>
 
-    <!-- 图片上传 -->
-    <view class='ui_uploader_cell'>
-      <view class='ui_uploader_item' wx:for="{{uploaderList}}" wx:key="{{index}}">
-        <icon class='ui_uploader_item_icon' bindtap='clearImg' data-index="{{index}}" type="clear" size="20" color="red" />
-        <image bindtap='showImg' data-index="{{index}}" src='{{item}}'></image>
-      </view>
-      <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
-    </view>
     <!-- 备忘日期 -->
-    <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange">
+    <picker mode="date" value="{{date}}" start="2000-01-01" end="9999-01-01" bindchange="bindDateChange">
       <view class="pubTitle">
+        
         <text class="words">备忘日期</text>
         <text>{{date}}></text>
       </view>

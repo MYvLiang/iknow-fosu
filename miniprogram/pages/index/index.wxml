@@ -1,7 +1,7 @@
 <view class="header">
   <view class="hdCon">
     <navigator open-type="switchTab" url="/pages/index/index" class="logo">
-      <image src="/images/logo.png"></image>
+      <image src="/images/logo1.png"></image>
     </navigator>
   </view>
 </view>

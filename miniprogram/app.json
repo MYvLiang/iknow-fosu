@@ -4,7 +4,10 @@
     "pages/me/me",
     "pages/jxrl/jxrl",
     "pages/memo/memo",
-    "pages/addMemo/addMemo"
+    "pages/addMemo/addMemo",
+    "pages/editMemo/editMemo",
+    "pages/insertMemo/insertMemo"
+
   ],
   "tabBar": {
     "list": [

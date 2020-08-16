@@ -7,11 +7,14 @@
   </view>
 </view>
 
-<view class="words">
-  <view>你还没有备忘</view>
-  <text>点击 + 新建备忘</text>
+<!--备忘列表-->
+<view wx:for="{{datalist}}" bindlongtap="longPress" class="memolist" data-id="{{item._id}}" bindtap="shortTap">
+  <view class="list">
+  <view>{{item.title}}</view>
+  <view>{{item.date}}</view>
+  </view>
+
 </view>
 
-<view  class="">
 
-</view>
+

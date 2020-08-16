@@ -1,0 +1,30 @@
+.dimension{
+  height: 300rpx;
+  width: 100%;
+  background: white;
+  font-size: 17px;
+  padding: 25rpx 25rpx;
+}
+
+.lines{
+  background-color: white;
+  width: 550rpx;
+  margin-top: 0rpx;
+  margin-left: 40rpx;
+  border-top:2px #f0f3f8 solid;
+}
+.vw{
+  height: 100rpx;
+  background: white;
+  display: flex;
+  font-size: 18px;
+  padding: 5rpx 0;
+}
+.vw image{
+  padding: 25rpx 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.vw text{
+  padding: 25rpx 20rpx;
+}

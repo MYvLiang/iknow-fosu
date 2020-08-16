@@ -16,8 +16,8 @@
 }
 .hdCon image{
   height: 100%;
-  width: 50rpx;
-  padding: 20rpx 0 0;
+  width: 200rpx;
+  padding: 25rpx 0 0;
 }
 
 /* 轮播图 */

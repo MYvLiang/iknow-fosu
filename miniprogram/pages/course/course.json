@@ -1,6 +1,7 @@
 {
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "第1-16周（2019-2020-1）",
-  "backgroundTextStyle": "light"
+  "navigationBarTitleText": "课表",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
 }

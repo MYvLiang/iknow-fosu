@@ -12,7 +12,7 @@ Page({
     longitude: 113.097832,
     selectTabCampus: 0,
     placeList: [
-      [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }, { id: 2, name: 'xx楼' }, { id: 3, name: 'xx楼' }, { id: 4, name: 'xx楼' }],
+      [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }, { id: 2, name: '信息楼' }, { id: 3, name: 'xx楼' }, { id: 4, name: 'xx楼' }],
       [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }, { id: 2, name: 'xx楼' }],
       [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }]],//主要地点标记
     selectTabPlace: -1,
@@ -91,8 +91,8 @@ Page({
       iconPath: "/images/marker.png",
       latitude: e.detail.latitude,
       longitude: e.detail.longitude,
-      width: 24,
-      height: 24,
+      width: 18,
+      height: 18,
       zIndex: -1,
       callout: {
         content: '标记' + timestamp,

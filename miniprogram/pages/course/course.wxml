@@ -1,0 +1,118 @@
+<view class="top-view">
+  <view class="top-set" bindtap="openSetting">
+    <image mode="aspectFit" class="set-image" src="/images/set.png"></image>
+  </view>
+  <view wx:for="{{days}}" wx:for-item="day" wx:key="*this" class="top-week">{{day}}</view>
+</view>
+
+<view class="course">
+  <view class="course-time-container">
+    <view wx:for="{{time}}" wx:key="*this" class="course-time-item">
+      <view class="time-num">{{index+1}}</view>
+      <view class="time">{{item[0]}}</view>
+      <view class="time">{{item[1]}}</view>
+    </view>
+  </view>
+  <view class="course-body">
+    <view wx:for="{{[1,2,3,4,5,6,7]}}" wx:for-item="day" wx:for-index="d" wx:key="*this"  class="course-day">
+      <view  wx:for="{{time}}" wx:key="*this" class="course-grid"></view>
+
+      <view wx:for="{{courses[day-1]}}" wx:for-item="course" wx:for-index="t" wx:key="_id" 
+      data-course="{{course}}" bindtap="bindtapCourse"
+      class="course-day-item {{moreCourse[day-1][course.beginTime].num==2&&moreCourse[day-1][course.beginTime].course._id==course._id?'more-course':''}}" 
+      style="background-color:{{colors[course.color%colors.length]}};top:{{course.beginTime*120-120}}rpx;height:{{(course.endTime-course.beginTime+1)*120-10}}rpx;">
+        <view class="course-text course-name">{{course.name}}</view>
+        <view class="course-text classroom">{{course.place}}</view>
+        <view class="course-text week-num">{{course.weeks}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view  hidden="{{!showCourseDialog}}">
+  <view class="dialog" bindtap="closeCourseDialog"></view>
+  
+  <scroll-view scroll-y="true" class="course-details" style="background-color:{{colors[selectCourses[0].color%colors.length]}};">
+    <view wx:for="{{selectCourses}}" wx:for-item="selectCourse" wx:key="_id">
+      <view class="course-details-name">{{selectCourse.name}}</view>
+      <view class="course-details-other">教室：{{selectCourse.place}}</view>
+      <view class="course-details-other">教师：{{selectCourse.teacher}}</view>
+      <view class="course-details-other">周数：{{selectCourse.weeks}}</view>
+      <view class="course-details-other">{{days[selectCourse.day-1]}} 第{{selectCourse.beginTime}}-{{selectCourse.endTime}}节</view>
+    </view>
+  </scroll-view>
+
+</view>
+
+<view hidden="{{!showSetDialog}}">
+  <view class="dialog" bindtap="closeSetting"></view>
+  <view class="setting-dialog">
+    <view class="list-content" style="height:10rpx;"></view>
+
+    <picker  mode="multiSelector" bindchange="changeWeeks" bindcolumnchange="bindWeeksColumnChange"
+      value="{{weeksIndex}}" range="{{weeks}}">
+      <view class="list-content">
+        <view class="list-letf">周次显示范围</view>
+        <view class="list-right">
+          <view class="list-right-text">第{{beginWeek}} - {{endWeek}}周</view>
+          <view class='arrow'></view>
+        </view>
+      </view>
+    </picker>
+
+    <view class="list-content">
+        <view class="list-letf">每次打开课表都显示此周次范围</view>
+        <switch checked="{{keepWeek}}" color="#07c160" bindchange="keepWeekSet"/>
+    </view>
+
+    <picker bindchange="bindTermChange" value="{{term}}" range="{{termList}}">
+      <view class="list-content">
+        <view class="list-letf">学期</view>
+        <view class="list-right">
+          <view class="list-right-text">{{termList[term]}}</view>
+          <view class='arrow'></view>
+        </view>
+      </view>
+    </picker>
+
+    <view class="list-content">
+      <view class="list-letf">建议/错误反馈</view>
+      <view class='arrow'></view>
+    </view>
+
+    
+    <button open-type="share"
+      style="padding:0;width:100%;font-weight:inherit;">
+      <view  class="list-content">
+        <view class="list-letf">分享小程序给朋友</view>
+        <view class='arrow'></view>
+      </view>
+    </button>
+    
+
+    <!-- <picker  mode="multiSelector" bindchange="changeWeeks" bindcolumnchange="bindWeeksColumnChange"
+      value="{{weeksIndex}}" range="{{weeks}}">
+      <view class="picker">
+        <view>设置周次显示范围：</view>
+        <view class="picker-range">第{{beginWeek}} - {{endWeek}}周</view>
+      </view>
+    </picker>
+
+    <view class="keep-week">
+      每次打开课表都显示此周次范围
+      <switch type="checkbox" checked="{{keepWeek}}" color="#07c160" bindchange="keepWeekSet"/>
+    </view> -->
+    
+    <!-- <picker bindchange="bindTermChange" value="{{term}}" range="{{termList}}">
+      <view class="picker">
+        <view>查看学期：</view>
+        <view class="picker-range">{{termList[term]}}</view>
+      </view>
+    </picker> -->
+    <!-- <button class="share-button">建议/错误反馈</button>
+    <button open-type="share" class="share-button">分享小程序给朋友</button> -->
+    <!-- <button bindtap="clearS">清除课程数据缓存</button> -->
+    
+    
+  </view>
+</view>

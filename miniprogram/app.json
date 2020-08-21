@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/club/club",
     "pages/organization/organization"
   ],
   "window": {

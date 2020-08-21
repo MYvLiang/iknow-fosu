@@ -1,0 +1,464 @@
+<!--miniprogram/pages/club/club.wxml-->
+<view class="root">
+  <!-- 搜索框 固定高度-->
+  <view class="searchb">
+    <view class="page" data-weui-theme="{{theme}}">
+
+      <view class="page__bd">
+        <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+          <form class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                        <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+            </view>
+            <label class="weui-search-bar__label" bindtap="showInput">
+                        <span class="weui-search-bar__text">搜索</span>
+            </label>
+          </form>
+                <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 顶部tab栏 固定高度 -->
+  <view class="tab">
+    <view class="page" data-weui-theme="{{theme}}">
+      <view class="page__bd" style="height: 100%;">
+        <view class="weui-tab">
+          <view class="weui-tab__panel">
+          </view>
+          <view class="weui-tabbar">
+            <view class="weui-tabbar__item">
+              <!-- <view style="display: inline-block; position: relative;">
+                <text class="weui-badge" style="position: absolute; top: -2px; right: -13px;">8</text>
+              </view> -->
+              <view class="weui-tabbar__label">江湾校区</view>
+            </view>
+            <view class="weui-tabbar__item">
+              <view class="weui-tabbar__label">仙溪校区</view>
+            </view>
+            <view class="weui-tabbar__item">
+              <!-- <view style="display: inline-block; position: relative;">
+                <text class="weui-badge weui-badge_dot" style="position: absolute; top: 0; right: -6px;"></text>
+              </view> -->
+              <view class="weui-tabbar__label">河滨校区</view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <!-- 江湾 -->
+  <scroll-view class="list" scroll-y>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/yizhou-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">艺舟书画协会</text>
+        <text class="discribe">佛大江湾校区的一个文化艺术类的学习型社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/dianjing-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">ESF电竞社</text>
+        <text class="discribe">宗旨：团结合作，永不放弃！电竞，不仅仅是打游戏。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/ETV-logo.png"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">佛大ETV</text>
+        <text class="discribe">是校内唯一一个创作微电影的影视社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+        <view class="jwLogo">
+          <image src="/images/jixie-logo.jpg"/>
+        </view>
+        <view class="jwDiscribe">
+          <text class="clubTitle">佛大江湾吉他协会</text>
+          <text class="discribe">音乐聚集地。</text>
+        </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/huaju-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">佛大话剧团</text>
+        <text class="discribe">戏精聚集地。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/benxin-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">本心华服社</text>
+        <text class="discribe">一个传播、研究中华优秀文化传统，充满活力的年轻社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/lanqiu-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">佛大篮协</text>
+        <text class="discribe">提供技能培训，举办篮球活动。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/xinmeiti-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">新媒体协会</text>
+        <text class="discribe">致力于用新媒体的力量，营造更美佛大的社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/sheying-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">佛大摄影协会</text>
+        <text class="discribe">由摄影爱好者组成的非营利性社团.</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/dingyan-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">鼎研学社</text>
+        <text class="discribe">由一群梦想是考研的学生所组成的社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/feiyi-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">岭南非遗研习社</text>
+        <text class="discribe">以调查、研究和传承岭南物质文化遗产为目标。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/jingji-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">经济学社</text>
+        <text class="discribe">经济管理学院乃至佛科院历史最悠久、最庞大的社团之一。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/huanbao-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">佛大环保协会</text>
+        <text class="discribe">一个公益兼艺术性社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/qiye-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">企业竞争模拟协会</text>
+        <text class="discribe">一个隶属学术科技类的学生社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/paiqiu-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">排球协会</text>
+        <text class="discribe">一个全校性新兴性体育类社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/dushu-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">读书俱乐部</text>
+        <text class="discribe">有阅读兴趣的同伴们的聚集地</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/guanli-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">管理协会</text>
+        <text class="discribe">致力于为佛科院创建一个丰富的管理类知识平台。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/jianmei-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">健美协会</text>
+        <text class="discribe">热爱健身健美的同学的良好锻炼及交流场所。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/zhengfa-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">政法学社</text>
+        <text class="discribe">集学术研究与社会实践于一体的学术性团体。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/sheji-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">设计协会</text>
+        <text class="discribe">一个富有创意、支持原创、崇尚艺术的社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/jianqiu-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">毽球协会</text>
+        <text class="discribe">由校内的毽球爱好者组织而成社团。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/ladingwu-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">佛大GT拉丁舞社</text>
+        <text class="discribe">舞蹈爱好者相聚一堂感受舞蹈的奇特，体会舞蹈的美妙。</text>
+      </view>
+    </view>
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/caideng-logo.png"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">彩灯协会</text>
+        <text class="discribe">凝聚了一批对传统文化、佛山彩灯有兴趣的同学。</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 仙溪 -->
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/tumu-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">土木工作室</text>
+    <text class="discribe">一个以学校为根据地，以社会实践为目的的大学生团体。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/yuntu-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">云图音乐协会</text>
+    <text class="discribe">一个年轻的、充满活力的音乐社团。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/jiqiren-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">机器人协会</text>
+    <text class="discribe">以战队为核心，一个为机器人比赛而战的协会。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/chunyan-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">春燕艺术团</text>
+    <text class="discribe">一个具备悠久历史的大型综合性艺术团。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/tumu-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">土木工作室</text>
+    <text class="discribe">一个以学校为根据地，以社会实践为目的的大学生团体。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/moyun-logo.png "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">墨韵书画社</text>
+    <text class="discribe">一个以“书出个性，画出张扬”为宗旨的书画社团。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/guangdian-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">光电协会</text>
+    <text class="discribe">由学院、企业和学生三方进行管理的科技团体。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/jita-logo.png "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">北院吉他协会</text>
+    <text class="discribe">由一群对音乐对乐器充满热情的年轻人组成的社团。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/qiche-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">汽车协会</text>
+    <text class="discribe">是由一群汽车技术爱好者组成，共同管理，互帮互励的学生兴趣团体。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/FUSB-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">FUSB棒垒协会</text>
+    <text class="discribe">旨在校园里传播棒垒球运动，丰富大家的校园课外生活，增强体质。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/fengjing-logo.png"/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">风景园林协会</text>
+    <text class="discribe">旨在培养技能运用技术，以扩大学院影响力为职责。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/tujian-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">土建结构设计协会</text>
+    <text class="discribe">属于土木工程专业的学术类社团。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/gongfu-logo.png"/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">功夫协会</text>
+    <text class="discribe">教授武术</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/wulianwang-logo.png"/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">物联网协会</text>
+    <text class="discribe">非营利性学术科技型学生科技协会。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/tujian-logo.jpg"/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">土建结构设计协会</text>
+    <text class="discribe">属于土木工程专业的学术类社团。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/zixingche-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">自行车协会</text>
+    <text class="discribe">一个体育运动和学术实践结合相结合的综合性学生社团。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/chawenhua-logo.jpg"/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">茶文化协会</text>
+    <text class="discribe">一个以茶文化为核心的艺术型组织。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/julebu-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">北院读书俱乐部</text>
+    <text class="discribe">引领同学们树立“让同学们成为一种习惯，让读书成为一种享受”。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/taiqiu-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">台球协会</text>
+    <text class="discribe">丰富校园生活，推动台球在我校的发展。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/zidonghua-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">自动化协会</text>
+    <text class="discribe">一个为广大自动化爱好者和相关专业的学生提供学习交流、技能实践的平台。</text>
+  </view>
+</view>
+<view class="xxClub">
+  <view class="xxLogo">
+    <image src="/images/shipin-logo.jpg "/>
+  </view>
+  <view class="xxDiscribe">
+    <text class="clubTitle">食品协会</text>
+    <text class="discribe">让更多的学生了解食品以及食品安全等知识，学会简单的鉴别食品</text>
+  </view>
+</view>
+<!-- 河滨 -->
+<view class="hbClub">
+  <view class="hbLogo">
+    <image src="/images/xinglin-logo.jpg "/>
+  </view>
+  <view class="hbDiscribe">
+    <text class="clubTitle">杏林艺术团</text>
+    <text class="discribe">集声乐队、司仪队、舞蹈队、戏剧队、礼模队以及说唱队六支队伍。</text>
+  </view>
+</view>

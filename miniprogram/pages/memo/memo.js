@@ -67,9 +67,20 @@ Page({
         if(res.tapIndex==2){
           wx.showTabBar();
           //删除操作
-          db.collection("memoList").doc(id).remove().then(res=>{
-            console.log(res)
-            console.log("成功删除数据")
+          wx.showModal({
+            content: '确定删除该条备忘？',
+            success (res) {
+              if (res.confirm) {
+                db.collection("memoList").doc(id).remove().then(res=>{
+                  console.log(res)
+                  console.log("成功删除数据")
+                })
+                that.onShow();
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
           })
           console.log("点击了删除");
           that.onShow();

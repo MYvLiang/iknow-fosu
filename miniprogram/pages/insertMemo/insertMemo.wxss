@@ -1,9 +1,10 @@
 .dimension{
-  height: 300rpx;
   width: 100%;
-  background: white;
   font-size: 17px;
   padding: 25rpx 25rpx;
+  position: absolute;
+  text-overflow:ellipsis;
+  word-wrap:break-word;
 }
 
 .lines{
@@ -27,4 +28,12 @@
 }
 .vw text{
   padding: 25rpx 20rpx;
+}
+.edit{
+  width: 100%;
+  color: #41a457;
+  margin-bottom: 10rpx;
+  text-decoration: underline;
+  font-size: 17px;
+
 }

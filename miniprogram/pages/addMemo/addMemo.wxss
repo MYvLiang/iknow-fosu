@@ -13,8 +13,9 @@
 .txt{
   font-size: 17px;
   background: white;
-  height: 250rpx;
-  width: 750rpx;
+  height: 350rpx;
+  width: 100%;
+  padding: 0 0 20rpx;
   
 }
 .lines{
@@ -56,6 +57,17 @@
   padding: 15rpx 10rpx 0;
 }
 
+.note{
+  color: #808080;
+  margin-bottom: 10rpx;
+  margin-left: 10rpx;
+}
+.text-count-display{
+  display: flex;
+  
+  justify-content: flex-end;
+  padding: 2%;
+}
 
 
 

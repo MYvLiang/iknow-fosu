@@ -1,11 +1,3 @@
-<view class="header">
-  <view class="hdCon">
-    <navigator open-type="switchTab" url="/pages/index/index" class="logo">
-      <image src="/images/logo1.png"></image>
-    </navigator>
-  </view>
-</view>
-
 <!--轮播图 -->
 <view class="banner">
 <swiper  indicator-dots="{{true}}"autoplay="true"interval="3000" circular="true">
@@ -69,8 +61,10 @@
   </view>
 </view>
 
+<!--今日课表列表-->
+<view>
 
-
+</view>
 
 
 

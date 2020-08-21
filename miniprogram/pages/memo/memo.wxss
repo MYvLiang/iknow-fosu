@@ -33,6 +33,7 @@
   margin-top: 15rpx;
   padding: 0rpx 20rpx 0;
 }
+/*
 .memolist::before{
   display: block;
   width: 8rpx;
@@ -44,7 +45,7 @@
   right: 5rpx;
   
 }
-
+*/
 
 .words{
   font-size: 45rpx;

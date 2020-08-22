@@ -1,0 +1,62 @@
+.hd{
+  padding: 25rpx 0 0;
+}
+.hd-con{
+  background: white;
+}
+.title{
+  height: 80rpx;
+  font-size: 17px;
+  background: white;
+
+}
+.txt{
+  font-size: 17px;
+  background: white;
+  height: 250rpx;
+  width: 750rpx;
+  
+}
+.lines{
+  background-color: white;
+  width: 550rpx;
+  margin-top: 0rpx;
+  margin-left: 40rpx;
+  border-top:2px #f8f8f8 solid;
+}
+.button{
+  margin-top: 30rpx;
+  background: #84c1ff;
+  border-radius:25px;
+  width: 600rpx;
+}
+
+.pubTitle{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 40rpx 26rpx;
+  margin-top: 30rpx;
+}
+.pubTitle .words{
+  font-size: 19px;
+  position: relative;
+}
+
+
+.date{
+  padding: 0 0 0;
+}
+.date image{
+  height: 35rpx;
+  width: 35rpx;
+  padding: 15rpx 10rpx 0;
+}
+
+
+
+
+

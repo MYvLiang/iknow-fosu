@@ -82,7 +82,7 @@
 
     
     <button open-type="share"
-      style="padding:0;width:100%;font-weight:inherit;">
+      style="padding:0;width:100%;font-weight:inherit;background-color:#fff;">
       <view  class="list-content">
         <view class="list-letf">分享小程序给朋友</view>
         <view class='arrow'></view>

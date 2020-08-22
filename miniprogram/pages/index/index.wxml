@@ -1,2 +1,80 @@
-<navigator url="/pages/school-map/school-map">校园地图</navigator>
-<navigator url="/pages/course/course">课表</navigator>
+<!-- <view class="header">
+  <view class="hdCon">
+    <navigator open-type="switchTab" url="/pages/index/index" class="logo">
+      <image src="/images/logo1.png"></image>
+    </navigator>
+  </view>
+</view> -->
+
+<!--轮播图 -->
+<view class="banner">
+	<swiper indicator-dots="{{true}}" autoplay="true" interval="3000" circular="true">
+		<swiper-item wx:for="{{indexlist}}">
+			<image src="{{item.imagePath}}"></image>
+		</swiper-item>
+	</swiper>
+</view>
+
+<!-- 图标 -->
+<view class="major">
+	<view class="majorCon">
+		<navigator class="box" url="/pages/jxrl/jxrl" open-type="navigate">
+			<image class="pic" src="/images/tubiao/zhouli.png"></image>
+			<view class="txt">教学周历</view>
+		</navigator>
+
+		<navigator class="box" url="" open-type="navigate">
+			<image class="pic" src="/images/tubiao/jigou.png"></image>
+			<view class="txt">学校机构</view>
+		</navigator>
+
+		<navigator class="box" url="" open-type="navigate">
+			<image class="pic" src="/images/tubiao/shetuan.png"></image>
+			<view class="txt">学校社团</view>
+		</navigator>
+
+		<navigator class="box" url="" open-type="navigate">
+			<image class="pic" src="/images/tubiao/gzh.png"></image>
+			<view class="txt">公众号</view>
+		</navigator>
+	</view>
+
+	<view class="majorCon">
+		<navigator class="box" url="/pages/school-map/school-map" open-type="navigate">
+			<image class="pic" src="/images/tubiao/ditu.png"></image>
+			<view class="txt">校园地图</view>
+		</navigator>
+
+		<navigator class="box" url="" open-type="navigate">
+			<image class="pic" src="/images/tubiao/tongxiang.png"></image>
+			<view class="txt">同乡会</view>
+		</navigator>
+
+		<navigator class="box" url="" open-type="navigate">
+			<image class="pic" src="/images/tubiao/sushe.png"></image>
+			<view class="txt">宿舍安排</view>
+		</navigator>
+
+		<navigator class="box" url="" open-type="navigate">
+			<image class="pic" src="/images/tubiao/banqun.png"></image>
+			<view class="txt">组织群</view>
+		</navigator>
+
+	</view>
+
+</view>
+
+<view class="works">
+	<view class="txt">今日课表</view>
+  <navigator class="more" url="/pages/course/course">
+		<view>查看完整课表</view>
+		<view class='arrow'></view>
+	</navigator>
+</view>
+<view class="course-body">
+	<view class="course-tip" wx:if="{{myClass==''}}">未绑定班级信息，请在个人中心绑定</view>
+	<view class="course-tip" wx:elif="{{courseData.length==0&&myClass!='abc'}}">今天没课</view>
+	<view class="course-tip" wx:else>
+	
+	</view>
+</view>

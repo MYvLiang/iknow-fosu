@@ -10,11 +10,13 @@ Page({
     selectMarkerContent: '',
     latitude: 23.021834,
     longitude: 113.097832,
+    // latitude: 22.974028,
+    // longitude: 112.392745,
     selectTabCampus: 0,
     placeList: [
       [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }, { id: 2, name: '信息楼' }, { id: 3, name: 'xx楼' }, { id: 4, name: 'xx楼' }],
-      [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }, { id: 2, name: 'xx楼' }],
-      [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }]],//主要地点标记
+      [],
+      []],//主要地点标记
     selectTabPlace: -1,
     scale: 16,//比例
     showCompass: true,//指南针
@@ -49,7 +51,28 @@ Page({
       // }
     ]
   },
-
+  enlargeMap: function (e) {
+    let scale = this.data.scale
+    console.log('放大', scale)
+    scale = scale + 1
+    if (scale > 20) {
+      scale = 20
+    }
+    this.setData({
+      scale
+    })
+  },
+  lessenMap: function (e) {
+    let scale = this.data.scale
+    console.log('缩小', scale)
+    scale = scale - 1
+    if (scale < 3) {
+      scale = 3
+    }
+    this.setData({
+      scale
+    })
+  },
   /**
    * VR地图按钮，弹窗提示复制网址
    */
@@ -77,7 +100,23 @@ Page({
       }
     })
   },
+  bindregionchangeMap: function (e) {
+    // console.log(e)
+    let that = this
+    if (e.type == 'end' && (e.causedBy == 'scale' || e.causedBy == 'drag')) {
+      let mapContext = wx.createMapContext("fosumap")
+      mapContext.getCenterLocation({
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            latitude: res.latitude,
+            longitude: res.longitude
+          })
+        }
+      })
+    }
 
+  },
   /**
    * 点击地图事件，增加标记
    */
@@ -205,7 +244,7 @@ Page({
    * 点击标记事件，打开弹窗菜单，选中对应的标记
    */
   bindmarkertapMap: function (e) {
-    // console.log(e.detail.markerId)
+    console.log(e.detail)
     // console.log(this.data.markers)
     let markers = this.data.markers
     for (let i = 0; i < markers.length; i++) {
@@ -214,6 +253,7 @@ Page({
         selectMarker = i
       }
     }
+    console.log(markers[selectMarker])
     this.setData({
       memu: true,
       selectMarkerContent: markers[selectMarker].callout.content
@@ -236,7 +276,7 @@ Page({
         // console.log(res.tapIndex)
         that.setData({
           selectTabCampus: i,
-          selectTabPlace:-1,
+          selectTabPlace: -1,
           latitude: campus[i][0],
           longitude: campus[i][1],
           scale: campus[i][2]
@@ -254,23 +294,23 @@ Page({
   selectPlace: function (e) {
     // console.log(e.currentTarget.dataset.id)
     let i = e.currentTarget.dataset.id
-    let placeList=this.data.placeList
-    if(i==0){
+    let placeList = this.data.placeList
+    if (i == 0) {
       this.setData({
-        latitude:placeList[0][0].latitude,
-        longitude:placeList[0][0].longitude,
+        latitude: placeList[0][0].latitude,
+        longitude: placeList[0][0].longitude,
         selectTabPlace: i,
-        scale:18
+        scale: 18
       })
-    }else{
+    } else {
       this.setData({
         latitude: 23.021834,
         longitude: 113.097832,
         selectTabPlace: i,
-        scale:16
+        scale: 16
       })
     }
-    
+
   },
 
   loadMarkers: function () {
@@ -279,7 +319,7 @@ Page({
       name: 'getMarker',
       success: res => {
         let markers = res.result.data
-        // console.log(markers)
+        console.log(markers.length)
         that.setData({
           markers: markers
         })
@@ -294,7 +334,64 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // wx.getLocation({
+    //   type: 'gcj02',
+    //   success(res) {
+    //     // const latitude = res.latitude
+    //     // const longitude = res.longitude
+    //     // const speed = res.speed
+    //     // const accuracy = res.accuracy
+    //     console.log(res)
+    //   },
+    //   fail(res) {
+    //     wx.getSetting({
+    //       success: function (res) {
+    //         var statu = res.authSetting;
+    //         if (!statu['scope.userLocation']) {
+    //           wx.showModal({
+    //             title: '是否授权当前位置',
+    //             content: '需要获取您的地理位置，请确认授权',
+    //             success: function (tip) {
+    //               console.log(tip)
+    //               if (tip.confirm) {
+    //                 wx.openSetting({
+    //                   success: function (data) {
+    //                     if (data.authSetting["scope.userLocation"] === true) {
+    //                       wx.showToast({
+    //                         title: '授权成功',
+    //                         icon: 'success',
+    //                         duration: 1000
+    //                       })
+    //                       wx.getLocation({
+    //                         type: 'gcj02',
+    //                         success(res) {
+    //                           console.log(res)
+    //                         }
+    //                       })
+    //                     } else {
+    //                       wx.showToast({
+    //                         title: '授权失败',
+    //                         icon: 'none',
+    //                         duration: 1000
+    //                       })
+    //                     }
+    //                   }
+    //                 })
+    //               }
+    //             }
+    //           })
+    //         }
+    //       },
+    //       fail: function (res) {
+    //         wx.showToast({
+    //           title: '调用授权窗口失败',
+    //           icon: 'none',
+    //           duration: 1000
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
   },
 
   /**
@@ -346,6 +443,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '佛大校园地图，VR地图',
+      path: '/pages/index/index'
+    }
   }
 })

@@ -74,9 +74,16 @@
 					"scene": null
 				},
 				{
+					"id": 3,
+					"name": "pages/me/me",
+					"pathName": "pages/me/me",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
+					"name": "pages/my-info/my-info",
+					"pathName": "pages/my-info/my-info",
 					"query": "",
 					"scene": null
 				}

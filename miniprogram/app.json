@@ -12,7 +12,10 @@
     "pages/about-us/about-us",
     "pages/update-log/update-log",
     "pages/my-info/my-info",
-    "pages/dorm/dorm"
+    "pages/dorm/dorm",
+    "pages/opinion/opinion",
+    "pages/classgroup/classgroup",
+    "pages/import-course/import-course"
   ],
   "tabBar": {
     "list": [

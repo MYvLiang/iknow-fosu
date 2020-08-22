@@ -13,7 +13,7 @@
 		<view class='arrow'></view>
 	</navigator>
 
-	<navigator class="list-content" url="/pages/about-us/about-us">
+	<navigator class="list-content" url="/pages/opinion/opinion">
 		<view class="list-letf">建议与反馈</view>
 		<view class='arrow'></view>
 	</navigator>

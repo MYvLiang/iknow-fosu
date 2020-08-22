@@ -5,7 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    //  搜索框9-10
+    // inputShowed: false,
+    // inputVal: ""
+    // 搜索框
+    // 顶部tab栏
+    tab:['校级', '数学', '电子','环化'],
+    active:0
+  },
+  //改变active的值
+  change:function(e){
+    // console.log(e.currentTarget.dataset.organization)
+    this.setData({
+       active:e.currentTarget.dataset.organization
+    })
   },
 
   /**
@@ -57,10 +70,36 @@ Page({
 
   },
 
+
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
+  },
+  
+  // 搜索框 四个函数
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
   }
+  // 搜索框 四个函数
 })
+

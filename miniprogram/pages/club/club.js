@@ -1,4 +1,6 @@
 // miniprogram/pages/club/club.js
+// 连接数据库
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -6,7 +8,16 @@ Page({
    */
   data: {
      inputShowed: false,
-     inputVal: ""
+     inputVal: "",
+     dataClub:[]
+  },
+  // 查询
+  getData() {
+    db.collection("clubList").where({
+    }).get()
+      .then(res => {
+        console.log(res)
+      })
   },
 
   /**

@@ -1,3 +1,6 @@
+<view bindtap="shortTap" class="edit">
+编辑
+</view>
 <view class="hd">
 	<view class="vw">
 		<image src="/images/memo/title.png"></image>
@@ -13,5 +16,6 @@
 		<image src="/images/memo/dimension.png"></image>
 		<text>备忘内容</text>
 	</view>
-	<textarea value="{{datalist.dimension}}" class="dimension"></textarea>
+	<view class="lines"></view>
+	<view class="dimension">{{datalist.dimension}}</view>
 </view>

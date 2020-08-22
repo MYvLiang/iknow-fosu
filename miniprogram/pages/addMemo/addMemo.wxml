@@ -1,14 +1,16 @@
 <view class="hd">
 	<form class="hd-con" bindsubmit="addData">
 		<!-- 备忘标题 -->
-		<input class="title" placeholder="备忘标题" name="title"></input>
-		<view class="lines"></view>
+		<view style="">
+		<input class="title" placeholder="备忘标题" name="title" maxlength="{{maxTextLen}}" bindinput="getWords"></input>
+		<view class='text-count-display'>{{textLen}}/{{maxTextLen}}</view>
+		</view>
 		<!-- 备忘内容 -->
-		<textarea class="txt" placeholder="备忘..." name="dimension">
+		<textarea class="txt" placeholder="备忘..." name="dimension" maxlength="800">
     </textarea>
 
 		<!-- 备忘日期 -->
-		<picker mode="date" value="{{date}}" start="2000-01-01" end="9999-01-01" bindchange="bindDateChange">
+		<picker mode="date" value="" start="2020-01-01" end="2030-01-01" bindchange="bindDateChange">
 			<view class="pubTitle">
 				<view class="date">
 					<image src="/images/memo/time.png"></image>

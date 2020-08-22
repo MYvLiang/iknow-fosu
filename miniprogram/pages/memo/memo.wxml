@@ -13,7 +13,7 @@
   <view>{{item.title}}</view>
   <view class="date">
   <image src="/images/memo/time.png"></image>
-  {{item.date}}
+ {{item.date}}
   </view>
   </view>
 

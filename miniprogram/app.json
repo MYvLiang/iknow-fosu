@@ -28,8 +28,8 @@
       {
         "text": "备忘录",
         "pagePath": "pages/memo/memo",
-        "iconPath": "images/icons/out_index.png",
-        "selectedIconPath": "images/icons/in_index.png"
+        "iconPath": "images/icons/out_memo.png",
+        "selectedIconPath": "images/icons/in_memo.png"
       },
       {
         "text": "我的",

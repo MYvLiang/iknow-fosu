@@ -50,7 +50,7 @@
 			<view class="txt">同乡会</view>
 		</navigator>
 
-		<navigator class="box" url="" open-type="navigate">
+		<navigator class="box" url="/pages/dorm/dorm" open-type="navigate">
 			<image class="pic" src="/images/tubiao/sushe.png"></image>
 			<view class="txt">宿舍安排</view>
 		</navigator>

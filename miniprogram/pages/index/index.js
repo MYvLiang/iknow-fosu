@@ -1,28 +1,28 @@
 const app = getApp()
 Page({
   data: {
-    myClass:'abc',
-    courseData:[],
+    myClass: 'abc',
+    courseData: [],
     indexlist: [
       {
-        imagePath: "/images/lunbotu/one.jpg",
+        imagePath: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/one.jpg",
       },
       {
-        imagePath: "/images/lunbotu/two.jpg",
+        imagePath: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/two.jpg",
       },
       {
-        imagePath: "/images/lunbotu/three.jpg",
+        imagePath: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/three.jpg",
       },
       {
-        imagePath: "/images/lunbotu/four.jpg",
+        imagePath: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/four.jpg",
       },
       {
-        imagePath: "/images/lunbotu/five.jpg",
+        imagePath: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/five.jpg",
       }
     ]
   },
-  getUserInfo:function(){
-    let that=this
+  getUserInfo: function () {
+    let that = this
     wx.cloud.callFunction({
       name: 'getUserInfo'
     }).then(res => {
@@ -30,17 +30,17 @@ Page({
       console.log(info)
       if (info && info.length > 0) {
         that.setData({
-          myClass:info[0].myClass
+          myClass: info[0].myClass
         })
-      }else{
+      } else {
         that.setData({
-          myClass:''
+          myClass: ''
         })
       }
     }).catch(res => {
       console.log(res)
       that.setData({
-        myClass:''
+        myClass: ''
       })
       wx.showToast({
         title: '网络异常',
@@ -49,7 +49,7 @@ Page({
       })
     })
   },
-  onLoad: function() {
+  onLoad: function () {
   },
   /**
    * 生命周期函数--监听页面显示

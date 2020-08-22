@@ -11,7 +11,8 @@
     "pages/insertMemo/insertMemo",
     "pages/about-us/about-us",
     "pages/update-log/update-log",
-    "pages/my-info/my-info"
+    "pages/my-info/my-info",
+    "pages/dorm/dorm"
   ],
   "tabBar": {
     "list": [

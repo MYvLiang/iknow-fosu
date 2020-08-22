@@ -86,6 +86,12 @@
 					"pathName": "pages/my-info/my-info",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/dorm/dorm",
+					"pathName": "pages/dorm/dorm",
+					"scene": null
 				}
 			]
 		}

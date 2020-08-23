@@ -52,8 +52,18 @@
   <!-- 列表 -->
   <!-- 江湾 -->
   <view wx:for="{{dataClub}}" class="clubList" data-id="{{item}}">
-    <view class="list">
-      <view>{{item.jieshao}}</view>
+    <!-- <view class="list">
+      <view>{{item.name}}</view>
+    </view> -->
+    <view class="jwClub">
+      <view class="jwLogo">
+        <image>{{item.pic}}</image>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">{{item.name}}</text>
+        <text class="discribe">{{item.jieshao}}</text>
+      </view>
+      {{item.data}}
     </view>
   
   </view>
@@ -68,77 +78,7 @@
         <text class="discribe">佛大江湾校区的一个文化艺术类的学习型社团。</text>
       </view>
     </view>
-    <view class="jwClub">
-    <view class="jwLogo">
-      <image src="/images/dianjing-logo.jpg"/>
-    </view>
-    <view class="jwDiscribe">
-      <text class="clubTitle">ESF电竞社</text>
-      <text class="discribe">宗旨：团结合作，永不放弃！电竞，不仅仅是打游戏。</text>
-    </view>
-  </view>
-  <view class="jwClub">
-    <view class="jwLogo">
-      <image src="/images/ETV-logo.png"/>
-    </view>
-    <view class="jwDiscribe">
-      <text class="clubTitle">佛大ETV</text>
-      <text class="discribe">是校内唯一一个创作微电影的影视社团。</text>
-    </view>
-  </view>
-  <view class="jwClub">
-      <view class="jwLogo">
-        <image src="/images/jixie-logo.jpg"/>
-      </view>
-      <view class="jwDiscribe">
-        <text class="clubTitle">佛大江湾吉他协会</text>
-        <text class="discribe">音乐聚集地。</text>
-      </view>
-  </view>
-  <view class="jwClub">
-    <view class="jwLogo">
-      <image src="/images/huaju-logo.jpg"/>
-    </view>
-    <view class="jwDiscribe">
-      <text class="clubTitle">佛大话剧团</text>
-      <text class="discribe">戏精聚集地。</text>
-    </view>
-  </view>
-  <view class="jwClub">
-    <view class="jwLogo">
-      <image src="/images/benxin-logo.jpg"/>
-    </view>
-    <view class="jwDiscribe">
-      <text class="clubTitle">本心华服社</text>
-      <text class="discribe">一个传播、研究中华优秀文化传统，充满活力的年轻社团。</text>
-    </view>
-  </view>
-  <view class="jwClub">
-    <view class="jwLogo">
-      <image src="/images/lanqiu-logo.jpg"/>
-    </view>
-    <view class="jwDiscribe">
-      <text class="clubTitle">佛大篮协</text>
-      <text class="discribe">提供技能培训，举办篮球活动。</text>
-    </view>
-  </view>
-  <view class="jwClub">
-    <view class="jwLogo">
-      <image src="/images/xinmeiti-logo.jpg"/>
-    </view>
-    <view class="jwDiscribe">
-      <text class="clubTitle">新媒体协会</text>
-      <text class="discribe">致力于用新媒体的力量，营造更美佛大的社团。</text>
-    </view>
-  </view>
-  <view class="jwClub">
-    <view class="jwLogo">
-      <image src="/images/sheying-logo.jpg"/>
-    </view>
-    <view class="jwDiscribe">
-      <text class="clubTitle">佛大摄影协会</text>
-      <text class="discribe">由摄影爱好者组成的非营利性社团.</text>
-    </view>
-  </view>
+    
   </scroll-view> -->
 </view>
+<!-- <button type="primary" bindtap="addData">插入一条数据</button> -->

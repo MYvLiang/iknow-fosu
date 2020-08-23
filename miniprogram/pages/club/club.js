@@ -1,30 +1,50 @@
 // miniprogram/pages/club/club.js
 // 连接数据库
-const db = wx.cloud.database()
+ //const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     inputShowed: false,
-     inputVal: "",
-     dataClub:[]
+    //  inputShowed: false,
+    //  inputVal: "",
+     dataClub:" "
   },
   // 查询
+  /*
   getData() {
-    db.collection("clubList").get()
-      .then(res => {
-        console.log(res)
-      })
-  },
+     db.collection("clubList").get()
+       .then(res => {
+         console.log(res)
+       })
+   },*/
+   //添加数据
+   /*
+  addData() {
+    db.collection("clubList").add({
+      data: {
+        name: "土木工作室",
+        jieshao: "一个以学校为根据地，以社会实践为目的的大学生团体。",
+        school: "仙溪校区",
+        pic: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/club/tumu-logo.jpg	"
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  },*/
 
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // wx.cloud.callFunction({
+    //   name:"getList"
+    // })
+    // .then(res=>{
+    //   console.log(res)
+    // })
   },
 
   /**
@@ -39,23 +59,23 @@ Page({
    */
   // 获取云数据
   onShow: function () {
-    let that = this
-    wx.cloud.callFunction({
-      name:'',
-      success(res){
-        console.log("请求云函数成功", res)
-        that.setData({
-          dataClub:res.result.data
-        })
-        console.log(that.data.dataClub)
-      },
-      fail(res){
-        wx.showToast({
-          title: '获取数据失败',icon:'none',duration:2000
-        })
-        console.log("请求云函数失败",res)
-      }
-    })
+     let that = this
+     wx.cloud.callFunction({
+       name:'getList',
+       success(res){
+         console.log("请求云函数成功", res)
+         that.setData({
+           dataClub:res.result.data
+         })
+         console.log(that.data.dataClub)
+       },
+       fail(res){
+         wx.showToast({
+           title: '获取数据失败',icon:'none',duration:2000
+         })
+         console.log("请求云函数失败",res)
+       }
+     })
   },
 
   /**

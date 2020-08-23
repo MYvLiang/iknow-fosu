@@ -1,0 +1,12 @@
+<view class="log-list">
+  <view class="log-content">
+    <view class="log-title">2020.9.1版本（v1.0.0）</view>
+    <view class="log-type">佛大新生小助手诞生</view>
+    <view class="log-details">佛大新生小助手微信小程序正式上线啦！主要提供佛山科学技术学院的课程表、校园地图、教学周历、机构、社团、公众号、同乡会、宿舍、学院（专业）群...等等信息的查询服务。另外还有学生必备工具“备忘录”，更多功能敬请期待。</view>
+  </view>
+</view>
+
+<view class="copyright">
+  <view class="copyright-text">智慧佛大团队fosuwxapp@163.com</view>
+  <view class="copyright-text">Copyright @2020 All Rights Reserved</view>
+</view>

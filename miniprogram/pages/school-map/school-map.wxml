@@ -1,12 +1,15 @@
 <view>
-  <view wx:if="{{memu}}" class="top-view">
-    <button style="margin-top: 500rpx;">{{selectMarkerContent}}</button>
-    <input style="margin: 10rpx 0 30rpx 250rpx;" focus="true" bindinput="memuInput" placeholder="请输入标记点新名称..."></input>
-    <button bindtap="updateMarker">确认修改</button>
-    <button bindtap="delMarker">删除该标记</button>
-    <button bindtap="closeMemu">关闭</button>
+  <view class="top-view-flex">
+    <view wx:if="{{memu}}" class="top-view">
+      <view>修改标记：{{selectMarkerContent}}</view>
+      <input focus="true" bindinput="memuInput" value="{{selectMarkerContent}}"></input>
+      <button bindtap="updateMarker">确认修改</button>
+      <button bindtap="delMarker">删除该标记</button>
+      <button bindtap="closeMemu">关闭</button>
+    </view>
   </view>
 	<map 
+  id="fosumap"
   style="width: 100%; height: 1500rpx;" 
   latitude="{{latitude}}" 
   longitude="{{longitude}}" 
@@ -17,12 +20,23 @@
   enable-rotate="{{enableRotate}}"
   enable-scroll="{{enableScroll}}" 
   polygons="{{polygons}}" 
+  show-location="true"
   bindtap="bindtapMap" 
-  bindmarkertap="bindmarkertapMap" >
+  bindmarkertap="bindmarkertapMap" 
+  bindregionchange="bindregionchangeMap" >
 	</map>
   <view class="vr-map" bindtap="vrMap">
     <image class="vr-map-image" src="/images/vrmap.png"></image>
   </view>
+
+  <view class="enlarge-map" bindtap="enlargeMap">
+    <view>+</view>
+  </view>
+
+  <view class="lessen-map" bindtap="lessenMap">
+    <view class="lessen-coin"></view>
+  </view>
+
   <view class="bottom-view">
       <scroll-view class="bottom-tab-container" scroll-x="true">
         <select bindtap="selectCampus" class="bottom-tab-item">

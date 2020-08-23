@@ -204,6 +204,7 @@
   justify-content: space-between;
   margin-left: 30rpx;
   border-bottom: 0.1px solid #ddd;
+  background-color: #fff;
 }
 .list-right{
   display: flex;

@@ -1,0 +1,26 @@
+ <view class="search">
+      <input type="text" class="search-box" placeholder="请输入学院名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
+      <icon type="search"></icon>
+</view>
+
+<view class="searchresult" wx:if="{{inputValue==''}}">
+  <view class="result" wx:for="{{all}}" catchtap="searchbegin" wx:key="index" bindtap="getInputValue" data-postname="{{item.college}}">
+    <view>{{item.college}}</view>
+  </view>
+</view>
+
+<view class="searchresult" wx:if="{{searchresult == true}}">
+  <view class="result" wx:for="{{search}}" catchtap="searchbegin" wx:key="index" bindtap="getInputValue" data-postname="{{item.college}}">
+    <view>{{item.college}}</view>
+  </view>
+</view>
+
+<view class="show" wx:if="{{click == true}}" bindtap="getInputValue">
+    <text class="title">{{afterclick.college}}</text>
+    <text class="qq">QQ群:</text>
+    <view class="pic">
+      <image src="{{afterclick.pic}}" mode="aspectFill" bindlongtap="longPressSaveImg"></image>
+    </view>
+    <text class="wx">微信群请联系微信:{{afterclick.wx}}</text>
+    <navigator url="../opinion/opinion" class="call"><text>如需要增加，删除或修改，请点击此处联系我们</text></navigator>
+</view>

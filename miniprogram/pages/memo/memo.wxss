@@ -1,0 +1,82 @@
+/* 头部logo */
+.header{
+  width: 100%;
+  height: 90rpx;
+  background-color: #fafafa;
+}
+.hdCon{
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 0 26rpx 10rpx;
+  align-items: center;
+}
+.hdCon navigator{
+  height: 50rpx;
+}
+.hdCon image{
+  height: 100%;
+  width: 50rpx;
+  padding: 0 0;
+}
+.txt{
+  font-size: 50rpx;
+  font-weight: 600;
+  letter-spacing: 5rpx;
+}
+
+/* 备忘列表 */
+.memolist{
+  background-color: white;
+  height: 130rpx;
+  margin: 15rpx 20rpx 0rpx 20rpx;
+  padding: 0rpx 20rpx 0;
+  /* border-radius: 20rpx; */
+}
+/*
+.memolist::before{
+  display: block;
+  width: 8rpx;
+  height: 120rpx;
+  background: #e15241;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 5rpx;
+  
+}
+*/
+
+.words{
+  font-size: 45rpx;
+  color: #959499;
+  padding: 50% 230rpx;
+  letter-spacing: 5rpx;
+}
+.words text{
+  font-size: 30rpx;
+  color: #959499;
+  letter-spacing: 3rpx;
+  padding: 50% 20rpx;
+}
+.list{
+  padding-top: 16rpx;
+  font-size: 34rpx;
+}
+.date{
+  /* padding: 10rpx 0; */
+  font-size: 28rpx;
+}
+.date image{
+  height: 30rpx;
+  width: 30rpx;
+  margin-top: 16rpx;
+}
+
+.no-tip{
+  font-size: 40rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 500rpx;
+}

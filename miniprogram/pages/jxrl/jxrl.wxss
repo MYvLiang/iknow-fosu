@@ -1,0 +1,35 @@
+.pic {
+  width: 750rpx;
+}
+.picker{
+  font-size: 17px;
+}
+.change{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 20rpx 10rpx 50rpx;
+  background: white;
+}
+.cal image{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.list-right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-right-text{
+  font-size: 34rpx;
+}
+.arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 4rpx solid #999;
+  border-right: 4rpx solid #999;
+  transform: rotate(45deg);
+  margin: 5rpx 30rpx 0rpx 10rpx;
+}

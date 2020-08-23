@@ -1,18 +1,17 @@
 <view class="section">
-	<picker bindchange="bindPickerChange" value="{{index}}" range="{{array1}}">
+	<picker bindchange="bindPickerChange" value="{{termsIndex}}" range="{{terms}}">
 		<view class="picker">
 			<view class="change">
 				<view class="cal">
-					<image src="cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/cal.png"></image>
+					<image src="/images/calendar/cal.png"></image>
 				</view>
 				<view class="list-right">
-          <view class="list-right-text">{{objectArray[index].name}}</view>
+          <view class="list-right-text">{{myterm}}</view>
           <view class='arrow'></view>
         </view>
 			</view>
-			<!-- <image src="{{array[index]}}" class="pic" mode="widthFix"></image> -->
 		</view>
 	</picker>
-	<image wx:if="{{loadImg}}" src="{{array[index]}}" class="pic" mode="widthFix" bindtap="preview" bindload="loadImage" binderror="loadImageErr" data-src="{{array[index]}}"></image>
+	<image wx:if="{{loadImg}}" src="{{mytermImg}}" class="pic" mode="widthFix" bindtap="preview" bindload="loadImage" binderror="loadImageErr" data-src="{{mytermImg}}"></image>
 	<view wx:else style="text-align:center;margin: 30rpx;">周历加载异常!</view>
 </view>

@@ -1,0 +1,36 @@
+.log-list{
+  margin: 20rpx 0;
+}
+.log-content{
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  padding: 40rpx 40rpx;
+}
+
+.log-title{
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+}
+
+.log-type{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.log-details{
+  font-size: 30rpx;
+  padding: 10rpx;
+  border-left: 6rpx solid #ddd;
+  color: #777;
+  margin-bottom: 20rpx;
+}
+
+.copyright{
+  padding: 20rpx;
+}
+
+.copyright-text{
+  text-align: center;
+  font-size: 26rpx;
+  color: #999;
+}

@@ -1,0 +1,55 @@
+<view>
+  <view class="top-view-flex">
+    <view wx:if="{{memu}}" class="top-view">
+      <view>修改标记：{{selectMarkerContent}}</view>
+      <input focus="true" bindinput="memuInput" value="{{selectMarkerContent}}"></input>
+      <button bindtap="updateMarker">确认修改</button>
+      <button bindtap="delMarker">删除该标记</button>
+      <button bindtap="closeMemu">关闭</button>
+    </view>
+  </view>
+	<map 
+  id="fosumap"
+  style="width: 100%; height: 1500rpx;" 
+  latitude="{{latitude}}" 
+  longitude="{{longitude}}" 
+  scale="{{scale}}" 
+  markers="{{markers}}"
+  show-compass="{{showCompass}}" 
+  enable-zoom="{{enableZoom}}" 
+  enable-rotate="{{enableRotate}}"
+  enable-scroll="{{enableScroll}}" 
+  polygons="{{polygons}}" 
+  show-location="true"
+  bindtap="bindtapMap" 
+  bindmarkertap="bindmarkertapMap" 
+  bindregionchange="bindregionchangeMap" >
+	</map>
+  <view class="vr-map" bindtap="vrMap">
+    <image class="vr-map-image" src="/images/vrmap.png"></image>
+  </view>
+
+  <view class="enlarge-map" bindtap="enlargeMap">
+    <view>+</view>
+  </view>
+
+  <view class="lessen-map" bindtap="lessenMap">
+    <view class="lessen-coin"></view>
+  </view>
+
+  <view class="bottom-view">
+      <scroll-view class="bottom-tab-container" scroll-x="true">
+        <select bindtap="selectCampus" class="bottom-tab-item">
+          <view wx:if="{{selectTabCampus==0}}">江湾校区   ▼</view>
+          <view wx:elif="{{selectTabCampus==1}}">仙溪校区  ▼</view>
+          <view wx:else>河滨校区  ▼</view>
+        </select>
+        <view data-id="-1" class="bottom-tab-item {{selectTabPlace==-1?'bottom-tab-select-item':''}}"
+        bindtap="selectPlace">全部标记</view>
+        <view wx:for="{{placeList[selectTabCampus]}}" data-id="{{index}}" wx:key="id"
+        class="bottom-tab-item {{selectTabPlace==index?'bottom-tab-select-item':''}}" bindtap="selectPlace">
+          {{item.name}}
+        </view>
+      </scroll-view>
+  </view>
+</view>

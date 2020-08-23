@@ -1,0 +1,65 @@
+.search{
+  height: 7%;
+  width: 95%;
+  border: 1px solid black;
+  margin-left: 2%;
+}
+.search .search-box{
+  position: absolute;
+  left: 10%;
+}
+.searchresult {
+  margin-top: 20px; 
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+.result {
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  padding: 0 30rpx;
+  color: #333;
+  font-family: "微软雅黑";
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.show .title{
+  width: 100%;
+  font-size: large;
+  font-weight:bold;
+  position: absolute;
+  top: 7%;
+  left: 31%;
+}
+.show .wx{
+  width: 100%;
+  position: absolute;
+  top: 70%;
+  left: 10%;
+}
+.show .pic{
+  width: 100%;
+  position: absolute;
+  top: 25%;
+  left: 8%;
+}
+.show .qq{
+  width: 100%;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+}
+.show .call{
+  width: 100%;
+  position: absolute;
+  top: 78%;
+  left: 5%;
+  color: blue;
+}

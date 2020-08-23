@@ -1,0 +1,8 @@
+page{
+  background-color: #fff;
+}
+.from-tip{
+  margin:30rpx 0;
+  color: #666;
+  text-align: center;
+}

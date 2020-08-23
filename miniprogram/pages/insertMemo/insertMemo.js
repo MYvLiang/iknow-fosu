@@ -1,13 +1,15 @@
 const db = wx.cloud.database()
-
+var id
 Page({
   data:{
     datalist:[],
     editid:''
   },
   onLoad: function(options) {
+    id = options.id
+  },
+  onShow:function(e){
     let that = this
-    var id = options.id
     //console.log('edid:',editid)
     console.log('id:',id)
     this.setData({

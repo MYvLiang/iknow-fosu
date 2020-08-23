@@ -13,9 +13,8 @@
 .txt{
   font-size: 17px;
   background: white;
-  height: 350rpx;
+  min-height: 350rpx;
   width: 100%;
-  padding: 0 0 20rpx;
   
 }
 .lines{
@@ -39,8 +38,7 @@
   height: 80rpx;
   align-items: center;
   box-sizing: border-box;
-  padding: 40rpx 26rpx;
-  margin-top: 30rpx;
+  padding: 0rpx 26rpx;
 }
 .pubTitle .words{
   font-size: 19px;

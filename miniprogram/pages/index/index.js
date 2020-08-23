@@ -1,6 +1,8 @@
 const app = getApp()
 Page({
   data: {
+    myClass: 'abc',
+    courseData: [],
     indexlist: [
       {
         imagePath: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/one.jpg",
@@ -17,42 +19,63 @@ Page({
       {
         imagePath: "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/five.jpg",
       }
-    ],
-    courselist:[],
-    date:'2020-'
+    ]
   },
-  onLoad: function() {
-    //获取课程数据
+  getUserInfo: function () {
+    let that = this
     wx.cloud.callFunction({
-      name:'getCourse',
-      data:{
-        myClass:'18数据科学与大数据技术3',
-        term:'2019-2020-2',
-      },success:function(res){
-        console.log(res)
-
-      },fail:function(res){
-        console.log(res)
+      name: 'getUserInfo'
+    }).then(res => {
+      let info = res.result.info
+      console.log(info)
+      if (info && info.length > 0) {
+        that.setData({
+          myClass: info[0].myClass
+        })
+      } else {
+        that.setData({
+          myClass: ''
+        })
       }
+    }).catch(res => {
+      console.log(res)
+      that.setData({
+        myClass: ''
+      })
+      wx.showToast({
+        title: '网络异常',
+        icon: 'none',
+        duration: 1000
+      })
     })
-
-
-
-
-      /* if(app.globalData.hasOwnProperty('openid')){
-            //以前已经获取过openid，可以直接用
-            console.log(app.globalData.openid)
-          }else{
-            //调用云函数，现在获取
-            wx.cloud.callFunction({
-              name: 'getOpenid',
-              complete: res => {
-                console.log('openid: ', res.result.openid)
-              }
-            })
-            //获取openid成功后
-            app.globalData['openid']=opneid
-          } */
+  },
+  loadImage:function(e){
+    wx.hideLoading()
+  },
+  loadImageErr:function(e){
+    wx.showToast({
+      title: '系统异常',
+      icon: 'none',
+      duration: 2000
+    })
+  },
+  onLoad: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getUserInfo()
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '佛大新生小助手'
     }
-
+  }
 })

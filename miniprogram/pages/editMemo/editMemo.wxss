@@ -13,20 +13,12 @@
 .txt{
   font-size: 17px;
   background: white;
-  height: 250rpx;
-  width: 750rpx;
-  
+  min-height: 350rpx;
+  width: 100%;
 }
-.lines{
-  background-color: white;
-  width: 550rpx;
-  margin-top: 0rpx;
-  margin-left: 40rpx;
-  border-top:2px #f8f8f8 solid;
-}
+
 .button{
   margin-top: 30rpx;
-  background: #84c1ff;
   border-radius:25px;
   width: 600rpx;
 }
@@ -38,8 +30,7 @@
   height: 80rpx;
   align-items: center;
   box-sizing: border-box;
-  padding: 40rpx 26rpx;
-  margin-top: 30rpx;
+  padding: 0rpx 26rpx;
 }
 .pubTitle .words{
   font-size: 19px;
@@ -54,7 +45,12 @@
   padding: 15rpx 10rpx 0;
 }
 
-
+.text-count-display{
+  display: flex;
+  
+  justify-content: flex-end;
+  padding: 2%;
+}
 
 
 

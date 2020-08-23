@@ -1,0 +1,95 @@
+.top-view-flex{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  position:fixed;
+  top:300rpx;
+}
+
+.top-view{
+  background-color: #fff;
+  border-radius: 50rpx;
+  width: 80%;
+  height: 500rpx;
+  box-shadow: 10rpx 10rpx 20rpx 2rpx #999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50rpx;
+}
+.bottom-view{
+  z-index: 100;
+  position:fixed;
+  bottom:0px;
+  display: flex;
+  background-color: #11b47e;
+  width: 100%;
+  height: 110rpx;
+  align-items:center;
+}
+.vr-map{
+  position:fixed;
+  z-index: 1000;
+  bottom:140rpx;
+  right: 40rpx;
+}
+.vr-map-image{
+  height: 120rpx;
+  width: 120rpx;
+}
+
+.enlarge-map{
+  position:fixed;
+  z-index: 1000;
+  bottom:280rpx;
+  right: 70rpx;
+  font-size: 60rpx;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: #11b47e;
+}
+
+.lessen-map{
+  position:fixed;
+  z-index: 1000;
+  bottom:390rpx;
+  right: 70rpx;
+  width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  background-color: #11b47e;
+}
+.lessen-coin{
+  width: 30rpx;
+  border-bottom:6rpx solid #fff;
+}
+
+.bottom-tab-container{
+  width: 100%;
+  white-space: nowrap;
+}
+.bottom-tab-item{
+  color: #fff;
+  font-size: 36rpx;
+  margin:0 16rpx;
+  display: inline-block;
+}
+.bottom-tab-select-item{
+  border-bottom-style:solid;
+  border-bottom-color: #fff;
+  border-bottom-width: 4rpx;
+  padding: 10rpx 0;
+  font-size: 40rpx;
+}

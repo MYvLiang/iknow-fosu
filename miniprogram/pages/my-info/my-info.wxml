@@ -1,0 +1,46 @@
+<view class="top-content">
+	<view class="touxiang">
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+	<view class="nickname">
+		<open-data type="userNickName"></open-data>
+	</view>
+</view>
+
+<view class="list">
+
+  <picker bindchange="selectDepartment"
+    value="{{departmentsIndex}}" range="{{departments}}">
+    <view class="list-content">
+      <view class="list-letf">学院</view>
+      <view class="list-right">
+        <view class="list-right-text">{{myDepartment}}</view>
+        <view class='arrow'></view>
+      </view>
+    </view>
+  </picker>
+
+	<picker bindchange="selectGrade"
+    value="{{gradesIndex}}" range="{{grades}}">
+    <view class="list-content">
+      <view class="list-letf">年级</view>
+      <view class="list-right">
+        <view class="list-right-text">{{myGrade}}</view>
+        <view class='arrow'></view>
+      </view>
+    </view>
+  </picker>
+
+  <picker bindchange="selectClass"
+    value="{{classesIndex}}" range="{{classes}}">
+    <view class="list-content" style="border-color: transparent;">
+      <view class="list-letf">班级</view>
+      <view class="list-right">
+        <view class="list-right-text">{{myClass}}</view>
+        <view class='arrow'></view>
+      </view>
+    </view>
+  </picker>
+
+</view>
+<button bindtap="saveInfo" type="primary">保存</button>

@@ -7,18 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //  inputShowed: false,
-    //  inputVal: "",
+     inputShowed: false,
+     inputVal: "",
      dataClub:" "
   },
   // 查询
-  /*
   getData() {
-     db.collection("clubList").get()
+     db.collection("clubList").where({
+       school:'仙溪校区'
+     })
+     .get()
        .then(res => {
          console.log(res)
        })
-   },*/
+   },
    //添加数据
    /*
   addData() {
@@ -33,7 +35,10 @@ Page({
       console.log(res)
     })
   },*/
-
+  //点击事件
+  selectClub:function(res){
+    console.log(res.currentTarget.dataset)
+  },
 
   /**
    * 生命周期函数--监听页面加载

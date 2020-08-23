@@ -24,7 +24,7 @@
     <!-- </scroll-view> -->
   </view>
   <!-- 顶部tab栏 固定高度 -->
-  <view class="tab">
+  <view class="tab" bindtap="selectClub" data->
     <!-- <scroll-view class="container" scroll-x="true"> -->
       <view class="page" data-weui-theme="{{theme}}">
         <view class="page__bd" style="height: 100%;">
@@ -52,12 +52,9 @@
   <!-- 列表 -->
   <!-- 江湾 -->
   <view wx:for="{{dataClub}}" class="clubList" data-id="{{item}}">
-    <!-- <view class="list">
-      <view>{{item.name}}</view>
-    </view> -->
     <view class="jwClub">
       <view class="jwLogo">
-        <image>{{item.pic}}</image>
+        <image scr="{{item.pic}}"></image>
       </view>
       <view class="jwDiscribe">
         <text class="clubTitle">{{item.name}}</text>

@@ -13,12 +13,12 @@ Page({
   },
   // 查询
   getData() {
-    db.collection("clubList").where({
-    }).get()
+    db.collection("clubList").get()
       .then(res => {
         console.log(res)
       })
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -37,8 +37,25 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
+  // 获取云数据
   onShow: function () {
-
+    let that = this
+    wx.cloud.callFunction({
+      name:'',
+      success(res){
+        console.log("请求云函数成功", res)
+        that.setData({
+          dataClub:res.result.data
+        })
+        console.log(that.data.dataClub)
+      },
+      fail(res){
+        wx.showToast({
+          title: '获取数据失败',icon:'none',duration:2000
+        })
+        console.log("请求云函数失败",res)
+      }
+    })
   },
 
   /**
@@ -74,5 +91,28 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 搜索框 四个函数
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
   }
+  // 搜索框 四个函数
 })

@@ -29,7 +29,7 @@
   border-top:none;
 }
 /* 选择（js） */
-/* .academyName .list{
+academyName .list{
   height:600rpx;
   text-align: center;
   font-size: 60rpx;
@@ -38,7 +38,7 @@
 }
 .academyName .cur{
   display:block;
-} */
+} 
 /* 顶部tab */
 
 
@@ -74,6 +74,41 @@
   font-weight: bold;
 }
 .xj .xjDiscribe .discribe{
+  color: gray;
+  margin:5px 0;
+}
+/* 数学 */
+.sx{
+  height:70px;
+  border-bottom: 2px solid #7cc924;
+  /* 使其左右排列 */
+  display: flex;  
+}
+.sx .sxLogo{
+  width:80px;
+  height:60px;
+  background-color: rgba(241, 232, 232, 0.829);
+  margin: 5px;
+}
+.sx .sxLogo image{
+  width:100%;
+  height:100%;
+  border-radius: 50%;
+}
+.sx .sxDiscribe{
+  flex:1;
+  padding:10px;
+  background-color: rgb(193, 228, 241);
+}
+.sx .sxDiscribe text{
+  font-size: 12px;
+  display: block;
+}
+.sx .sxDiscribe .orgTitle{
+  font-size: 14px;
+  font-weight: bold;
+}
+.sx .sxDiscribe .discribe{
   color: gray;
   margin:5px 0;
 }

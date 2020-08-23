@@ -43,7 +43,10 @@
 
 <!-- 顶部tab栏 -->
 <view class="tab">
-  <view wx:for="{{tab}}" class="{{active==organization?'cur':''}}" wx:key="{{organization}}" data-organization="{{index}}" bindtap="change">{{item}}</view>
+  <!-- <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 25%"> -->
+    <view wx:for="{{tab}}" class="{{active==organization?'cur':''}}" wx:key="organization" data-organization="{{index}}" bindtap="change">{{item}}
+    </view>
+  <!-- </scroll-view> -->
 </view>
 <!-- 选择（js） -->
 <!-- <view class="academyName">
@@ -56,7 +59,7 @@
 
 
 <!-- 列表 校级 -->
-<scroll-view class="list" scroll-y>
+<!-- <scroll-view class="list" scroll-y>
   <view class="xj">
     <view class="xjLogo">
       <image src="/images/xiaohui-logo.jpg"/>
@@ -75,67 +78,4 @@
       <text class="discribe">主要负责承接校内外舞台表演。</text>
     </view>
   </view>
-    <view class="xj">
-    <view class="xjLogo">
-      <image src="/images/xiaohui-logo.jpg"/>
-    </view>
-    <view class="xjDiscribe">
-      <text class="orgTitle">佛大学生会</text>
-      <text class="discribe">宗旨：服务同学，提升自我。</text>
-    </view>
-  </view>
-    <view class="xj">
-    <view class="xjLogo">
-      <image src="/images/xiaohui-logo.jpg"/>
-    </view>
-    <view class="xjDiscribe">
-      <text class="orgTitle">佛大学生会</text>
-      <text class="discribe">宗旨：服务同学，提升自我。</text>
-    </view>
-  </view>
-    <view class="xj">
-    <view class="xjLogo">
-      <image src="/images/xiaohui-logo.jpg"/>
-    </view>
-    <view class="xjDiscribe">
-      <text class="orgTitle">佛大学生会</text>
-      <text class="discribe">宗旨：服务同学，提升自我。</text>
-    </view>
-  </view>
-    <view class="xj">
-    <view class="xjLogo">
-      <image src="/images/xiaohui-logo.jpg"/>
-    </view>
-    <view class="xjDiscribe">
-      <text class="orgTitle">佛大学生会</text>
-      <text class="discribe">宗旨：服务同学，提升自我。</text>
-    </view>
-  </view>
-    <view class="xj">
-    <view class="xjLogo">
-      <image src="/images/xiaohui-logo.jpg"/>
-    </view>
-    <view class="xjDiscribe">
-      <text class="orgTitle">佛大学生会</text>
-      <text class="discribe">宗旨：服务同学，提升自我。</text>
-    </view>
-  </view>
-    <view class="xj">
-    <view class="xjLogo">
-      <image src="/images/xiaohui-logo.jpg"/>
-    </view>
-    <view class="xjDiscribe">
-      <text class="orgTitle">佛大学生会</text>
-      <text class="discribe">宗旨：服务同学，提升自我。</text>
-    </view>
-  </view>
-    <view class="xj">
-    <view class="xjLogo">
-      <image src="/images/xiaohui-logo.jpg"/>
-    </view>
-    <view class="xjDiscribe">
-      <text class="orgTitle">佛大学生会</text>
-      <text class="discribe">宗旨：服务同学，提升自我。</text>
-    </view>
-  </view>
-</scroll-view>
+</scroll-view> -->

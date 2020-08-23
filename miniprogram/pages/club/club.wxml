@@ -1,58 +1,64 @@
 <!--miniprogram/pages/club/club.wxml-->
-<button type="primary" bindtap="getData">查询数据</button>
-<view class="root">
+<!-- <button type="primary" bindtap="getData">查询数据</button> -->
+<view class="club" style="display:flex;flex-direction: column;">
   <!-- 搜索框 固定高度-->
   <view class="searchb">
-    <view class="page" data-weui-theme="{{theme}}">
+    <!-- <scroll-view class="container" scroll-x="true"> -->
+      <view class="page" data-weui-theme="{{theme}}">
 
-      <view class="page__bd">
-        <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
-          <form class="weui-search-bar__form">
-            <view class="weui-search-bar__box">
-                        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-                        <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
-            </view>
-            <label class="weui-search-bar__label" bindtap="showInput">
-                        <span class="weui-search-bar__text">搜索</span>
-            </label>
-          </form>
-                <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+        <view class="page__bd">
+          <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+            <form class="weui-search-bar__form">
+              <view class="weui-search-bar__box">
+                          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                          <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+              </view>
+              <label class="weui-search-bar__label" bindtap="showInput">
+                          <span class="weui-search-bar__text">搜索</span>
+              </label>
+            </form>
+                  <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+          </view>
         </view>
       </view>
-    </view>
+    <!-- </scroll-view> -->
   </view>
   <!-- 顶部tab栏 固定高度 -->
   <view class="tab">
-    <view class="page" data-weui-theme="{{theme}}">
-      <view class="page__bd" style="height: 100%;">
-        <view class="weui-tab">
-          <view class="weui-tab__panel">
-          </view>
-          <view class="weui-tabbar">
-            <view class="weui-tabbar__item">
-              <!-- <view style="display: inline-block; position: relative;">
-                <text class="weui-badge" style="position: absolute; top: -2px; right: -13px;">8</text>
-              </view> -->
-              <view class="weui-tabbar__label">江湾校区</view>
+    <!-- <scroll-view class="container" scroll-x="true"> -->
+      <view class="page" data-weui-theme="{{theme}}">
+        <view class="page__bd" style="height: 100%;">
+          <view class="weui-tab">
+            <view class="weui-tab__panel">
             </view>
-            <view class="weui-tabbar__item">
-              <view class="weui-tabbar__label">仙溪校区</view>
-            </view>
-            <view class="weui-tabbar__item">
-              <!-- <view style="display: inline-block; position: relative;">
-                <text class="weui-badge weui-badge_dot" style="position: absolute; top: 0; right: -6px;"></text>
-              </view> -->
-              <view class="weui-tabbar__label">河滨校区</view>
-            </view>
+            <view class="weui-tabbar">
+              <view class="weui-tabbar__item">
+                <view class="weui-tabbar__label">江湾校区</view>
+              </view>
+              <view class="weui-tabbar__item">
+                <view class="weui-tabbar__label">仙溪校区</view>
+              </view>
+              <view class="weui-tabbar__item">
+                <view class="weui-tabbar__label">河滨校区</view>
+              </view>
 
+            </view>
           </view>
         </view>
       </view>
-    </view>
+    <!-- </scroll-view> -->
   </view>
+
   <!-- 列表 -->
   <!-- 江湾 -->
-  <scroll-view class="list" scroll-y>
+  <view wx:for="{{dataClub}}" class="clubList" data-id="{{item}}">
+    <view class="list">
+      <view>{{item.jieshao}}</view>
+    </view>
+  
+  </view>
+<!-- 
+  <scroll-view class="list" scroll-y="true">
     <view class="jwClub">
       <view class="jwLogo">
         <image src="/images/yizhou-logo.jpg"/>
@@ -62,5 +68,77 @@
         <text class="discribe">佛大江湾校区的一个文化艺术类的学习型社团。</text>
       </view>
     </view>
-  </scroll-view>
+    <view class="jwClub">
+    <view class="jwLogo">
+      <image src="/images/dianjing-logo.jpg"/>
+    </view>
+    <view class="jwDiscribe">
+      <text class="clubTitle">ESF电竞社</text>
+      <text class="discribe">宗旨：团结合作，永不放弃！电竞，不仅仅是打游戏。</text>
+    </view>
+  </view>
+  <view class="jwClub">
+    <view class="jwLogo">
+      <image src="/images/ETV-logo.png"/>
+    </view>
+    <view class="jwDiscribe">
+      <text class="clubTitle">佛大ETV</text>
+      <text class="discribe">是校内唯一一个创作微电影的影视社团。</text>
+    </view>
+  </view>
+  <view class="jwClub">
+      <view class="jwLogo">
+        <image src="/images/jixie-logo.jpg"/>
+      </view>
+      <view class="jwDiscribe">
+        <text class="clubTitle">佛大江湾吉他协会</text>
+        <text class="discribe">音乐聚集地。</text>
+      </view>
+  </view>
+  <view class="jwClub">
+    <view class="jwLogo">
+      <image src="/images/huaju-logo.jpg"/>
+    </view>
+    <view class="jwDiscribe">
+      <text class="clubTitle">佛大话剧团</text>
+      <text class="discribe">戏精聚集地。</text>
+    </view>
+  </view>
+  <view class="jwClub">
+    <view class="jwLogo">
+      <image src="/images/benxin-logo.jpg"/>
+    </view>
+    <view class="jwDiscribe">
+      <text class="clubTitle">本心华服社</text>
+      <text class="discribe">一个传播、研究中华优秀文化传统，充满活力的年轻社团。</text>
+    </view>
+  </view>
+  <view class="jwClub">
+    <view class="jwLogo">
+      <image src="/images/lanqiu-logo.jpg"/>
+    </view>
+    <view class="jwDiscribe">
+      <text class="clubTitle">佛大篮协</text>
+      <text class="discribe">提供技能培训，举办篮球活动。</text>
+    </view>
+  </view>
+  <view class="jwClub">
+    <view class="jwLogo">
+      <image src="/images/xinmeiti-logo.jpg"/>
+    </view>
+    <view class="jwDiscribe">
+      <text class="clubTitle">新媒体协会</text>
+      <text class="discribe">致力于用新媒体的力量，营造更美佛大的社团。</text>
+    </view>
+  </view>
+  <view class="jwClub">
+    <view class="jwLogo">
+      <image src="/images/sheying-logo.jpg"/>
+    </view>
+    <view class="jwDiscribe">
+      <text class="clubTitle">佛大摄影协会</text>
+      <text class="discribe">由摄影爱好者组成的非营利性社团.</text>
+    </view>
+  </view>
+  </scroll-view> -->
 </view>

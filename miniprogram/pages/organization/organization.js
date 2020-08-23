@@ -10,12 +10,12 @@ Page({
     // inputVal: ""
     // 搜索框
     // 顶部tab栏
-    tab:['校级', '数学', '电子','环化'],
+    tab:['校级', '数学', '电子','环化',"人文"],
     active:0
   },
   //改变active的值
   change:function(e){
-    // console.log(e.currentTarget.dataset.organization)
+    //console.log(e.currentTarget.dataset.organization)
     this.setData({
        active:e.currentTarget.dataset.organization
     })

@@ -1,1 +1,16 @@
-/* miniprogram/pages/about-us/about-us.wxss */
+page{
+  background-color: #fff;
+}
+.title{
+  text-align: center;
+  font-size: 40rpx;
+  color: #000;
+  margin: 30rpx 0;
+}
+.content{
+  text-indent: 2em;
+  font-size: 32rpx;
+  color: #555;
+  padding: 0rpx 50rpx;
+  line-height:2em;
+}

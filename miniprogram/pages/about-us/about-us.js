@@ -7,7 +7,14 @@ Page({
   data: {
 
   },
-
+  copyEmail:function(e){
+    wx.setClipboardData({
+      data: 'fosuwxapp@163.com',
+      success(res) {
+        console.log('复制成功')
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

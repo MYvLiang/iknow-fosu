@@ -41,8 +41,8 @@
   background-color: #fff;
   align-items: center;
   justify-content: space-between;
-  height: 150rpx;
-  padding: 0 40rpx;
+  height: 170rpx;
+  padding: 0 20rpx;
 }
 
 .major .box{
@@ -50,15 +50,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 130rpx;
-  width: 130rpx;
+  height: 160rpx;
+  width: 160rpx;
+  /* background-color: #999; */
 }
 .major .pic{
   width: 74rpx;
   height: 74rpx;
 }
 .major .txt{
-  font-size: 26rpx;
+  font-size: 28rpx;
+  margin-top: 10rpx;
 }
 
 /* 今日课表模板 */
@@ -83,7 +85,7 @@
 
 .works .more{
   font-size: 34rpx;
-  color: #666;
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +100,7 @@
 }
 .course-tip{
   margin-top: 100rpx;
-  font-size: 30rpx;
+  font-size: 32rpx;
   color: #666;
 }
 .arrow {

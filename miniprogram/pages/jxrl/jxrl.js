@@ -1,5 +1,6 @@
 Page({
   data: {
+    loadImg:true,
     array: ['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2020_2021_1.jpg', 
     'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2019_2020_2.png', 
     'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2019_2020_1.jpg', 
@@ -59,6 +60,26 @@ Page({
       current: currentUrl, // 当前显示图片的http链接
       urls: that.data.array // 需要预览的图片http链接列表
     })
+  },
+  loadImage(e){
+    wx.hideLoading()
+  },
+  loadImageErr(e){
+    this.setData({
+      loadImg:false
+    })
+  },
+  onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '佛大新生小助手--佛大周历',
+    }
   }
-  
 })

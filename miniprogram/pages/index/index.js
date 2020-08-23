@@ -49,7 +49,23 @@ Page({
       })
     })
   },
+  loadImage:function(e){
+    wx.hideLoading()
+  },
+  loadImageErr:function(e){
+    wx.showToast({
+      title: '系统异常',
+      icon: 'none',
+      duration: 2000
+    })
+  },
   onLoad: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
   },
   /**
    * 生命周期函数--监听页面显示

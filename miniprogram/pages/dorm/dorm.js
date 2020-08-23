@@ -33,11 +33,26 @@ Page({
       url: '/pages/index/index'
     })
   },
+  loadImage:function(e){
+    wx.hideLoading()
+  },
+  loadImageErr:function(e){
+    wx.showToast({
+      title: '系统异常',
+      icon: 'none',
+      duration: 2000
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '加载中',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
   },
 
   /**

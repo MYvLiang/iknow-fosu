@@ -8,16 +8,17 @@
 </view>
 
 <!--备忘列表-->
-<view wx:for="{{datalist}}" bindlongtap="longPress" class="memolist" data-id="{{item._id}}" bindtap="shortTap">
+<view wx:for="{{datalist}}" bindlongpress="longPress" class="memolist" data-id="{{item._id}}" bindtap="shortTap">
   <view class="list">
-  <view>{{item.title}}</view>
-  <view class="date">
-  <image src="/images/memo/time.png"></image>
- {{item.date}}
-  </view>
-  </view>
+    <view>{{item.title}}</view>
+    <view class="date">
+      <image src="/images/memo/date.png"></image>
+      {{item.date}}
+    </view>
+</view>
 
 </view>
+<view class="no-tip" wx:if="{{datalist.length==0&&tip}}">无备忘录</view>
 
 
 

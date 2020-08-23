@@ -1,3 +1,3 @@
-<image bindtap="openTip" style="width:100%;" mode="widthFix"  src="cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/xinshengyizhi.jpg"></image>
+<image bindtap="openTip" bindload="loadImage" binderror="loadImageErr" style="width:100%;" mode="widthFix"  src="cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/xinshengyizhi.jpg"></image>
 <button bindtap="toIndex">返回首页</button>
 <view class="from-tip">来源：易班->佛大易+->新生易知</view>

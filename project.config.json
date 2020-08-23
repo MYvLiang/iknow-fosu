@@ -21,7 +21,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx97f301d850f98b13",
@@ -91,6 +91,34 @@
 					"id": -1,
 					"name": "pages/dorm/dorm",
 					"pathName": "pages/dorm/dorm",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/update-log/update-log",
+					"pathName": "pages/update-log/update-log",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/about-us/about-us",
+					"pathName": "pages/about-us/about-us",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jxrl/jxrl",
+					"pathName": "pages/jxrl/jxrl",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/memo/memo",
+					"pathName": "pages/memo/memo",
 					"scene": null
 				}
 			]

@@ -10,7 +10,7 @@
 <view class="banner">
 	<swiper indicator-dots="{{true}}" autoplay="true" interval="3000" circular="true">
 		<swiper-item wx:for="{{indexlist}}">
-			<image src="{{item.imagePath}}"></image>
+			<image bindload="loadImage" binderror="loadImageErr" src="{{item.imagePath}}"></image>
 		</swiper-item>
 	</swiper>
 </view>

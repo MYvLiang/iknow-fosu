@@ -1,14 +1,16 @@
 .top-content{
   background-color: #fff;
   margin-bottom: 30rpx;
-  padding-bottom: 60rpx;
+  height: 360rpx;
 }
 .touxiang{
   margin:auto;
   height: 220rpx;
   width: 220rpx;
+  padding: 20rpx;
 }
 .nickname{
+  margin-top: 10rpx;
   font-size: 40rpx;
   text-align: center;
 }

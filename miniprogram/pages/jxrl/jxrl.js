@@ -1,7 +1,17 @@
+const db = wx.cloud.database()
 Page({
   data: {
     loadImg:true,
-    array: ['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2020_2021_1.jpg', 
+
+    myterm:'2020-2021第一学期',
+    mytermImg:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2020_2021_1.jpg',
+    terms:['2020-2021第一学期'],
+    termsIndex:0,
+    termsImgObject:{},
+    termsImg:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2020_2021_1.jpg'],
+    termsImgIndex:0,
+
+    /* array: ['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2020_2021_1.jpg', 
     'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2019_2020_2.png', 
     'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2019_2020_1.jpg', 
     'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/2018_2019_2.jpg',
@@ -40,15 +50,28 @@ Page({
         name: '2017-2018第一学期'
       },
     ],
-    index: 0,
+    index: 0, */
   },
   
   //切换学年
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    let termsIndex=e.detail.value
+    let term=this.data.terms[termsIndex]
+    let termImgObject=this.data.termsImgObject
+    let termsImg=termImgObject[term]
+    console.log(termsIndex,term,termImgObject,termsImg)
+    this.setData({
+      termsIndex,
+      termsImg,
+      myterm:term,
+      mytermImg:termsImg
+    })
+    
+
+  /*   console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
-    })
+    }) */
   },
   
   //放大预览图片
@@ -76,6 +99,22 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
+
+    let that = this
+    let terms=[]
+    let termsImgObject={}
+    db.collection('termCalendar')
+      .doc('60173c665f4276ff0027733b03148dc2')
+      .get().then(res => {
+        console.log(res.data)
+        terms=res.data.term;
+        termsImgObject=res.data.termImg
+        that.setData({
+          terms:terms,
+          termsImgObject:termsImgObject,
+        })
+      })
+      console.log(termsImgObject)
   },
   onShareAppMessage: function () {
     return {

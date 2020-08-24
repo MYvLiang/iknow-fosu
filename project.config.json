@@ -48,6 +48,13 @@
 					"id": -1,
 					"name": "pages/club/club",
 					"pathName": "pages/club/club",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/organization/organization",
+					"pathName": "pages/organization/organization",
 					"scene": null
 				}
 			]

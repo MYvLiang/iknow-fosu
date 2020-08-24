@@ -7,10 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-     inputShowed: false,
-     inputVal: "",
-     dataClub:" "
+    tab: ['江湾校区', '仙溪校区', '河滨校区'],
+    active: 0,
+    // inputShowed: false,
+    // inputVal: "",
+    // dataClub:" "
   },
+  //改变active的值
+  change: function (e) {
+    console.log(e.currentTarget.dataset.organization)
+    this.setData({
+      active: e.currentTarget.dataset.organization
+    })
+  },
+
   // 查询
   getData() {
      db.collection("clubList").where({

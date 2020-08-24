@@ -34,32 +34,22 @@
   width: 100%;
   font-size: large;
   font-weight:bold;
-  position: absolute;
-  top: 7%;
-  left: 31%;
-}
-.show .wx{
-  width: 100%;
-  position: absolute;
-  top: 70%;
-  left: 10%;
+  margin-left: 31%;
 }
 .show .pic{
   width: 100%;
-  position: absolute;
-  top: 25%;
-  left: 8%;
+  height: 20%;
+  margin-left: 42rpx;
 }
 .show .qq{
   width: 100%;
-  position: absolute;
-  top: 15%;
-  left: 10%;
+  margin-top: 13%;
 }
 .show .call{
-  width: 100%;
-  position: absolute;
-  top: 78%;
-  left: 5%;
   color: blue;
+}
+.show .bottom{
+  width: 100%;
+ margin-top: 18%;
+ margin-left: 5%;
 }

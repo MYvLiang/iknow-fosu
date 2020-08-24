@@ -16,11 +16,20 @@
 </view>
 
 <view class="show" wx:if="{{click == true}}" bindtap="getInputValue">
-    <text class="title">{{afterclick.college}}</text>
-    <text class="qq">QQ群:</text>
-    <view class="pic">
-      <image src="{{afterclick.pic}}" mode="aspectFill" bindlongtap="longPressSaveImg"></image>
+    <view class="title">{{afterclick.college}}</view>
+    <view class="qq">群聊:</view>
+    <view wx:for="{{afterclick.qun}}" wx:key="index">
+      <view>{{item.name}}(<text selectable="true">{{item.qq}}</text>)</view>
+      <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
     </view>
-    <text class="wx">微信群请联系微信:{{afterclick.wx}}</text>
-    <navigator url="../opinion/opinion" class="call"><text>如需要增加，删除或修改，请点击此处联系我们</text></navigator>
+    <!--<view class="pic" wx:for="{{afterclick.pic}}" wx:key="index"> 
+      <image src="{{item}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item}}"></image>
+    </view>-->
+    <view>助班:</view>
+    <view wx:for="{{afterclick.zhuban}}" wx:key="index">
+      <view>{{item.class}}</view>
+      <view>{{item.name}}(<text selectable="true">{{item.wx}}</text>)</view>
+      <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
+    </view>
+    <view class="bottom"><navigator url="../opinion/opinion" class="call">欢迎点击此处为我们提供更多信息</navigator></view>
 </view>

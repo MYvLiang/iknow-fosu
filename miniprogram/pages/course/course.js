@@ -637,13 +637,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '佛大课程表',
-      path: '/pages/index/index?scene=tocourse'
-    }
-  },
-  onShareTimeline: function () {
-    return {
-      title: '佛大课程表',
-      path: '/pages/index/index?scene=tocourse'
+      path: '/pages/index/index?toPage=course'
     }
   }
 })

@@ -123,10 +123,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 10,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
-					"query": "scene=tocourse",
+					"query": "toPage=dorm",
 					"scene": null
 				}
 			]

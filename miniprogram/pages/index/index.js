@@ -61,9 +61,33 @@ Page({
   },
   onLoad: function (query) {
     console.log(query)
-    if(query.scene=='tocourse'){
+    if(query.toPage=='course'){
       wx.navigateTo({
         url: '/pages/course/course'
+      })
+    }else if(query.toPage=='aboutus'){
+      wx.navigateTo({
+        url: '/pages/about-us/about-us'
+      })
+    }else if(query.toPage=='classgroup'){
+      wx.navigateTo({
+        url: '/pages/classgroup/classgroup'
+      })
+    }else if(query.toPage=='dorm'){
+      wx.navigateTo({
+        url: '/pages/dorm/dorm'
+      })
+    }else if(query.toPage=='jxrl'){
+      wx.navigateTo({
+        url: '/pages/jxrl/jxrl'
+      })
+    }else if(query.toPage=='map'){
+      wx.navigateTo({
+        url: '/pages/school-map/school-map'
+      })
+    }else if(query.toPage=='log'){
+      wx.navigateTo({
+        url: '/pages/update-log/update-log'
       })
     }
     wx.showLoading({

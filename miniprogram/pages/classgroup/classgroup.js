@@ -121,6 +121,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '佛大新生小助手--组织群查询',
+      path: '/pages/index/index?toPage=classgroup'
+    }
   }
 })

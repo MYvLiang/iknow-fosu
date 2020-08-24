@@ -149,16 +149,24 @@
   width: 400rpx;
 }
 
+.course-details-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rpx;
+}
+
 .course-details-name {
   font-size: 44rpx;
   text-align: center;
-  margin: 20rpx 20rpx 50rpx 20rpx;
+  margin: 20rpx;
   word-break: break-all;
 }
 
 .course-details-other {
-  font-size: 30rpx;
-  margin: 5rpx 40rpx;
+  font-size: 32rpx;
+  margin: 5rpx 50rpx;
   word-break: break-all;
 }
 
@@ -198,11 +206,11 @@
 }
 
 .list-content{
-  height: 120rpx;
+  height: 106rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 30rpx;
+  margin-left: 36rpx;
   border-bottom: 0.1px solid #ddd;
   background-color: #fff;
 }

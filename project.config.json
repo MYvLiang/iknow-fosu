@@ -21,7 +21,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx97f301d850f98b13",
@@ -119,6 +119,14 @@
 					"id": -1,
 					"name": "pages/memo/memo",
 					"pathName": "pages/memo/memo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "scene=tocourse",
 					"scene": null
 				}
 			]

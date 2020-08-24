@@ -560,7 +560,7 @@ Page({
       }else{
         wx.showModal({
           title: '提示',
-          content: '未绑定班级信息，请在个人中心绑定',
+          content: '未绑定班级信息，请在个人信息中绑定',
           success (res) {
             if (res.confirm) {
               console.log('用户点击确定')
@@ -637,7 +637,13 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '佛大课程表',
-      path: '/pages/index/index'
+      path: '/pages/index/index?scene=tocourse'
+    }
+  },
+  onShareTimeline: function () {
+    return {
+      title: '佛大课程表',
+      path: '/pages/index/index?scene=tocourse'
     }
   }
 })

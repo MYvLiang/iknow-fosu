@@ -72,7 +72,7 @@
 	</navigator>
 </view>
 <view class="course-body">
-	<view class="course-tip" wx:if="{{myClass==''}}">未绑定班级信息，请在个人中心绑定</view>
+	<view class="course-tip" wx:if="{{myClass==''}}">未绑定班级信息，请在个人信息中绑定</view>
 	<view class="course-tip" wx:elif="{{courseData.length==0&&myClass!='abc'}}">今天没课</view>
 	<view class="course-tip" wx:else>
 	

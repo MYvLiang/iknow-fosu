@@ -59,7 +59,13 @@ Page({
       duration: 2000
     })
   },
-  onLoad: function () {
+  onLoad: function (query) {
+    console.log(query)
+    if(query.scene=='tocourse'){
+      wx.navigateTo({
+        url: '/pages/course/course'
+      })
+    }
     wx.showLoading({
       title: '加载中',
     })

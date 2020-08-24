@@ -81,7 +81,7 @@ Page({
     let that=this
     wx.previewImage({
       current: currentUrl, // 当前显示图片的http链接
-      urls: that.data.array // 需要预览的图片http链接列表
+      urls: Object.values(that.data.termsImgObject) // 需要预览的图片http链接列表
     })
   },
   loadImage(e){
@@ -104,7 +104,7 @@ Page({
     let terms=[]
     let termsImgObject={}
     db.collection('termCalendar')
-      .doc('60173c665f4276ff0027733b03148dc2')
+      .doc('termCalendar123456')
       .get().then(res => {
         console.log(res.data)
         terms=res.data.term;

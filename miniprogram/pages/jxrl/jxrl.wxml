@@ -12,6 +12,6 @@
 			</view>
 		</view>
 	</picker>
-	<image wx:if="{{loadImg}}" src="{mytermImg}}" class="pic" mode="widthFix" bindtap="preview" bindload="loadImage" binderror="loadImageErr" data-src="{{mytermImg}}"></image>
+	<image wx:if="{{loadImg}}" src="{{mytermImg}}" class="pic" mode="widthFix" bindtap="preview" bindload="loadImage" binderror="loadImageErr" data-src="{{mytermImg}}"></image>
 	<view wx:else style="text-align:center;margin: 30rpx;">周历加载异常!</view>
 </view>

@@ -57,7 +57,7 @@
 
 		<navigator class="box" url="/pages/classgroup/classgroup" open-type="navigate">
 			<image class="pic" src="/images/tubiao/banqun.png"></image>
-			<view class="txt">组织群</view>
+			<view class="txt">学院群</view>
 		</navigator>
 
 	</view>

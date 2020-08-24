@@ -128,6 +128,19 @@
 					"pathName": "pages/index/index",
 					"query": "toPage=dorm",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/classgroup/classgroup",
+					"pathName": "pages/classgroup/classgroup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/opinion/opinion",
+					"pathName": "pages/opinion/opinion",
+					"scene": null
 				}
 			]
 		}

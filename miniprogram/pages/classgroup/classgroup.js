@@ -10,7 +10,8 @@ Page({
     search:[],
     all:[],
     click:false,
-    afterclick:""
+    afterclick:"",
+    pic:[]
   },
 
   getinputvalue(e){
@@ -47,7 +48,8 @@ Page({
       searchresult:false,
       inputValue:e.currentTarget.dataset.postname,
       click:true,
-      afterclick:""
+      afterclick:"",
+      pic:[]
     })
     for(var i=0;i<this.data.all.length;i++){
       if(this.data.all[i].college==e.currentTarget.dataset.postname){
@@ -56,16 +58,85 @@ Page({
         })
       }
     }
-    //console.log(this.data.all)
+    //console.log(this.currentTarget)
+    console.log(this.data.afterclick)
+    for(var j=0;j<this.data.afterclick.qun.length;j++){
+      this.data.pic.push(this.data.afterclick.qun[j].pic)
+    }
+    for(var k=0;k<this.data.afterclick.zhuban.length;k++){
+      this.data.pic.push(this.data.afterclick.zhuban[k].pic)
+    }
+    console.log(this.data.pic)
   },
-  
+  previewImage:function(e){
+    var current = e.currentTarget.dataset.src
+    console.log(current)
+    wx.previewImage({
+      current:current,
+      urls:this.data.pic
+    })
+  },
+  longPressSaveImg:function(e){
+    var url =  e.currentTarget.dataset.src;
+   //用户需要授权
+   wx.getSetting({
+    success: (res) => {
+      if (!res.authSetting['scope.writePhotosAlbum']) {
+        wx.authorize({
+          scope: 'scope.writePhotosAlbum',
+          success:()=> {
+            // 同意授权
+            this.saveImg1(url);
+          },
+          fail: (res) =>{
+            console.log(res);
+          }
+        })
+      }else{
+        // 已经授权了
+        this.saveImg1(url);
+      }
+    },
+    fail: (res) =>{
+      console.log(res);
+    }
+  })   
+},
+saveImg1(url){
+  wx.getImageInfo({
+    src: url,
+    success:(res)=> {
+      let path = res.path;
+      wx.saveImageToPhotosAlbum({
+        filePath:path,
+        success:(res)=> { 
+          console.log(res);
+        },
+        fail:(res)=>{
+          console.log(res);
+        }
+      })
+    },
+    fail:(res)=> {
+      console.log(res);
+    }
+  })
+  },
+ 
 
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    db.collection("college").get({
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    db.collection("classgroup").get({
       success:res=>{
         console.log(res)
         this.setData({
@@ -73,13 +144,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
   },
 
   /**

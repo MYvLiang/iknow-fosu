@@ -2,15 +2,15 @@
 <view class="a">
   <view class="title">
   <input class="text"
-  placeholder="标题（不多于10字）" 
-  maxlength="10"
+  placeholder="请输入标题（不多于20字）" 
+  maxlength="20"
   cursor-spacing="10px"
   bindinput="titleinput">
   </input>
   </view>
   <view class="details">
     <textarea class="text"
-    placeholder="正文(不多于160字）" 
+    placeholder="请输入正文，若需联系您，请附带联系方式(不多于160字）" 
     maxlength="160"
     cursor-spacing="10px"
     bindinput="detailsinput">
@@ -33,5 +33,7 @@
       <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
   </view>
 </view>
-<view class="buttom">如有疑问，请联系fosuwxapp@163.com</view>
+<view class="buttom">
+<text class="buttom-txt" selectable="true">邮件反馈方式：fosuwxapp@163.com</text>
+</view>
 

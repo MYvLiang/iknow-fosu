@@ -1,12 +1,11 @@
 /* miniprogram/pages/opinion/opinion.wxss */
 
 .title{
-  position: absolute;
-  top: 5%;
-  left: 3%;
-  width: 94%;
-  height: 7%;
-  border: 1px solid black;
+  margin: 50rpx 20rpx 0 20rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  border: 1px solid #999;
   border-radius: 5px;
 }
 .details{
@@ -15,13 +14,13 @@
   left: 3%;
   width: 94%;
   height: 60%;
-  border: 1px solid black;
+  border: 1px solid #999;
   border-radius: 5px;
 
 }
 .title .text{
-  position: absolute;
-  left: 2%;
+  margin-left: 20rpx;
+  width: 100%;
 }
 .details .text{
   position: absolute;
@@ -598,8 +597,13 @@ overflow: hidden;
   top: 35%;
 }
 .buttom{
-  color: blue;
-  width: 100%;
+  color: #666;
+  text-align: center;
   position: absolute;
-  top: 90%;
+  bottom: 50rpx;
+  width: 100%;
+}
+
+.buttom-txt{
+  text-align: center;
 }

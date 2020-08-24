@@ -1,6 +1,6 @@
  <view class="search">
-      <input type="text" class="search-box" placeholder="请输入学院名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
-      <icon type="search"></icon>
+  <icon type="search"></icon>
+  <input type="text" class="search-box" placeholder="请输入学院名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
 </view>
 
 <view class="searchresult" wx:if="{{inputValue==''}}">
@@ -17,19 +17,24 @@
 
 <view class="show" wx:if="{{click == true}}" bindtap="getInputValue">
     <view class="title">{{afterclick.college}}</view>
-    <view class="qq">群聊:</view>
-    <view wx:for="{{afterclick.qun}}" wx:key="index">
-      <view>{{item.name}}(<text selectable="true">{{item.qq}}</text>)</view>
+    <view class="title-type">{{afterclick.qun.length}}个群</view>
+    <view class="list" wx:for="{{afterclick.qun}}" wx:key="index">
+      <view class="list-txt">{{item.name}} <text selectable="true">{{item.qq}}</text></view>
       <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
     </view>
     <!--<view class="pic" wx:for="{{afterclick.pic}}" wx:key="index"> 
       <image src="{{item}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item}}"></image>
     </view>-->
-    <view>助班:</view>
-    <view wx:for="{{afterclick.zhuban}}" wx:key="index">
-      <view>{{item.class}}</view>
-      <view>{{item.name}}(<text selectable="true">{{item.wx}}</text>)</view>
+    <view class="title-type">{{afterclick.zhuban.length}}个助班微信</view>
+    <view class="list" wx:for="{{afterclick.zhuban}}" wx:key="index">
+      <view class="list-txt">{{item.class}}</view>
+      <view class="list-txt">{{item.name}} <text selectable="true">{{item.wx}}</text></view>
       <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
     </view>
-    <view class="bottom"><navigator url="../opinion/opinion" class="call">欢迎点击此处为我们提供更多信息</navigator></view>
+    
+</view>
+<view class="bottom">
+  <navigator url="../opinion/opinion" class="call">
+  感谢各位助班、同学向我们提供新生群或个人微信，若信息需要删除、修改、添加请联系我们（点击此处可反馈）
+  </navigator>
 </view>

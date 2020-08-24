@@ -9,8 +9,8 @@
 <!--轮播图 -->
 <view class="banner">
 	<swiper indicator-dots="{{true}}" autoplay="true" interval="3000" circular="true">
-		<swiper-item wx:for="{{indexlist}}">
-			<image bindload="loadImage" binderror="loadImageErr" src="{{item.imagePath}}"></image>
+		<swiper-item wx:for="{{indexlist}}" wx:key="*this">
+			<image bindload="loadImage" binderror="loadImageErr" src="{{item}}"></image>
 		</swiper-item>
 	</swiper>
 </view>
@@ -66,15 +66,21 @@
 
 <view class="works">
 	<view class="txt">今日课表</view>
+	<view>{{currentWeek}}</view>
   <navigator class="more" url="/pages/course/course">
 		<view>查看完整课表</view>
 		<view class='arrow'></view>
 	</navigator>
 </view>
 <view class="course-body">
-	<view class="course-tip" wx:if="{{myClass==''}}">未绑定班级信息，请在个人中心绑定</view>
-	<view class="course-tip" wx:elif="{{courseData.length==0&&myClass!='abc'}}">今天没课</view>
-	<view class="course-tip" wx:else>
-	
+	<view class="course-tip" wx:if="{{!myClass&&showTip}}">未绑定班级信息，请在个人信息中绑定</view>
+	<view class="course-tip" wx:elif="{{courseData.length==0&&showTip}}">{{tipStr}}</view>
+	<view class="course-list" wx:else>
+		<view class="course-contnet" wx:for="{{courseData}}" wx:for-item="course" wx:for-index="i" wx:key="_id">
+			<view class="course-contnet-title">{{time[course.beginTime-1][0]}}-{{time[course.endTime-1][0]}} {{course.name}}</view>
+			<view class="course-contnet-txt">
+			 {{course.teacher}}| {{course.place}}| {{course.weeks}}| {{days[course.day-1]}}
+			</view>
+		</view>
 	</view>
 </view>

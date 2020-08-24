@@ -28,18 +28,25 @@
     </view>
   </view>
 </view>
-
+<view class="test-week">
+实践周备注：暂无
+</view>
+<view class="statement">
+课程数据来自 100网-我的课表-班级课表查询 公开的全校课表，可能跟您的个人课表信息有所差异，敬请期待后续的数据更新（拉下刷新可获取最新课表数据）和导入个人课表功能。
+</view>
 <view  hidden="{{!showCourseDialog}}">
   <view class="dialog" bindtap="closeCourseDialog"></view>
   
   <scroll-view scroll-y="true" class="course-details" style="background-color:{{colors[selectCourses[0].color%colors.length]}};">
-    <view wx:for="{{selectCourses}}" wx:for-item="selectCourse" wx:key="_id">
+    <view class="course-details-text" wx:for="{{selectCourses}}" wx:for-item="selectCourse" wx:key="_id">
       <view class="course-details-name">{{selectCourse.name}}</view>
-      <view class="course-details-other">教室：{{selectCourse.place}}</view>
-      <view class="course-details-other">教师：{{selectCourse.teacher}}</view>
-      <view class="course-details-other">周数：{{selectCourse.weeks}}</view>
-      <view class="course-details-other">{{days[selectCourse.day-1]}} 第{{selectCourse.beginTime}}-{{selectCourse.endTime}}节</view>
-    </view>
+      <view>
+        <view class="course-details-other">教室：{{selectCourse.place}}</view>
+        <view class="course-details-other">教师：{{selectCourse.teacher}}</view>
+        <view class="course-details-other">周数：{{selectCourse.weeks}}</view>
+        <view class="course-details-other">{{days[selectCourse.day-1]}} 第{{selectCourse.beginTime}}-{{selectCourse.endTime}}节</view>
+      </view>
+      </view>
   </scroll-view>
 
 </view>
@@ -92,31 +99,6 @@
         <view class='arrow'></view>
       </view>
     </button>
-    
-
-    <!-- <picker  mode="multiSelector" bindchange="changeWeeks" bindcolumnchange="bindWeeksColumnChange"
-      value="{{weeksIndex}}" range="{{weeks}}">
-      <view class="picker">
-        <view>设置周次显示范围：</view>
-        <view class="picker-range">第{{beginWeek}} - {{endWeek}}周</view>
-      </view>
-    </picker>
-
-    <view class="keep-week">
-      每次打开课表都显示此周次范围
-      <switch type="checkbox" checked="{{keepWeek}}" color="#07c160" bindchange="keepWeekSet"/>
-    </view> -->
-    
-    <!-- <picker bindchange="bindTermChange" value="{{term}}" range="{{termList}}">
-      <view class="picker">
-        <view>查看学期：</view>
-        <view class="picker-range">{{termList[term]}}</view>
-      </view>
-    </picker> -->
-    <!-- <button class="share-button">建议/错误反馈</button>
-    <button open-type="share" class="share-button">分享小程序给朋友</button> -->
-    <!-- <button bindtap="clearS">清除课程数据缓存</button> -->
-    
     
   </view>
 </view>

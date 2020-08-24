@@ -1,12 +1,12 @@
 .top-content{
   background-color: #fff;
   margin-bottom: 30rpx;
-  height: 360rpx;
+  height: 260rpx;
 }
 .touxiang{
   margin:auto;
-  height: 220rpx;
-  width: 220rpx;
+  height: 128rpx;
+  width: 128rpx;
   padding: 20rpx;
 }
 .nickname{
@@ -19,15 +19,15 @@
   background-color: #fff;
 }
 .list-letf{
-  font-size: 34rpx;
+  font-size: 32rpx;
 }
 
 .list-content{
-  height: 120rpx;
+  height: 106rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 30rpx;
+  margin-left: 36rpx;
   border-bottom: 0.1px solid #ddd;
   background-color: #fff;
 }
@@ -37,7 +37,7 @@
   justify-content: space-between;
 }
 .list-right-text{
-  font-size: 34rpx;
+  font-size: 32rpx;
   color: #999;
 }
 .arrow {

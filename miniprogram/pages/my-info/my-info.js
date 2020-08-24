@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+const app = getApp()
 Page({
 
   /**
@@ -78,6 +79,7 @@ Page({
         }
       }).then(res => {
         console.log(res.result)
+        app.globalData.myClass=myClass;
         wx.showToast({
           title: '设置成功',
           icon: 'success',
@@ -210,13 +212,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

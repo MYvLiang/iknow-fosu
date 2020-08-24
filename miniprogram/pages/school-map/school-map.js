@@ -445,7 +445,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '佛大校园地图，VR地图',
-      path: '/pages/index/index'
+      path: '/pages/index/index?toPage=map'
     }
   }
 })

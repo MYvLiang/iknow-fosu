@@ -119,6 +119,14 @@
 					"id": -1,
 					"name": "pages/memo/memo",
 					"pathName": "pages/memo/memo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "toPage=dorm",
 					"scene": null
 				}
 			]

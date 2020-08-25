@@ -79,7 +79,7 @@
 		<view class="course-contnet" wx:for="{{courseData}}" wx:for-item="course" wx:for-index="i" wx:key="_id">
 			<view class="course-contnet-title">{{time[course.beginTime-1][0]}}-{{time[course.endTime-1][0]}} {{course.name}}</view>
 			<view class="course-contnet-txt">
-			 {{course.teacher}}| {{course.place}}| {{course.weeks}}| {{days[course.day-1]}}
+			 {{course.teacher}}| {{course.place}} | {{course.weeks}} | {{days[course.day-1]}}
 			</view>
 		</view>
 	</view>

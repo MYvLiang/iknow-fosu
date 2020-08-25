@@ -158,6 +158,7 @@ async function getTodayCourse(myClass,term){
         courseObject[todayCourse[i].name]=1;
       }
     }
+    list.sort(function(a, b){return a.beginTime - b.beginTime});
     todayCourseList=list;
   }
   

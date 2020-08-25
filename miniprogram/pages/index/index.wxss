@@ -84,8 +84,8 @@
 }
 
 .works .more{
-  font-size: 34rpx;
-  color: #000;
+  font-size: 32rpx;
+  color: #666;
   display: flex;
   align-items: center;
   justify-content: center;

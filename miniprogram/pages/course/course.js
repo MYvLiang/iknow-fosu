@@ -564,6 +564,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.clearS()
     let that = this
     console.log('onLoad')
     wx.cloud.callFunction({

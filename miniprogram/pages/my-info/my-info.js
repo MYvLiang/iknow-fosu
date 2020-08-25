@@ -70,6 +70,9 @@ Page({
     if (data.myClass != "" &&
       data.myClass != "该学院年级无班级数据" &&
       data.myClass != "请先选择学院与年级") {
+      wx.showLoading({
+        title: ' ',
+      })
       wx.cloud.callFunction({
         name: 'saveUserInfo',
         data: {
@@ -79,6 +82,7 @@ Page({
         }
       }).then(res => {
         console.log(res.result)
+        wx.hideLoading()
         app.globalData.myClass=myClass;
         wx.showToast({
           title: '设置成功',
@@ -93,6 +97,7 @@ Page({
       })
         .catch(res => {
           console.log(res)
+          wx.hideLoading()
           wx.showToast({
             title: '网络异常',
             icon: 'none',

@@ -18,11 +18,19 @@
 .weui-tab view:last-child{
   border:0;
 } */
+.a{
+  width: 100%;
+  position: relative;
+  top: 100rpx;
+}
 .tab{
+  position: fixed;
+  width: 100%;
   height: 100rpx;
   display:flex;
   border: 1px solid #95ec69;
   border-bottom: none;
+  z-index: 999;
 }
 .tab view{
   flex:1;

@@ -9,6 +9,9 @@ Page({
   data: {
     tab: ['江湾校区', '仙溪校区', '河滨校区'],
     active: 0,
+    jiangwan:[],
+    xianxi:[],
+    hebin:[],
     // inputShowed: false,
     // inputVal: "",
     // dataClub:" "
@@ -22,7 +25,7 @@ Page({
   },
 
   // 查询
-  getData() {
+  /*getData() {
      db.collection("clubList").where({
        school:'仙溪校区'
      })
@@ -30,7 +33,7 @@ Page({
        .then(res => {
          console.log(res)
        })
-   },
+   },*/
    //添加数据
    /*
   addData() {
@@ -47,7 +50,7 @@ Page({
   },*/
   //点击事件
   selectClub:function(res){
-    console.log(res.currentTarget.dataset)
+    console.log(res.currentTarget)
   },
 
   /**
@@ -79,10 +82,38 @@ Page({
        name:'getList',
        success(res){
          console.log("请求云函数成功", res)
-         that.setData({
+         var jw = new Array()
+         var xx = new Array()
+         var hb = new Array()
+         for(var i=0;i<res.result.data.length;i++){
+          if(res.result.data[i].school=="江湾校区"){
+            console.log(res.result.data[i].school)
+            
+            jw.push(res.result.data[i])
+           
+          }
+          if(res.result.data[i].school=="仙溪校区"){
+           
+            xx.push(res.result.data[i])
+           
+         }
+         if(res.result.data[i].school=="河滨校区"){
+         
+          hb.push(res.result.data[i])
+          
+         }
+        }
+        that.setData({
+          jiangwan:jw,
+          xianxi:xx,
+          hebin:hb
+        })
+        console.log(that.data.jiangwan)
+         /*that.setData({
            dataClub:res.result.data
          })
-         console.log(that.data.dataClub)
+         console.log(that.data.dataClub)*/
+         
        },
        fail(res){
          wx.showToast({
@@ -91,6 +122,7 @@ Page({
          console.log("请求云函数失败",res)
        }
      })
+
   },
 
   /**

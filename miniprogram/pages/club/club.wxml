@@ -53,7 +53,7 @@
 
   <!-- 列表 -->
   <!-- 江湾 -->
-  <!-- <view class="list" wx:if="{{active==2}}> -->
+  <view class="list" wx:if="{{active==0}}">
     <view wx:for="{{dataClub}}" class="clubList" data-id="{{item}}">
       <view class="jwClub">
         <view class="jwLogo">
@@ -66,7 +66,7 @@
         {{item.data}}
       </view>
     </view>
-  <!-- </view> -->
+  </view> 
 <!-- 
   <scroll-view class="list" scroll-y="true">
     <view class="jwClub">

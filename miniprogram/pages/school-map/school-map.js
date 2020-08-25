@@ -1,5 +1,6 @@
 let selectMarker = 0
 let content = ''
+const app = getApp()
 Page({
 
   /**
@@ -14,8 +15,35 @@ Page({
     // longitude: 112.392745,
     selectTabCampus: 0,
     placeList: [
-      [{ id: 0, name: '会通楼', latitude: 23.024982, longitude: 113.09655 }, { id: 1, name: '基础楼' }, { id: 2, name: '信息楼' }, { id: 3, name: 'xx楼' }, { id: 4, name: 'xx楼' }],
-      [],
+      [
+        { id: 0, name: '迎晖广场', latitude: 23.025483, longitude: 113.096566 }, 
+        { id: 1, name: '西苑饭堂', latitude: 23.021254, longitude: 113.094677 },
+        { id: 2, name: '清风楼饭堂', latitude: 23.023322, longitude: 113.100195 },
+        { id: 3, name: '图书馆' , latitude: 23.024189, longitude: 113.096583 },
+        { id: 4, name: '体育馆' ,latitude: 23.025498, longitude: 113.099936 },
+        { id: 5, name: '东区宿舍', latitude: 23.023588, longitude: 113.099589 },
+        { id: 6, name: '西区宿舍' , latitude: 23.020883, longitude: 113.094958 },
+        { id: 7, name: '南区宿舍', latitude: 23.020828, longitude: 113.097773 },
+        { id: 8, name: '国交宿舍', latitude: 23.02800742142048, longitude: 113.10028910636902 },
+        { id: 9, name: '会通楼', latitude: 23.024982, longitude: 113.09655 },
+        { id: 10, name: '信息楼' , latitude: 23.02453, longitude: 113.097714 },
+        { id: 11, name: '基础楼' , latitude: 23.025862, longitude: 113.095736 },
+        { id: 12, name: '孔安道', latitude: 23.024707, longitude: 113.095379 },
+        { id: 13, name: '大成楼' , latitude: 23.021363, longitude: 113.096767 },
+        { id: 14, name: '求知楼' , latitude: 23.022276, longitude: 113.096373 },
+        { id: 15, name: '致用楼', latitude: 23.026549, longitude: 113.096281 },
+        { id: 16, name: '行政楼' , latitude: 23.026481, longitude: 113.096935 }
+      ],
+      [
+        { id: 0, name: '学生餐厅', latitude: 23.140382, longitude: 113.052079 }, 
+        { id: 1, name: '南区学生餐厅', latitude: 23.131395, longitude: 113.055788 },
+        { id: 2, name: '图书馆', latitude: 23.139525, longitude: 113.054325 },
+        { id: 3, name: '体育馆' , latitude: 23.143747, longitude: 113.055261 },
+        { id: 4, name: '公共教学楼' ,latitude: 23.140121, longitude: 113.055234 },
+        { id: 5, name: '候车厅', latitude: 23.138337, longitude: 113.050664 },
+        { id: 6, name: '超市' , latitude: 23.137839, longitude: 113.050563 },
+        { id: 7, name: '学生活动中心', latitude: 23.142076, longitude: 113.052356 }
+      ],
       []],//主要地点标记
     selectTabPlace: -1,
     scale: 16,//比例
@@ -254,6 +282,8 @@ Page({
       }
     }
     console.log(markers[selectMarker])
+    console.log(markers[selectMarker].latitude)
+    console.log(markers[selectMarker].longitude)
     this.setData({
       memu: true,
       selectMarkerContent: markers[selectMarker].callout.content
@@ -295,19 +325,24 @@ Page({
     // console.log(e.currentTarget.dataset.id)
     let i = e.currentTarget.dataset.id
     let placeList = this.data.placeList
-    if (i == 0) {
+    let campus = [
+      [23.021834, 113.097832, 16],
+      [23.134401, 113.056397, 15],
+      [23.045853, 113.118786, 18]];
+      let j=this.data.selectTabCampus
+    if (i == -1) {
       this.setData({
-        latitude: placeList[0][0].latitude,
-        longitude: placeList[0][0].longitude,
+        latitude: campus[j][0],
+        longitude: campus[j][1],
         selectTabPlace: i,
-        scale: 18
+        scale: campus[j][2]
       })
     } else {
       this.setData({
-        latitude: 23.021834,
-        longitude: 113.097832,
+        latitude: placeList[j][i].latitude,
+        longitude: placeList[j][i].longitude,
         selectTabPlace: i,
-        scale: 16
+        scale: 18
       })
     }
 
@@ -315,83 +350,48 @@ Page({
 
   loadMarkers: function () {
     let that = this
-    wx.cloud.callFunction({
-      name: 'getMarker',
-      success: res => {
-        let markers = res.result.data
-        console.log(markers.length)
-        that.setData({
-          markers: markers
-        })
-      },
-      fail: res => {
-        console.log(res)
-      }
+    wx.showLoading({
+      title: '加载中',
     })
+    if(app.globalData.markers){
+      this.setData({
+        markers: app.globalData.markers
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 1000)
+    }else{
+      wx.cloud.callFunction({
+        name: 'getMarker',
+        success: res => {
+          let markers = res.result.data
+          console.log(markers.length)
+          app.globalData.markers=markers
+          that.setData({
+            markers: markers
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+          }, 1000)
+        },
+        fail: res => {
+          console.log(res)
+          wx.hideLoading()
+          wx.showToast({
+            title: '加载异常',
+            icon: 'none',
+            duration: 1000
+          })
+        }
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.getLocation({
-    //   type: 'gcj02',
-    //   success(res) {
-    //     // const latitude = res.latitude
-    //     // const longitude = res.longitude
-    //     // const speed = res.speed
-    //     // const accuracy = res.accuracy
-    //     console.log(res)
-    //   },
-    //   fail(res) {
-    //     wx.getSetting({
-    //       success: function (res) {
-    //         var statu = res.authSetting;
-    //         if (!statu['scope.userLocation']) {
-    //           wx.showModal({
-    //             title: '是否授权当前位置',
-    //             content: '需要获取您的地理位置，请确认授权',
-    //             success: function (tip) {
-    //               console.log(tip)
-    //               if (tip.confirm) {
-    //                 wx.openSetting({
-    //                   success: function (data) {
-    //                     if (data.authSetting["scope.userLocation"] === true) {
-    //                       wx.showToast({
-    //                         title: '授权成功',
-    //                         icon: 'success',
-    //                         duration: 1000
-    //                       })
-    //                       wx.getLocation({
-    //                         type: 'gcj02',
-    //                         success(res) {
-    //                           console.log(res)
-    //                         }
-    //                       })
-    //                     } else {
-    //                       wx.showToast({
-    //                         title: '授权失败',
-    //                         icon: 'none',
-    //                         duration: 1000
-    //                       })
-    //                     }
-    //                   }
-    //                 })
-    //               }
-    //             }
-    //           })
-    //         }
-    //       },
-    //       fail: function (res) {
-    //         wx.showToast({
-    //           title: '调用授权窗口失败',
-    //           icon: 'none',
-    //           duration: 1000
-    //         })
-    //       }
-    //     })
-    //   }
-    // })
+    
   },
 
   /**

@@ -12,8 +12,12 @@ Page({
     jiangwan:[],
     xianxi:[],
     hebin:[],
-    // inputShowed: false,
-    // inputVal: "",
+    inputShowed: false,
+    inputValue: "",
+    search: [],
+    all: "",
+    click: false,
+    afterclick: ""
     // dataClub:" "
   },
   //改变active的值
@@ -22,6 +26,53 @@ Page({
     this.setData({
       active: e.currentTarget.dataset.organization
     })
+  },
+  //获取信息并判断
+  getinputvalue(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+    if (e.detail.value != this.data.afterclick.name) {
+      this.setData({
+        click: false
+      })
+    }
+    var newlists = new Array();
+    for (var i = 0; i < this.data.all.length; i++) {
+      if (this.data.all[i].name.indexOf(e.detail.value) != -1) {
+        newlists.push(this.data.all[i])
+      }
+    }
+    this.setData({
+      search: newlists
+    })
+    if (e.detail.value != "") {
+      this.setData({
+        searchresult: true,
+      })
+    };
+    if (e.detail.value == "") {
+      this.setData({
+        searchresult: false,
+      })
+    };
+  },
+  searchbegin: function (e) {
+    this.setData({
+      searchresult: false,
+      inputValue: e.currentTarget.dataset.postname,
+      click: true,
+      afterclick: ""
+    })
+    for (var i = 0; i < this.data.all.length; i++) {
+      if (this.data.all[i].name == e.currentTarget.dataset.postname) {
+        this.setData({
+          afterclick: this.data.all[i]
+        })
+      }
+    }
+    console.log(this.currentTarget)
+    console.log(this.data.afterclick)
   },
 
   // 查询
@@ -69,7 +120,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    db.collection("clubList").get({
+      success: res => {
+        console.log(res)
+        this.setData({
+          all: res.data
+        })
+      }
+    })
   },
 
   /**

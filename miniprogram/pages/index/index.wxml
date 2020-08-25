@@ -1,8 +1,8 @@
-<view class="header" wx:if="{{showHeader}}">
+<view class="header" wx:if="{{showHeader}}" bindtap="colseHeader" >
   <view class="header-tip">
     点击右上角“添加到我的小程序”，以后找我更方便哦
   </view>
-	<image bindtap="colseHeader" class="header-img" src="/images/close2.png"></image>
+	<image class="header-img" src="/images/close2.png"></image>
 </view>
 
 <!--轮播图 -->

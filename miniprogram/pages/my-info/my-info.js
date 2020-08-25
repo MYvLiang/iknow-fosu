@@ -62,6 +62,11 @@ Page({
     })
   },
   saveInfo: function (e) {
+    console.log(e.detail.userInfo)
+    let userInfo=e.detail.userInfo
+    if(!e.detail.userInfo){
+      userInfo={}
+    }
     let data = this.data
     let myClass = data.myClass
     let myDepartment = data.myDepartment
@@ -78,7 +83,8 @@ Page({
         data: {
           myClass,
           myDepartment,
-          myGrade
+          myGrade,
+          userInfo
         }
       }).then(res => {
         console.log(res.result)
@@ -122,7 +128,7 @@ Page({
     let grades=[]
     let classesObject={}
     db.collection('studentInfo')
-      .doc('b5416b755f3fde700017bf5a7c36975f')
+      .doc('studentInfo123456')
       .get().then(res => {
         console.log(res.data)
         departments=res.data.departments;

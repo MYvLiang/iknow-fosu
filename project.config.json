@@ -119,6 +119,13 @@
 					"id": -1,
 					"name": "pages/memo/memo",
 					"pathName": "pages/memo/memo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/official-account/official-account",
+					"pathName": "pages/official-account/official-account",
 					"scene": null
 				}
 			]

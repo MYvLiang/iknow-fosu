@@ -1,0 +1,25 @@
+.list{
+  height: 130rpx;
+  background: white;
+  display: flex;
+}
+.list image{
+  height: 90rpx;
+  width: 90rpx;
+  border-radius:100%;
+  padding: 20rpx 30rpx;
+}
+.text{
+  padding: 45rpx 0 10rpx 0;
+}
+.about{
+  background: white;
+  padding: 0 50rpx;
+  font-size: 16px;
+  padding-bottom: 10rpx;
+}
+
+.qr{
+  margin-top: 10rpx;
+  width: 100%;
+}

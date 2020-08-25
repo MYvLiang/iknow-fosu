@@ -33,7 +33,7 @@
 			<view class="txt">学校社团</view>
 		</navigator>
 
-		<navigator class="box" url="" open-type="navigate">
+		<navigator class="box" url="/pages/official-account/official-account" open-type="navigate">
 			<image class="pic" src="/images/tubiao/gzh.png"></image>
 			<view class="txt">公众号</view>
 		</navigator>

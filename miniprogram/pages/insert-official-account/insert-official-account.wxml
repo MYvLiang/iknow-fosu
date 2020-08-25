@@ -1,0 +1,8 @@
+<view class="list">
+<image src="{{datalist.logo}}" class="logo"></image>
+<view class="text">{{datalist.name}}</view>
+</view>
+<view class="about">
+简介：{{datalist.about}}
+</view>
+<image src="{{datalist.pic}}" class="qr" mode="widthFix" data-src="{{datalist.pic}}" bindtap="preview"></image>

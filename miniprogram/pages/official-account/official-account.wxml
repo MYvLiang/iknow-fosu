@@ -1,0 +1,27 @@
+<!--搜索框-->
+<view class="search">
+	<input placeholder="搜索"></input>
+</view>
+
+<!--公众号列表-->
+<view wx:for="{{datalist}}" data-id="{{item._id}}" bindtap="shortTap">
+<view class="list">
+	<image src="{{item.logo}}"></image>
+	<view class="text">{{item.name}}</view>
+</view>
+<view class="divline">
+  <view class="line"></view>
+  </view> 
+</view>
+
+
+
+
+
+<!-- <form bindsubmit="addData">
+	<input placeholder="名字" name="name"></input>
+	<input placeholder="logo" name="logo"></input>
+	<input placeholder="简介" name="about"></input>
+	<input placeholder="二维码" name="pic"></input>
+	<button class="button" type="primary" form-type="submit">保存</button>
+</form> -->

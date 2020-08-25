@@ -24,11 +24,11 @@
   z-index: 100;
   position:fixed;
   bottom:0px;
-  display: flex;
+  /* display: flex; */
   background-color: #11b47e;
   width: 100%;
-  height: 110rpx;
-  align-items:center;
+  /* height: 110rpx; */
+  /* align-items:center; */
 }
 .vr-map{
   position:fixed;
@@ -77,8 +77,18 @@
 }
 
 .bottom-tab-container{
-  width: 100%;
+  z-index: 1000;
   white-space: nowrap;
+  display: flex;
+  background-color: #11b47e;
+  width: 100%;
+  height: 110rpx;
+  align-items:center;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 .bottom-tab-item{
   color: #fff;

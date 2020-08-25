@@ -8,7 +8,7 @@
 </view>
 
 <!--备忘列表-->
-<view wx:for="{{datalist}}" bindlongpress="longPress" class="memolist" data-id="{{item._id}}" bindtap="shortTap">
+<view wx:for="{{datalist}}" bindlongpress="longPress" class="memolist" data-id="{{item._id}}" bindtap="shortTap" wx:key="_id">
   <view class="list">
     <view>{{item.title}}</view>
     <view class="date">

@@ -87,14 +87,13 @@
 }
 .xxClub{
   height:70px;
-  border-bottom: 2px solid #7cc924;
+  border-bottom: 1px solid #c7c7c7;
   /* 使其左右排列 */
   display: flex;  
 }
 .xxClub .xxLogo{
   width:80px;
   height:60px;
-  background-color: rgba(241, 232, 232, 0.829);
   margin: 5px;
 }
 .xxClub .xxLogo image{
@@ -105,7 +104,7 @@
 .xxClub .xxDiscribe{
   flex:1;
   padding:10px;
-  background-color: rgb(193, 228, 241);
+  background-color: rgb(226, 241, 247);
 }
 .xxClub .xxDiscribe text{
   font-size: 12px;
@@ -121,14 +120,13 @@
 }
 .hbClub{
   height:70px;
-  border-bottom: 2px solid #7cc924;
+  border-bottom: 1px solid #c7c7c7;
   /* 使其左右排列 */
   display: flex;  
 }
 .hbClub .hbLogo{
   width:80px;
   height:60px;
-  background-color: rgba(241, 232, 232, 0.829);
   margin: 5px;
 }
 .hbClub .hbLogo image{
@@ -139,7 +137,7 @@
 .hbClub .hbDiscribe{
   flex:1;
   padding:10px;
-  background-color: rgb(193, 228, 241);
+  background-color: rgb(226, 241, 247);
 }
 .hbClub .hbDiscribe text{
   font-size: 12px;

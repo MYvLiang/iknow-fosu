@@ -61,7 +61,6 @@
 .jwClub .jwLogo{
   width:80px;
   height:60px;
-  background-color: rgba(241, 232, 232, 0.829);
   margin: 5px;
 }
 .jwClub .jwLogo image{

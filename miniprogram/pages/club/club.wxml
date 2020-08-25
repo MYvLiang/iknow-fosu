@@ -34,10 +34,11 @@
   <!-- 列表 -->
   <!-- 江湾 -->
   <view class="list" wx:if="{{active==0}}">
-    <view wx:for="{{jiangwan}}" class="clubList" data-id="{{item}}" wx:key="index">
+    <view wx:for="{{jiangwan}}" class="clubList" data-id="{{item}}" wx:key="index" >
       <view class="jwClub" bindtap="selectClub">
-        
-          <image scr="{{item.pic}}" class="jwLogo"></image>
+        <view class="jwLogo">
+          <image src="{{item.pic}}" mode="aspectFit"></image>
+        </view>
         <view class="jwDiscribe">
           <text class="clubTitle">{{item.name}}</text>
           <text class="discribe">{{item.jieshao}}</text>
@@ -76,5 +77,6 @@
   </view> 
 
 </view>
+
 </view>
 <!-- <button type="primary" bindtap="addData">插入一条数据</button> -->

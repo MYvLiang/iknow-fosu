@@ -1,4 +1,3 @@
-// miniprogram/pages/tongxianghui/tongxianghui.js
 const db = wx.cloud.database()
 Page({
 
@@ -18,14 +17,14 @@ Page({
     this.setData({
       inputValue: e.detail.value
     })
-    if (e.detail.value != this.data.afterclick.college) {
+    if (e.detail.value != this.data.afterclick.city) {
       this.setData({
         click: false
       })
     }
     var newlists = new Array();
     for (var i = 0; i < this.data.all.length; i++) {
-      if (this.data.all[i].college.indexOf(e.detail.value) != -1) {
+      if (this.data.all[i].city.indexOf(e.detail.value) != -1) {
         newlists.push(this.data.all[i])
       }
     }
@@ -52,7 +51,7 @@ Page({
       pic: []
     })
     for (var i = 0; i < this.data.all.length; i++) {
-      if (this.data.all[i].college == e.currentTarget.dataset.postname) {
+      if (this.data.all[i].city == e.currentTarget.dataset.postname) {
         this.setData({
           afterclick: this.data.all[i]
         })
@@ -63,8 +62,8 @@ Page({
     for (var j = 0; j < this.data.afterclick.qun.length; j++) {
       this.data.pic.push(this.data.afterclick.qun[j].pic)
     }
-    for (var k = 0; k < this.data.afterclick.zhuban.length; k++) {
-      this.data.pic.push(this.data.afterclick.zhuban[k].pic)
+    for (var k = 0; k < this.data.afterclick.xz.length; k++) {
+      this.data.pic.push(this.data.afterclick.xz[k].pic)
     }
     console.log(this.data.pic)
   },
@@ -137,11 +136,12 @@ Page({
    */
   onReady: function () {
     db.collection("tongxianghui").get({
-      success: res => {
+      success:res=>{
         console.log(res)
         this.setData({
           all: res.data
         })
+        console.log(this.data.all)
       }
     })
   },

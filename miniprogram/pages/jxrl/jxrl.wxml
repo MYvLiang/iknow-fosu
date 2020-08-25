@@ -3,7 +3,7 @@
 		<view class="picker">
 			<view class="change">
 				<view class="cal">
-					<image src="cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/calendar/cal.png"></image>
+					<image src="/images/calendar/cal.png"></image>
 				</view>
 				<view class="list-right">
           <view class="list-right-text">{{myterm}}</view>

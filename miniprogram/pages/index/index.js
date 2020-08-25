@@ -207,6 +207,7 @@ async function getUserClass(){
 
 Page({
   data: {
+    showHeader:true,
     showTip:false,
     tipStr:'今天没课，去看看完整课表吧',
     currentWeek:'',
@@ -237,7 +238,26 @@ Page({
       ['20:50', '21:30'],
     ]
   },
-  
+  colseHeader:function(e){
+    wx.showModal({
+      title: '',
+      content: '以后不再显示',
+      success (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.setStorage({
+            key:"showHeader",
+            data:false
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    this.setData({
+      showHeader:false
+    })
+  },
   loadImage:function(e){
     wx.hideLoading()
   },
@@ -285,6 +305,15 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
+    wx.getStorage({
+      key: 'showHeader',
+      success :res=> {
+        console.log(res.data)
+        this.setData({
+          showHeader: res.data
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面显示

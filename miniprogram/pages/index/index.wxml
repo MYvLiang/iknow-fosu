@@ -1,10 +1,9 @@
-<!-- <view class="header">
-  <view class="hdCon">
-    <navigator open-type="switchTab" url="/pages/index/index" class="logo">
-      <image src="/images/logo1.png"></image>
-    </navigator>
+<view class="header" wx:if="{{showHeader}}">
+  <view class="header-tip">
+    点击右上角“添加到我的小程序”，以后找我更方便哦
   </view>
-</view> -->
+	<image bindtap="colseHeader" class="header-img" src="/images/close2.png"></image>
+</view>
 
 <!--轮播图 -->
 <view class="banner">

@@ -407,7 +407,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '佛大新生小助手'
+      title: '邀你使用佛大新生小助手'
     }
   }
 })

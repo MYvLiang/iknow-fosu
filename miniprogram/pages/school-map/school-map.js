@@ -372,6 +372,11 @@ Page({
           })
           setTimeout(function () {
             wx.hideLoading()
+            wx.showToast({
+              title: '开启手机定位可显示自己所在位置',
+              icon: 'none',
+              duration: 3000
+            })
           }, 1000)
         },
         fail: res => {
@@ -444,7 +449,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '佛大校园地图，VR地图',
+      title: '邀你查看佛大校园地图、VR地图',
       path: '/pages/index/index?toPage=map'
     }
   }

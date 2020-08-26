@@ -22,12 +22,12 @@
 			<view class="txt">教学周历</view>
 		</navigator>
 
-		<navigator class="box" url="" open-type="navigate">
+		<navigator class="box" url="/pages/organization/organization" open-type="navigate">
 			<image class="pic" src="/images/tubiao/jigou.png"></image>
 			<view class="txt">学校机构</view>
 		</navigator>
 
-		<navigator class="box" url="" open-type="navigate">
+		<navigator class="box" url="/pages/club/club" open-type="navigate">
 			<image class="pic" src="/images/tubiao/shetuan.png"></image>
 			<view class="txt">学校社团</view>
 		</navigator>
@@ -44,7 +44,7 @@
 			<view class="txt">校园地图</view>
 		</navigator>
 
-		<navigator class="box" url="" open-type="navigate">
+		<navigator class="box" url="/pages/tongxianghui/tongxianghui" open-type="navigate">
 			<image class="pic" src="/images/tubiao/tongxiang.png"></image>
 			<view class="txt">同乡会</view>
 		</navigator>

@@ -61,7 +61,6 @@
 				},
 				{
 					"id": -1,
-
 					"name": "pages/course/course",
 					"pathName": "pages/course/course",
 					"query": "",
@@ -141,6 +140,13 @@
 					"id": -1,
 					"name": "pages/opinion/opinion",
 					"pathName": "pages/opinion/opinion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/club/club",
+					"pathName": "pages/club/club",
 					"scene": null
 				}
 			]

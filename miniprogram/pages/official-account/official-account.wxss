@@ -11,7 +11,7 @@
   text-align: center;
 }
 .list{
-  height: 110rpx;
+  height: 120rpx;
   background: white;
   display: flex;
 }
@@ -23,6 +23,15 @@
 }
 .text{
   padding: 30rpx 0 10rpx 0;
+}
+.text1{
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 14px;
+  color: darkgrey;
+  padding-left: 10rpx;
 }
 .divline{
   width: 100%;

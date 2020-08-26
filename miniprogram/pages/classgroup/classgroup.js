@@ -65,7 +65,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    db.collection("college").get({
+    db.collection("classgroup").get({
       success:res=>{
         console.log(res)
         this.setData({

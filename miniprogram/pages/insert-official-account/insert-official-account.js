@@ -4,6 +4,7 @@ Page({
   data:{
     datalist:[],
     editid:'',
+    tip:false
   },
   onLoad: function(options) {
     id = options.id
@@ -15,6 +16,18 @@ Page({
     this.setData({
       editid:id
     })
+    this.setData({
+      tip:false
+    })
+    wx.showLoading({
+      title: '加载数据',
+    })
+    setTimeout(function () {
+      that.setData({
+        tip:true
+      })
+      wx.hideLoading()
+    }, 2000)
     console.log('edid:',this.data.editid)
     db.collection('officialAccountList').doc(id).get().then(res => {
       // res.data 包含该记录的数据

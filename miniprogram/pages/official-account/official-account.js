@@ -2,10 +2,61 @@ const app = getApp()
 const db = wx.cloud.database()
 Page({
   data:{
-    datalist:[],
-    tip:false
+    datalist:[],//所有公众号
+    tip:false,
+    inputValue: '', //搜索的内容
+    search:[],      //搜索到的公众号
+    afterclick:"",
+    click:false,
+    searchresult:false,
   },
 
+
+  getinputvalue(e){
+    this.setData({
+      inputValue: e.detail.value
+    })
+    if(e.detail.value != this.data.afterclick.college){
+      this.setData({
+        click:false
+      })
+    }
+    var newlists = new Array();
+   for(var i=0;i<this.data.datalist.length;i++){
+      if(this.data.datalist[i].name.indexOf(e.detail.value)!=-1){
+        newlists.push(this.data.datalist[i])
+      }
+    }
+    this.setData({
+      search:newlists
+    })
+    if(e.detail.value!=""){
+      this.setData({
+        searchresult: true,
+      })
+    };
+    if(e.detail.value==""){
+      this.setData({
+        searchresult: false,
+      })
+    };
+  },
+  searchbegin:function(e){
+    this.setData({
+      searchresult:false,
+      inputValue:e.currentTarget.dataset.postname,
+      click:true,
+      afterclick:""
+    })
+    for(var i=0;i<this.data.datalist.length;i++){
+      if(this.data.datalist[i].name==e.currentTarget.dataset.postname){
+        this.setData({
+          afterclick:this.data.datalist[i]
+        })
+      }
+    }
+    //console.log(this.data.datalist)
+  },
 /*   //添加数据
   addData(e) {
     var name=e.detail.value.name;

@@ -1,21 +1,38 @@
 <!--搜索框-->
 <view class="search">
-	<input placeholder="搜索"></input>
+	<input placeholder="搜索" type='text' value="{{inputValue}}" bindinput='getinputvalue'></input>
 </view>
 
 <!--公众号列表-->
-<view wx:for="{{datalist}}" data-id="{{item._id}}" bindtap="shortTap">
-<view class="list">
-	<image src="{{item.logo}}"></image>
-	<view class="text">{{item.name}}</view>
+<view wx:if="{{inputValue==''}}">
+	<view wx:for="{{datalist}}" data-id="{{item._id}}" bindtap="shortTap">
+		<view class="list">
+			<image src="{{item.logo}}"></image>
+			<view class="text">
+				{{item.name}}
+				<view class="text1">简介：{{item.about}}</view>
+			</view>
+		</view>
+		<view class="divline">
+			<view class="line"></view>
+		</view>
+	</view>
 </view>
-<view class="divline">
-  <view class="line"></view>
-  </view> 
+
+<view wx:if="{{searchresult == true}}">
+	<view class="result" wx:for="{{search}}" catchtap="searchbegin" wx:key="index" bindtap="getInputValue" data-postname="{{item.name}}">
+		<view class="list">
+			<image src="{{item.logo}}"></image>
+			<view class="text">
+				{{item.name}}
+				<view class="text1">简介：{{item.about}}</view>
+			</view>
+		</view>
+		<view class="divline">
+			<view class="line"></view>
+		</view>
+	</view>
 </view>
-
-
-
 
 
 <!-- <form bindsubmit="addData">

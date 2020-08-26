@@ -126,6 +126,13 @@
 					"id": -1,
 					"name": "pages/official-account/official-account",
 					"pathName": "pages/official-account/official-account",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/classgroup/classgroup",
+					"pathName": "pages/classgroup/classgroup",
 					"scene": null
 				}
 			]

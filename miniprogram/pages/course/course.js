@@ -656,7 +656,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '佛大课程表',
+      title: '邀你使用佛大课程表',
       path: '/pages/index/index?toPage=course'
     }
   }

@@ -68,7 +68,7 @@
   justify-content: center;
   height: 160rpx;
   width: 160rpx;
-  /* background-color: #999; */
+  background-color: #fff;
 }
 .major .pic{
   width: 74rpx;

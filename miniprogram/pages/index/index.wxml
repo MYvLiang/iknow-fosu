@@ -1,15 +1,15 @@
-<view class="header" wx:if="{{showHeader}}">
+<view class="header" wx:if="{{showHeader}}" bindtap="colseHeader" >
   <view class="header-tip">
     点击右上角“添加到我的小程序”，以后找我更方便哦
   </view>
-	<image bindtap="colseHeader" class="header-img" src="/images/close2.png"></image>
+	<image class="header-img" src="/images/close2.png"></image>
 </view>
 
 <!--轮播图 -->
 <view class="banner">
-	<swiper indicator-dots="{{true}}" autoplay="true" interval="3000" circular="true">
+	<swiper indicator-dots="true" autoplay="true" interval="3000" circular="true">
 		<swiper-item wx:for="{{indexlist}}" wx:key="*this">
-			<image bindload="loadImage" binderror="loadImageErr" src="{{item}}"></image>
+			<image bindload="loadImage" binderror="loadImageErr" src="{{item.img}}" bindtap="bindSwiper" data-swi="{{index}}"></image>
 		</swiper-item>
 	</swiper>
 </view>
@@ -56,7 +56,7 @@
 
 		<navigator class="box" url="/pages/classgroup/classgroup" open-type="navigate">
 			<image class="pic" src="/images/tubiao/banqun.png"></image>
-			<view class="txt">学院群</view>
+			<view class="txt">新生群</view>
 		</navigator>
 
 	</view>

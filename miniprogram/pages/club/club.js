@@ -32,6 +32,7 @@ Page({
     this.setData({
       inputValue: e.detail.value
     })
+    console.log(this.data.inputValue)
     if (e.detail.value != this.data.afterclick.name) {
       this.setData({
         click: false
@@ -127,14 +128,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    db.collection("clubList").get({
-      success: res => {
-        console.log(res)
-        this.setData({
-          all: res.data
-        })
-      }
-    })
+   
   },
 
   /**

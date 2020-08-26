@@ -61,6 +61,7 @@
 				},
 				{
 					"id": -1,
+
 					"name": "pages/course/course",
 					"pathName": "pages/course/course",
 					"query": "",

@@ -62,6 +62,11 @@ Page({
     })
   },
   saveInfo: function (e) {
+    console.log(e.detail.userInfo)
+    let userInfo=e.detail.userInfo
+    if(!e.detail.userInfo){
+      userInfo={}
+    }
     let data = this.data
     let myClass = data.myClass
     let myDepartment = data.myDepartment
@@ -70,15 +75,20 @@ Page({
     if (data.myClass != "" &&
       data.myClass != "该学院年级无班级数据" &&
       data.myClass != "请先选择学院与年级") {
+      wx.showLoading({
+        title: ' ',
+      })
       wx.cloud.callFunction({
         name: 'saveUserInfo',
         data: {
           myClass,
           myDepartment,
-          myGrade
+          myGrade,
+          userInfo
         }
       }).then(res => {
         console.log(res.result)
+        wx.hideLoading()
         app.globalData.myClass=myClass;
         wx.showToast({
           title: '设置成功',
@@ -93,6 +103,7 @@ Page({
       })
         .catch(res => {
           console.log(res)
+          wx.hideLoading()
           wx.showToast({
             title: '网络异常',
             icon: 'none',
@@ -117,7 +128,7 @@ Page({
     let grades=[]
     let classesObject={}
     db.collection('studentInfo')
-      .doc('b5416b755f3fde700017bf5a7c36975f')
+      .doc('studentInfo123456')
       .get().then(res => {
         console.log(res.data)
         departments=res.data.departments;

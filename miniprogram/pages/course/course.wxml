@@ -54,6 +54,10 @@
 <view hidden="{{!showSetDialog}}">
   <view class="dialog" bindtap="closeSetting"></view>
   <view class="setting-dialog">
+    <view class="setting-top">
+      <view class="setting-top-txt">设置</view>
+      <image bindtap="closeSetting" class="close-img" src="/images/close.png"></image>
+    </view>
     <view class="list-content" style="height:10rpx;"></view>
 
     <picker  mode="multiSelector" bindchange="changeWeeks" bindcolumnchange="bindWeeksColumnChange"

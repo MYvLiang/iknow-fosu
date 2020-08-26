@@ -102,12 +102,13 @@ Page({
           success(res) {
             console.log("发送成功", res)
             console.log(fujian)
+            wx.hideLoading()
             wx.showToast({
               title: '提交成功！',  // 标题
               icon: 'success',   // 图标类型，默认success
-              duration: 1500   // 提示窗停留时间，默认1500ms
+              duration: 1000   // 提示窗停留时间，默认1500ms
             })
-            wx.hideLoading()
+            
             setTimeout(function () {
               wx.switchTab({
                 url: '/pages/me/me'
@@ -168,7 +169,7 @@ Page({
                     wx.showToast({
                       title: '提交成功！',  // 标题
                       icon: 'success',   // 图标类型，默认success
-                      duration: 1500   // 提示窗停留时间，默认1500ms
+                      duration: 1000   // 提示窗停留时间，默认1500ms
                     })
                     setTimeout(function () {
                       wx.switchTab({

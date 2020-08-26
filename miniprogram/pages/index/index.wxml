@@ -1,16 +1,15 @@
-<!-- <view class="header">
-  <view class="hdCon">
-    <navigator open-type="switchTab" url="/pages/index/index" class="logo">
-      <image src="/images/logo1.png"></image>
-    </navigator>
+<view class="header" wx:if="{{showHeader}}" bindtap="colseHeader" >
+  <view class="header-tip">
+    点击右上角“添加到我的小程序”，以后找我更方便哦
   </view>
-</view> -->
+	<image class="header-img" src="/images/close2.png"></image>
+</view>
 
 <!--轮播图 -->
 <view class="banner">
-	<swiper indicator-dots="{{true}}" autoplay="true" interval="3000" circular="true">
+	<swiper indicator-dots="true" autoplay="true" interval="3000" circular="true">
 		<swiper-item wx:for="{{indexlist}}" wx:key="*this">
-			<image bindload="loadImage" binderror="loadImageErr" src="{{item}}"></image>
+			<image bindload="loadImage" binderror="loadImageErr" src="{{item.img}}" bindtap="bindSwiper" data-swi="{{index}}"></image>
 		</swiper-item>
 	</swiper>
 </view>
@@ -57,7 +56,7 @@
 
 		<navigator class="box" url="/pages/classgroup/classgroup" open-type="navigate">
 			<image class="pic" src="/images/tubiao/banqun.png"></image>
-			<view class="txt">学院群</view>
+			<view class="txt">新生群</view>
 		</navigator>
 
 	</view>
@@ -79,7 +78,7 @@
 		<view class="course-contnet" wx:for="{{courseData}}" wx:for-item="course" wx:for-index="i" wx:key="_id">
 			<view class="course-contnet-title">{{time[course.beginTime-1][0]}}-{{time[course.endTime-1][0]}} {{course.name}}</view>
 			<view class="course-contnet-txt">
-			 {{course.teacher}}| {{course.place}}| {{course.weeks}}| {{days[course.day-1]}}
+			 {{course.teacher}}| {{course.place}} | {{course.weeks}} | {{days[course.day-1]}}
 			</view>
 		</view>
 	</view>

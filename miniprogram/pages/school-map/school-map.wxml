@@ -21,10 +21,11 @@
   enable-scroll="{{enableScroll}}" 
   polygons="{{polygons}}" 
   show-location="true"
-  bindtap="bindtapMap" 
-  bindmarkertap="bindmarkertapMap" 
+  
   bindregionchange="bindregionchangeMap" >
 	</map>
+ <!-- bindtap="bindtapMap" 
+  bindmarkertap="bindmarkertapMap"  -->
   <view class="vr-map" bindtap="vrMap">
     <image class="vr-map-image" src="/images/vrmap.png"></image>
   </view>
@@ -38,7 +39,8 @@
   </view>
 
   <view class="bottom-view">
-      <scroll-view class="bottom-tab-container" scroll-x="true">
+      <scroll-view scroll-x="true">
+      <view class="bottom-tab-container">
         <select bindtap="selectCampus" class="bottom-tab-item">
           <view wx:if="{{selectTabCampus==0}}">江湾校区   ▼</view>
           <view wx:elif="{{selectTabCampus==1}}">仙溪校区  ▼</view>
@@ -50,6 +52,7 @@
         class="bottom-tab-item {{selectTabPlace==index?'bottom-tab-select-item':''}}" bindtap="selectPlace">
           {{item.name}}
         </view>
+      </view>
       </scroll-view>
   </view>
 </view>

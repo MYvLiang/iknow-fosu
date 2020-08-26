@@ -180,7 +180,7 @@
   border-top-left-radius: 35rpx;
   min-height: 100rpx;
   background-color: #fff;
-  padding-top: 50rpx;
+  padding-top: 30rpx;
   padding-bottom: 50rpx;
 }
 
@@ -245,4 +245,24 @@
   font-size: 26rpx;
   color: #777;
   text-align: center;
+}
+
+.setting-top{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50rpx;
+  margin-bottom: 20rpx;
+}
+
+.setting-top-txt{
+  font-size: 34rpx;
+  font-weight: 700;
+  margin-right: 270rpx;
+}
+
+.close-img{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 40rpx;
 }

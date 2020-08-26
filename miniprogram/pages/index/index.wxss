@@ -1,9 +1,25 @@
 /* 头部logo */
 .header{
   width: 100%;
-  height: 90rpx;
-  background-color: white;
+  height: 50rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.header-tip{
+  color: #999;
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+
+.header-img{
+  height: 22rpx;
+  width: 22rpx;
+  margin-right: 20rpx;
+}
+
 .hdCon{
   display: flex;
   height: 100%;
@@ -52,7 +68,7 @@
   justify-content: center;
   height: 160rpx;
   width: 160rpx;
-  /* background-color: #999; */
+  background-color: #fff;
 }
 .major .pic{
   width: 74rpx;
@@ -84,8 +100,8 @@
 }
 
 .works .more{
-  font-size: 34rpx;
-  color: #000;
+  font-size: 32rpx;
+  color: #666;
   display: flex;
   align-items: center;
   justify-content: center;

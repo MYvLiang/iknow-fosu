@@ -27,7 +27,7 @@ Page({
       active: e.currentTarget.dataset.organization
     })
   },
-  //获取信息并判断
+  //搜索框获取信息并判断
   getinputvalue(e) {
     this.setData({
       inputValue: e.detail.value
@@ -99,9 +99,16 @@ Page({
       console.log(res)
     })
   },*/
+  
   //点击事件 点击列表查看详情
-  selectClub:function(res){
-    console.log(res.currentTarget)
+  selectClub:function(e){
+    // console.log(res.currentTarget)
+    this.setData({
+      searchresult: false,
+      inputValue: e.currentTarget.dataset.postname,
+      click: true,
+      afterclick: ""
+    })
   },
 
   /**

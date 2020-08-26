@@ -99,7 +99,10 @@
         </view>
       </view>
     </view>
-
+  </view>
+<!-- 点击获取图片 -->
+  <view class="xq" wx:if="{{click == true}}" bindtap="selectClub">
+    <view>{{item.pic}}</view>
   </view>
 
 </view>

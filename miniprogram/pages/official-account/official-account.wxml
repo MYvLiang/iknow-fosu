@@ -20,8 +20,8 @@
 </view>
 
 <view wx:if="{{searchresult == true}}">
-	<view class="result" wx:for="{{search}}" catchtap="searchbegin" wx:key="index" bindtap="getInputValue" data-postname="{{item.name}}">
-		<view class="list">
+	<view class="result" wx:for="{{search}}" catchtap="searchbegin" wx:key="index" bindtap="getinputvalue" data-postname="{{item.name}}">
+		<view class="list" bindtap="shortTap" data-id="{{item._id}}">
 			<image src="{{item.logo}}"></image>
 			<view class="text">
 				{{item.name}}

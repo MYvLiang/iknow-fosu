@@ -19,11 +19,7 @@
 
 <view class="show" wx:if="{{click == true}}" bindtap="getInputValue">
     <view class="title">{{afterclick.city}}</view>
-<<<<<<< HEAD
-    <view class="title-type">{{afterclick.qun.length}}个群</view>
-=======
     <!--<view class="title-type">{{afterclick.qun.length}}个群</view>-->
->>>>>>> Mandy
     <view class="list" wx:for="{{afterclick.qun}}" wx:key="index">
       <view class="list-txt">{{item.name}} <text selectable="true">{{item.qq}}</text></view>
       <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
@@ -31,15 +27,9 @@
     <!--<view class="pic" wx:for="{{afterclick.pic}}" wx:key="index"> 
       <image src="{{item}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item}}"></image>
     </view>-->
-<<<<<<< HEAD
-    <view class="title-type">{{afterclick.xz.length}}个乡长微信</view>
-    <view class="list" wx:for="{{afterclick.xz}}" wx:key="index">
-      <view class="list-txt">{{item.class}}</view>
-=======
     <!--<view class="title-type">{{afterclick.zhuban.length}}个助班微信</view>-->
     <view class="list" wx:for="{{afterclick.xz}}" wx:key="index">
       <!--<view class="list-txt">{{item.class}}</view>-->
->>>>>>> Mandy
       <view class="list-txt">{{item.name}} <text selectable="true">{{item.wx}}</text></view>
       <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
     </view>

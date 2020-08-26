@@ -99,7 +99,7 @@ Page({
       console.log(res)
     })
   },*/
-  //点击事件
+  //点击事件 点击列表查看详情
   selectClub:function(res){
     console.log(res.currentTarget)
   },

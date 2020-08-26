@@ -1,11 +1,12 @@
 <!--miniprogram/pages/club/club.wxml-->
 <!-- <button type="primary" bindtap="getData">查询数据</button> -->
 <view class="club" style="display:flex;flex-direction: column;">
-  <!-- 搜索框 固定高度-->
+  <!-- tab 固定高度-->
   <view class="tab">
     <view wx:for="{{tab}}" class="{{active==organization?'cur':''}}" wx:key="organization" data-organization="{{index}}" bindtap="change">{{item}}
     </view>
   </view>
+  <!-- 搜索框 固定高度-->
   <view class="a">
     <view class="searchb">
       <view class="page" data-weui-theme="{{theme}}">

@@ -1,0 +1,71 @@
+/* miniprogram/pages/organization/organization.wxss */
+/*搜索框*/
+.search{
+  height: 60rpx;
+  border: 1px solid black;
+  padding: 10rpx 20rpx;
+  margin: 30rpx 20rpx 0rpx 20rpx;
+  display: flex;
+  align-items:center;
+
+}
+.search .search-box{
+  margin-left: 20rpx;
+}
+
+.searchresult {
+  width: 100%;
+  background: #fff;
+}
+.result {
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  padding: 0 30rpx;
+  color: #333;
+  font-family: "微软雅黑";
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+/*导航栏*/
+.tab-h{
+    height: 80rpx;width: 100%; 
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 80rpx;
+    background: #F7F7F7; 
+    ont-size: 16px; 
+    white-space: nowrap;
+    position: fixed;
+    top: 3; 
+    left: 0; 
+    z-index: 99;}
+.tab-item{
+  margin:0 36rpx;
+  display: inline-block;}
+.tab-item.active{
+  color: #4675F9;
+  position: relative;}
+.tab-item.active:after{ 
+  content: "";
+  display: block;
+  height: 8rpx;
+  width: 52rpx;
+  background: #4675F9;
+  position: absolute; bottom: 0;left: 5rpx;border-radius: 16rpx;}
+.item-ans{ width: 100%;display: flex; flex-grow: row no-wrap;justify-content: space-between; padding: 30rpx;box-sizing: border-box; height: 180rpx;align-items: center;border-bottom: 1px solid #F2F2F2;}
+.avatar{width: 100rpx;height: 100rpx;position: relative;padding-right: 30rpx;}
+.avatar .img{width: 100%;height: 100%;}
+.avatar .doyen{width: 40rpx;height: 40rpx;position: absolute;bottom: -2px;right: 20rpx;}
+.expertInfo{font-size: 12px;flex-grow: 2;color: #B0B0B0;line-height: 1.5em;}
+.expertInfo{font-size: 12px;flex-grow: 2;color: #B0B0B0;line-height: 1.5em;}
+.expertInfo .name{font-size: 16px;color:#000;margin-bottom: 6px;}
+.askBtn{ width: 120rpx;height: 60rpx;line-height: 60rpx;text-align: center;font-size: 14px; border-radius: 60rpx;border: 1px solid #4675F9; color:#4675F9;}
+.tab-content{margin-top: 80rpx;}
+.scoll-h{height: 100%;}

@@ -1,120 +1,81 @@
 <!--miniprogram/pages/organization/organization.wxml-->
 <!-- 搜索框 -->
- <view class="search">
-  <icon type="search"></icon>
-  <input type="text" class="search-box" placeholder="请输入机构名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
+<view class="page" data-weui-theme="{{theme}}">
+
+	<view class="page__bd">
+		<view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+			<form class="weui-search-bar__form">
+				<view class="weui-search-bar__box">
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+				</view>
+				<label class="weui-search-bar__label" bindtap="showInput">
+                    <span class="weui-search-bar__text">搜索</span>
+				</label>
+			</form>
+            <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+		</view>
+		<!-- <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+			<view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd weui-cell_primary">
+					<view>实时搜索文本</view>
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd weui-cell_primary">
+					<view>实时搜索文本</view>
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd weui-cell_primary">
+					<view>实时搜索文本</view>
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd weui-cell_primary">
+					<view>实时搜索文本</view>
+				</view>
+			</view>
+		</view> -->
+	</view>
 </view>
+<!-- 搜索框 -->
 
-
-<!-- 导航栏 -->
-<view >
-    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-        <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">校级机构</view>
-        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">医学院</view>
-        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">法学院</view>
-        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">数学学院</view>
-        <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">经管学院</view>
-        <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">环化学院</view>
-        <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">材能学院</view>
-        <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">工陶学院</view>
-        <view class="tab-item {{currentTab==8?'active':''}}" data-current="8" bindtap="swichNav">粤台学院</view>
-        <view class="tab-item {{currentTab==9?'active':''}}" data-current="9" bindtap="swichNav">机电学院</view>
-        <view class="tab-item {{currentTab==10?'active':''}}" data-current="10" bindtap="swichNav">食品学院</view>
-        <view class="tab-item {{currentTab==11?'active':''}}" data-current="11" bindtap="swichNav">交建学院</view>
-        <view class="tab-item {{currentTab==12?'active':''}}" data-current="12" bindtap="swichNav">物电学院</view>
-        <view class="tab-item {{currentTab==13?'active':''}}" data-current="13" bindtap="swichNav">生科学院</view>
-        <view class="tab-item {{currentTab==14?'active':''}}" data-current="14" bindtap="swichNav">电信学院</view>
-        <view class="tab-item {{currentTab==15?'active':''}}" data-current="15" bindtap="swichNav">人文学院</view>
-    </scroll-view>
-    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
-     style="height:{{winHeight}}rpx">
-        <!-- <swiper-item wx:for="{{[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]}}"> -->
-         <swiper-item wx:for="{{[0]}}">
-            <scroll-view scroll-y="true" class="scoll-h" >
-
-        
-             
-              <block wx:key="*this">
-                  <view class="item-ans">
-                      <view class="avatar">
-                          <image class="img" src="images/xiaotuanwei-logo.jpg"></image>
-                      </view>
-                      <view class="expertInfo">
-                          <view class="name">佛大校团委</view>
-                          <view class="tag">校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。</view>
-                    
-                      </view>
-                      <navigator class="askBtn">details</navigator> 
-                  </view>
-              </block>
-          
-
-            
-              <block wx:key="*this">
-                  <view class="item-ans">
-                      <view class="avatar">
-                          <image class="img" src="/images/xiaohui-logo.jpg	"></image>
-                      </view>
-                      <view class="expertInfo" >
-                          <view class="name">佛大学生会</view>
-                          <view class="tag">佛山科学技术学院学生会以“服务同学，提升自我”为根本宗旨，组织开展活动。</view>
-                         
-                       </view>
-                      <navigator  class="askBtn">details</navigator> 
-                  </view>
-              </block>
-
-            
-              <block wx:key="*this">
-                  <view class="item-ans">
-                      <view class="avatar">
-                          <image class="img" src="images/qingxie-logo.jpg"></image>
-                      </view>
-                      <view class="expertInfo">
-                          <view class="name">佛大校青协</view>
-                          <view class="tag">佛山科学技术学院青年志愿者协会以“立人立己，助人自助”为宗旨，组织开展活动。</view>
-                         
-                      </view>
-                      <navigator class="askBtn">details</navigator> 
-                  </view>
-              </block>
-
-              
-                <block wx:key="*this">
-                  <view class="item-ans">
-                      <view class="avatar">
-                          <image class="img" src="images/shelian-logo.jpg"></image>
-                      </view>
-                      <view class="expertInfo">
-                          <view class="name">佛大社联</view>
-                          <view class="tag">佛山科学技术学院社团联合会在校团委的指导下，管理协调三个校区的社团，代表佛科院的力量。</view>
-                         
-                      </view>
-                      <navigator class="askBtn">details</navigator> 
-                  </view>
-              </block>
-
-          
-              <block wx:key="*this">
-                  <view class="item-ans">
-                      <view class="avatar">
-                          <image class="img" src="images/yanjiu-logo.jpg "></image>
-                      </view>
-                      <view class="expertInfo">
-                          <view class="name">佛大研究生会</view>
-                          <view class="tag">佛山科学技术学院研究生会是学校党委与研究生的桥梁与纽带。</view>
-                        
-                      </view>
-                      <navigator class="askBtn">details</navigator> 
-                  </view>
-              </block>
-
-        
-
-
-
-
-            </scroll-view>
-        </swiper-item>
-    </swiper>
+<!-- 顶部tab栏 -->
+<view class="tab">
+  <!-- <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 25%"> -->
+    <view wx:for="{{tab}}" class="{{active==organization?'cur':''}}" wx:key="organization" data-organization="{{index}}" bindtap="change">{{item}}
+    </view>
+  <!-- </scroll-view> -->
 </view>
+<!-- 选择（js） -->
+<!-- <view class="academyName">
+  <view class="{{active==0?'list cur':'list'}}">校级</view>
+  <view class="{{active==1?'list cur':'list'}}">数学</view>
+  <view class="{{active==2?'list cur':'list'}}">电子</view>
+  <view class="{{active==3?'list cur':'list'}}">环化</view>
+</view> -->
+
+
+
+<!-- 列表 校级 -->
+<!-- <scroll-view class="list" scroll-y>
+  <view class="xj">
+    <view class="xjLogo">
+      <image src="/images/xiaohui-logo.jpg"/>
+    </view>
+    <view class="xjDiscribe">
+      <text class="orgTitle">佛大学生会</text>
+      <text class="discribe">宗旨：服务同学，提升自我。</text>
+    </view>
+  </view>
+    <view class="xj">
+    <view class="xjLogo">
+      <image src="/images/xiaohui-logo.jpg"/>
+    </view>
+    <view class="xjDiscribe">
+      <text class="orgTitle">大学生艺术实践中心</text>
+      <text class="discribe">主要负责承接校内外舞台表演。</text>
+    </view>
+  </view>
+</scroll-view> -->

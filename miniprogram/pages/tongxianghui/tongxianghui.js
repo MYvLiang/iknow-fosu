@@ -1,4 +1,3 @@
-// miniprogram/pages/tongxianghui/tongxianghui.js
 const db = wx.cloud.database()
 Page({
 
@@ -137,11 +136,12 @@ Page({
    */
   onReady: function () {
     db.collection("tongxianghui").get({
-      success: res => {
+      success:res=>{
         console.log(res)
         this.setData({
           all: res.data
         })
+        console.log(this.data.all)
       }
     })
   },

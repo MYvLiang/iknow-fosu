@@ -213,12 +213,18 @@ Page({
     currentWeek:'',
     myClass: '',
     courseData: [],
+    /*默认加载的indexlist数据*/
     indexlist: [
-      "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/one.jpg",
-      "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/two.jpg",
-      "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/three.jpg",
-      "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/four.jpg",
-      "cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/five.jpg"
+      {
+        img:"cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/one.jpg",
+        data:["cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/one.jpg"]
+      },{
+        img:"cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/two.jpg",
+        data:["cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/two.jpg"]
+      },{
+        img:"cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/three.jpg",
+        data:["cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/three.jpg"]
+      }
     ],
     days: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     time: [
@@ -237,6 +243,15 @@ Page({
       ['20:05', '20:45'],
       ['20:50', '21:30'],
     ]
+  },
+  bindSwiper: function(e){
+    let i=e.target.dataset.swi
+    let item=this.data.indexlist[i]
+    console.log(i,item)
+    wx.previewImage({
+      current: item.img, // 当前显示图片的http链接
+      urls: item.data // 需要预览的图片http链接列表
+    })
   },
   colseHeader:function(e){
     wx.showModal({
@@ -266,6 +281,16 @@ Page({
       title: '系统异常',
       icon: 'none',
       duration: 2000
+    })
+  },
+  loadIndexImg:function(){
+    db.collection('indexList').get().then(res=>{
+      console.log('indexList',res.data)
+      if(res.data.length>0){
+        this.setData({
+          indexlist:res.data
+        })
+      }
     })
   },
   onLoad: function (query) {
@@ -305,6 +330,7 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
+    this.loadIndexImg()
     wx.getStorage({
       key: 'showHeader',
       success :res=> {

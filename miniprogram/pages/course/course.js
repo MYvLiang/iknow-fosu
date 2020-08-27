@@ -567,40 +567,48 @@ Page({
     // this.clearS()
     let that = this
     console.log('onLoad')
-    wx.cloud.callFunction({
-      name: 'getUserInfo'
-    }).then(res => {
-      let info = res.result.info
-      console.log(info)
-      if (info && info.length > 0) {
-        that.setData({
-          myClass:info[0].myClass
-        })
-        this.loadData(info[0].myClass)
-      }else{
-        wx.showModal({
-          title: '提示',
-          content: '未绑定班级信息，请在个人信息中绑定',
-          success (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-              wx.switchTab({
-                url: '/pages/me/me'
-              })
-            } else if (res.cancel) {
-              console.log('用户点击取消')
+    if(!app.globalData.myClass){
+      wx.cloud.callFunction({
+        name: 'getUserInfo'
+      }).then(res => {
+        let info = res.result.info
+        console.log(info)
+        if (info && info.length > 0) {
+          app.globalData.myClass=info[0].myClass
+          that.setData({
+            myClass:info[0].myClass
+          })
+          this.loadData(info[0].myClass)
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '未绑定班级信息，请在个人信息中绑定',
+            success (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wx.switchTab({
+                  url: '/pages/me/me'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
             }
-          }
+          })
+        }
+      }).catch(res => {
+        console.log(res)
+        wx.showToast({
+          title: '网络异常',
+          icon: 'none',
+          duration: 2000
         })
-      }
-    }).catch(res => {
-      console.log(res)
-      wx.showToast({
-        title: '网络异常',
-        icon: 'none',
-        duration: 2000
       })
-    })
+    }else{
+      that.setData({
+        myClass:app.globalData.myClass
+      })
+      this.loadData(app.globalData.myClass)
+    }
   },
 
   /**

@@ -16,8 +16,11 @@
     "pages/opinion/opinion",
     "pages/classgroup/classgroup",
     "pages/import-course/import-course",
+    "pages/official-account/official-account",
+    "pages/insert-official-account/insert-official-account",
     "pages/tongxianghui/tongxianghui",
-    "pages/club/club"
+    "pages/club/club",
+    "pages/organization/organization"
   ],
   "tabBar": {
     "list": [

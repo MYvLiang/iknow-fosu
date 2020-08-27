@@ -69,7 +69,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      path: '/pages/index/index?toPage=aboutus'
+      path: '/pages/index/index?toPage=about-us'
     }
   }
 })

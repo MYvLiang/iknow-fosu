@@ -62,7 +62,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      path: '/pages/index/index?toPage=log'
+      path: '/pages/index/index?toPage=update-log'
     }
   }
 })

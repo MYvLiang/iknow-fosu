@@ -61,7 +61,6 @@
 				},
 				{
 					"id": -1,
-
 					"name": "pages/course/course",
 					"pathName": "pages/course/course",
 					"query": "",
@@ -82,9 +81,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/my-info/my-info",
-					"pathName": "pages/my-info/my-info",
+					"id": 4,
+					"name": "pages/club/club",
+					"pathName": "pages/club/club",
 					"query": "",
 					"scene": null
 				},
@@ -96,9 +95,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/update-log/update-log",
-					"pathName": "pages/update-log/update-log",
+					"id": 6,
+					"name": "pages/tongxianghui/tongxianghui",
+					"pathName": "pages/tongxianghui/tongxianghui",
 					"query": "",
 					"scene": null
 				},
@@ -124,16 +123,9 @@
 					"scene": null
 				},
 				{
-					"id": 10,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
-					"query": "toPage=dorm",
-					"scene": null
-				},
-				{
 					"id": -1,
-					"name": "pages/classgroup/classgroup",
-					"pathName": "pages/classgroup/classgroup",
+					"name": "pages/official-account/official-account",
+					"pathName": "pages/official-account/official-account",
 					"query": "",
 					"scene": null
 				},
@@ -141,6 +133,14 @@
 					"id": -1,
 					"name": "pages/opinion/opinion",
 					"pathName": "pages/opinion/opinion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/organization/organization",
+					"pathName": "pages/organization/organization",
+					"query": "",
 					"scene": null
 				}
 			]

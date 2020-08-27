@@ -1,0 +1,24 @@
+<view class="header">
+  <view class="hdCon">
+    <view class="txt">备忘</view>
+    <navigator open-type="navigate" url="/pages/addMemo/addMemo">
+      <image src="/images/jia.png"></image>
+    </navigator>
+  </view>
+</view>
+
+<!--备忘列表-->
+<view wx:for="{{datalist}}" bindlongpress="longPress" class="memolist" data-id="{{item._id}}" bindtap="shortTap" wx:key="_id">
+  <view class="list">
+    <view>{{item.title}}</view>
+    <view class="date">
+      <image src="/images/memo/date.png"></image>
+      {{item.date}}
+    </view>
+</view>
+
+</view>
+<view class="no-tip" wx:if="{{datalist.length==0&&tip}}">无备忘录</view>
+
+
+

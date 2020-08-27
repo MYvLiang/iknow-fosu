@@ -1,0 +1,71 @@
+page{
+  background: #fff;
+}
+.search{
+  height: 60rpx;
+  border: 1px solid black;
+  padding: 10rpx 20rpx;
+  margin: 30rpx 20rpx 0rpx 20rpx;
+  display: flex;
+  align-items:center;
+}
+.search .search-box{
+  margin-left: 20rpx;
+}
+.searchresult {
+  width: 100%;
+  background: #fff;
+}
+.result {
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  padding: 0 30rpx;
+  color: #333;
+  font-family: "微软雅黑";
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.show .title{
+  font-size: 36rpx;
+  font-weight:bold;
+  text-align: center;
+  margin: 30rpx;
+}
+.show .pic{
+  width: 100%;
+  height: 20%;
+  margin-left: 42rpx;
+}
+.show .title-type{
+  text-align: center;
+  margin: 40rpx;
+  font-weight:bold;
+  font-size: 32rpx;
+}
+.call{
+  color: #999;
+  text-align: center;
+  font-size: 28rpx;
+}
+.bottom{
+  margin: 30rpx 40rpx;
+}
+.list{
+  padding-bottom: 30rpx;
+  margin:30rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #000;
+}
+
+.list-txt{
+  margin-bottom: 20rpx;
+}

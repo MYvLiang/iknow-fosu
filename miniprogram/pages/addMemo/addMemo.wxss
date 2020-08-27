@@ -1,0 +1,72 @@
+.hd{
+  padding: 25rpx 0 0;
+}
+.hd-con{
+  background: white;
+}
+.title{
+  height: 80rpx;
+  font-size: 17px;
+  background: white;
+
+}
+.txt{
+  font-size: 17px;
+  background: white;
+  min-height: 350rpx;
+  width: 100%;
+  
+}
+.lines{
+  background-color: white;
+  width: 550rpx;
+  margin-top: 0rpx;
+  margin-left: 40rpx;
+  border-top:2px #f8f8f8 solid;
+}
+.button{
+  margin-top: 30rpx;
+  background: #84c1ff;
+  border-radius:25px;
+  width: 600rpx;
+}
+
+.pubTitle{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0rpx 26rpx;
+}
+.pubTitle .words{
+  font-size: 19px;
+  position: relative;
+}
+
+
+.date{
+  padding: 0 0 0;
+}
+.date image{
+  height: 35rpx;
+  width: 35rpx;
+  padding: 15rpx 10rpx 0;
+}
+
+.note{
+  color: #808080;
+  margin-bottom: 10rpx;
+  margin-left: 10rpx;
+}
+.text-count-display{
+  display: flex;
+  
+  justify-content: flex-end;
+  padding: 2%;
+}
+
+
+
+

@@ -1,0 +1,52 @@
+.top-content{
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  height: 260rpx;
+}
+.touxiang{
+  margin:auto;
+  height: 128rpx;
+  width: 128rpx;
+  padding: 20rpx;
+}
+.nickname{
+  margin-top: 10rpx;
+  font-size: 40rpx;
+  text-align: center;
+}
+
+.list{
+  background-color: #fff;
+}
+.list-letf{
+  font-size: 32rpx;
+}
+
+.list-content{
+  height: 106rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 36rpx;
+  border-bottom: 0.1px solid #ddd;
+  background-color: #fff;
+}
+.list-right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-right-text{
+  font-size: 32rpx;
+  color: #999;
+}
+.arrow {
+  width: 15rpx;
+  height: 15rpx;
+  border-top: 4rpx solid #bdbdbd;
+  border-right: 4rpx solid #bdbdbd;
+  transform: rotate(45deg);
+  /* position: absolute; */
+  /* right: 20rpx; */
+  margin: 0 40rpx;
+}

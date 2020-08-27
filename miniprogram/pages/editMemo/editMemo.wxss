@@ -1,0 +1,58 @@
+.hd{
+  padding: 25rpx 0 0;
+}
+.hd-con{
+  background: white;
+}
+.title{
+  height: 80rpx;
+  font-size: 17px;
+  background: white;
+
+}
+.txt{
+  font-size: 17px;
+  background: white;
+  min-height: 350rpx;
+  width: 100%;
+}
+
+.button{
+  margin-top: 30rpx;
+  border-radius:25px;
+  width: 600rpx;
+}
+
+.pubTitle{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0rpx 26rpx;
+}
+.pubTitle .words{
+  font-size: 19px;
+  position: relative;
+}
+.date{
+  padding: 0 0 0;
+}
+.date image{
+  height: 35rpx;
+  width: 35rpx;
+  padding: 15rpx 10rpx 0;
+}
+
+.text-count-display{
+  display: flex;
+  
+  justify-content: flex-end;
+  padding: 2%;
+}
+
+
+
+
+

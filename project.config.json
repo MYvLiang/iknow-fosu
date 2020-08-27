@@ -2,12 +2,27 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"enhance": true
+		"coverView": true,
+		"autoAudits": false,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx97f301d850f98b13",
 	"projectname": "freshman-helper",
@@ -46,6 +61,27 @@
 				},
 				{
 					"id": -1,
+					"name": "pages/course/course",
+					"pathName": "pages/course/course",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/school-map/school-map",
+					"pathName": "pages/school-map/school-map",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/me/me",
+					"pathName": "pages/me/me",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
 					"name": "pages/club/club",
 					"pathName": "pages/club/club",
 					"query": "",
@@ -53,8 +89,58 @@
 				},
 				{
 					"id": -1,
+					"name": "pages/dorm/dorm",
+					"pathName": "pages/dorm/dorm",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "pages/tongxianghui/tongxianghui",
+					"pathName": "pages/tongxianghui/tongxianghui",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/about-us/about-us",
+					"pathName": "pages/about-us/about-us",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jxrl/jxrl",
+					"pathName": "pages/jxrl/jxrl",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/memo/memo",
+					"pathName": "pages/memo/memo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/official-account/official-account",
+					"pathName": "pages/official-account/official-account",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/opinion/opinion",
+					"pathName": "pages/opinion/opinion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
 					"name": "pages/organization/organization",
 					"pathName": "pages/organization/organization",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -1,0 +1,39 @@
+<!--miniprogram/pages/opinion/opinion.wxml-->
+<view class="a">
+  <view class="title">
+  <input class="text"
+  placeholder="请输入标题（不多于20字）" 
+  maxlength="20"
+  cursor-spacing="10px"
+  bindinput="titleinput">
+  </input>
+  </view>
+  <view class="details">
+    <textarea class="text"
+    placeholder="请输入正文，若需联系您，请附带联系方式(不多于160字）" 
+    maxlength="160"
+    cursor-spacing="10px"
+    bindinput="detailsinput">
+    </textarea>
+  </view>
+  <button style="width: 70%;position: absolute; top: 80%; left: 15%; border-radius: 40rpx;" type="primary" bindtap="submit">提交</button>
+</view>
+
+<!-- 容器 -->
+<view class="b">
+  <view class='ui_uploader_cell'>
+      <!-- 根据已选择的图片临时路径数组展示图片-->
+      <view class='ui_uploader_item' wx:for="{{uploaderList}}" wx:key="index">
+          <!-- 删除-->
+          <icon class='ui_uploader_item_icon' bindtap='clearImg' data-index="{{index}}" type="clear" size="20" color="red"/>
+          <!-- 图片-->
+          <image bindtap='showImg' data-index="{{index}}" src='{{item}}'></image>
+      </view>
+      <!-- 上传按钮+框 -->
+      <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
+  </view>
+</view>
+<view class="buttom">
+<text class="buttom-txt" selectable="true">邮件反馈方式：fosuwxapp@163.com</text>
+</view>
+

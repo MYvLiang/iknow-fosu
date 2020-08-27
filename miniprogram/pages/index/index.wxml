@@ -1,1 +1,85 @@
+<view class="header" wx:if="{{showHeader}}" bindtap="colseHeader" >
+  <view class="header-tip">
+    点击右上角“添加到我的小程序”，以后找我更方便哦
+  </view>
+	<image class="header-img" src="/images/close2.png"></image>
+</view>
 
+<!--轮播图 -->
+<view class="banner">
+	<swiper indicator-dots="true" autoplay="true" interval="3000" circular="true">
+		<swiper-item wx:for="{{indexlist}}" wx:key="*this">
+			<image bindload="loadImage" binderror="loadImageErr" src="{{item.img}}" bindtap="bindSwiper" data-swi="{{index}}"></image>
+		</swiper-item>
+	</swiper>
+</view>
+
+<!-- 图标 -->
+<view class="major">
+	<view class="majorCon">
+		<navigator class="box" url="/pages/jxrl/jxrl" open-type="navigate">
+			<image class="pic" src="/images/tubiao/zhouli.png"></image>
+			<view class="txt">教学周历</view>
+		</navigator>
+
+		<navigator class="box" url="/pages/organization/organization" open-type="navigate">
+			<image class="pic" src="/images/tubiao/jigou.png"></image>
+			<view class="txt">学校机构</view>
+		</navigator>
+
+		<navigator class="box" url="/pages/club/club" open-type="navigate">
+			<image class="pic" src="/images/tubiao/shetuan.png"></image>
+			<view class="txt">学校社团</view>
+		</navigator>
+
+		<navigator class="box" url="/pages/official-account/official-account" open-type="navigate">
+			<image class="pic" src="/images/tubiao/gzh.png"></image>
+			<view class="txt">公众号</view>
+		</navigator>
+	</view>
+
+	<view class="majorCon">
+		<navigator class="box" url="/pages/school-map/school-map" open-type="navigate">
+			<image class="pic" src="/images/tubiao/ditu.png"></image>
+			<view class="txt">校园地图</view>
+		</navigator>
+
+		<navigator class="box" url="/pages/tongxianghui/tongxianghui" open-type="navigate">
+			<image class="pic" src="/images/tubiao/tongxiang.png"></image>
+			<view class="txt">同乡会</view>
+		</navigator>
+
+		<navigator class="box" url="/pages/dorm/dorm" open-type="navigate">
+			<image class="pic" src="/images/tubiao/sushe.png"></image>
+			<view class="txt">宿舍安排</view>
+		</navigator>
+
+		<navigator class="box" url="/pages/classgroup/classgroup" open-type="navigate">
+			<image class="pic" src="/images/tubiao/banqun.png"></image>
+			<view class="txt">新生群</view>
+		</navigator>
+
+	</view>
+
+</view>
+
+<view class="works">
+	<view class="txt">今日课表</view>
+	<view>{{currentWeek}}</view>
+  <navigator class="more" url="/pages/course/course">
+		<view>查看完整课表</view>
+		<view class='arrow'></view>
+	</navigator>
+</view>
+<view class="course-body">
+	<view class="course-tip" wx:if="{{!myClass&&showTip}}">未绑定班级信息，请在个人信息中绑定</view>
+	<view class="course-tip" wx:elif="{{courseData.length==0&&showTip}}">{{tipStr}}</view>
+	<view class="course-list" wx:else>
+		<view class="course-contnet" wx:for="{{courseData}}" wx:for-item="course" wx:for-index="i" wx:key="_id">
+			<view class="course-contnet-title">{{time[course.beginTime-1][0]}}-{{time[course.endTime-1][0]}} {{course.name}}</view>
+			<view class="course-contnet-txt">
+			 {{course.teacher}}| {{course.place}} | {{course.weeks}} | {{days[course.day-1]}}
+			</view>
+		</view>
+	</view>
+</view>

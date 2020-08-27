@@ -1,0 +1,14 @@
+<view class="list">
+<image src="{{datalist.logo}}" class="logo"></image>
+<view class="text">{{datalist.name}}</view>
+</view>
+<view class="about">
+简介：{{datalist.about}}
+</view>
+<view class="tishi">
+<view>扫一扫二维码</view>
+<view>关注{{datalist.name}}</view>
+</view>
+<view class="qr">
+<image src="{{datalist.pic}}" mode="widthFix" data-src="{{datalist.pic}}" bindtap="preview"></image>
+</view>

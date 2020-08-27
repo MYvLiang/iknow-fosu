@@ -1,0 +1,17 @@
+<view class="section">
+	<picker bindchange="bindPickerChange" value="{{termsIndex}}" range="{{terms}}">
+		<view class="picker">
+			<view class="change">
+				<view class="cal">
+					<image src="/images/calendar/cal.png"></image>
+				</view>
+				<view class="list-right">
+          <view class="list-right-text">{{myterm}}</view>
+          <view class='arrow'></view>
+        </view>
+			</view>
+		</view>
+	</picker>
+	<image wx:if="{{loadImg}}" src="{{mytermImg}}" class="pic" mode="widthFix" bindtap="preview" bindload="loadImage" binderror="loadImageErr" data-src="{{mytermImg}}"></image>
+	<view wx:else style="text-align:center;margin: 30rpx;">周历加载异常!</view>
+</view>

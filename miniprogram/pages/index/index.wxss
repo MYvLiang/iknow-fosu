@@ -1,0 +1,152 @@
+/* 头部logo */
+.header{
+  width: 100%;
+  height: 50rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-tip{
+  color: #999;
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+
+.header-img{
+  height: 22rpx;
+  width: 22rpx;
+  margin-right: 20rpx;
+}
+
+.hdCon{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+}
+.hdCon navigator{
+  height: 50rpx;
+}
+.hdCon image{
+  height: 100%;
+  width: 200rpx;
+  padding: 25rpx 0 0;
+}
+
+/* 轮播图 */
+.banner{
+  width: 100%;
+  height: 295rpx;
+  margin-bottom: 20rpx;
+}
+.banner swiper{
+  height: 100%;
+  width: 100%;
+}
+.banner image{
+  width: 100%;
+  height: 295rpx;
+}
+
+/* 功能图标 */
+.majorCon{
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  height: 170rpx;
+  padding: 0 20rpx;
+}
+
+.major .box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160rpx;
+  width: 160rpx;
+  background-color: #fff;
+}
+.major .pic{
+  width: 74rpx;
+  height: 74rpx;
+}
+.major .txt{
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+/* 今日课表模板 */
+.works{
+  background: #f0f3f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  padding: 0 20rpx;
+}
+
+.pubTitle{
+  display: flex;
+  align-items: center;
+}
+.works .txt{
+  font-size: 34rpx;
+  padding: 0 10rpx;
+  border-left: 8rpx solid #c8020b;
+}
+
+.works .more{
+  font-size: 32rpx;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 200rpx;
+}
+.course-tip{
+  margin-top: 100rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+.arrow {
+  width: 18rpx;
+  height: 18rpx;
+  border-top: 5rpx solid #bdbdbd;
+  border-right: 5rpx solid #bdbdbd;
+  transform: rotate(45deg);
+  margin: 5rpx 10rpx 0 5rpx;
+}
+.course-list{
+  width: 100%;
+}
+
+.course-contnet{
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  padding: 20rpx 30rpx;
+  box-shadow: 2rpx 2rpx 10rpx 2rpx #ddd;
+  min-height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.course-contnet-title{
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+}
+.course-contnet-txt{
+  font-size: 30rpx;
+  color: #666;
+}

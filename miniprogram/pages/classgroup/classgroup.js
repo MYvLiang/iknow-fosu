@@ -13,7 +13,12 @@ Page({
     afterclick:"",
     pic:[]
   },
-
+  clearInput(e){
+    this.setData({
+      inputValue: '',
+      click:false
+    })
+  },
   getinputvalue(e){
     this.setData({
       inputValue: e.detail.value

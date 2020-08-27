@@ -1,6 +1,7 @@
  <view class="search">
   <icon type="search"></icon>
   <input type="text" class="search-box" placeholder="请输入学院名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
+  <view class="clear-input" bindtap="clearInput">清空输入</view>
 </view>
 
 <view class="searchresult" wx:if="{{inputValue==''}}">
@@ -35,6 +36,6 @@
 </view>
 <view class="bottom">
   <navigator url="../opinion/opinion" class="call">
-  感谢各位助班、同学向我们提供新生群或个人微信，若信息需要删除、修改、添加请联系我们（点击此处可反馈）
+  感谢为我们提供以上信息的同学，若信息需要修改、添加请联系我们（点击此处可反馈）
   </navigator>
 </view>

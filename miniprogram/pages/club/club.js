@@ -258,6 +258,14 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '邀你使用佛大新生小助手查询佛大社团',
+      path: '/pages/index/index?toPage=tongxianghui'
+    }
   }
-  // 搜索框 四个函数
 })

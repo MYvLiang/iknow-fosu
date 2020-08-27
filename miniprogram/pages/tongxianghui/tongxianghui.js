@@ -12,7 +12,12 @@ Page({
     afterclick: "",
     pic: []
   },
-
+  clearInput(e){
+    this.setData({
+      inputValue: '',
+      click:false
+    })
+  },
   getinputvalue(e) {
     this.setData({
       inputValue: e.detail.value
@@ -186,7 +191,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '佛大新生小助手--同乡会查询',
+      title: '邀你使用佛大新生小助手查询同乡会',
       path: '/pages/index/index?toPage=tongxianghui'
     }
   }

@@ -1,5 +1,6 @@
 // miniprogram/pages/organization/organization.js 
 var app = getApp();
+let allDataObject={}
 Page({
   data: {
     typeList:['校级','医学','法学','数学','经管',
@@ -8,94 +9,25 @@ Page({
     currentTab: 0, //预设当前项的值 
     scrollLeft: 0, //tab标题的滚动条位置 
     showDataList:[1,2,3,4,5,6,7,8,9,10,11,12],
-    allData:{
-      '校级':[{
-        type:'类型',
-        name:'佛大校团委',
-        introduce:'校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大学生会',
-        introduce:'佛山科学技术学院学生会以“服务同学，提升自我”为根本宗旨，组织开展活动',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaohui-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大校青协',
-        introduce:'佛山科学技术学院青年志愿者协会以“立人立己，助人自助”为宗旨，组织开展活动。<。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/qingxie-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大社联',
-        introduce:'佛山科学技术学院社团联合会在校团委的指导下，管理协调三个校区的社团，代表佛科院的力量。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/shelian-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大研究生会',
-        introduce:'佛山科学技术学院研究生会是学校党委与研究生的桥梁与纽带。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/yanjiu-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大校团委',
-        introduce:'校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大校团委',
-        introduce:'校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大校团委',
-        introduce:'校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大校团委',
-        introduce:'校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      },{
-        type:'类型',
-        name:'佛大校团委',
-        introduce:'校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      }],
-      '医学':[{
-        type:'类型',
-        name:'佛大校团委',
-        introduce:'校团委是共青团的重要组成成分，结合学校情况，依靠青年组织开展活动。',
-        logo:'cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg',
-        img:['cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg','cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/organization/xiaotuanwei-logo.jpg']
-      }],
-      '法学':[],
-      '数学':[],
-      '经管':[],
-      '环化':[],
-      '材能':[],
-      '工陶':[],
-      '粤台':[],
-      '机电':[],
-      '食品':[],
-      '交建':[],
-      '物电':[],
-      '生科':[],
-      '电信':[],
-      '人文':[],
-    }
+    allData:{}
   },
-
-
-
+  selectOrganization(e){
+    console.log(e.currentTarget.dataset.organization)
+    let organization=e.currentTarget.dataset.organization
+    if(organization.img.length>0){
+      wx.previewImage({
+        current: organization.img[0], 
+        urls: organization.img
+      })
+    }else{
+      wx.showToast({
+        title: '无该机构详情内容',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    
+  },
   // 滚动切换标签样式 
   switchTab: function (e) {
     this.setData({
@@ -129,6 +61,12 @@ Page({
     })
   },
   onLoad: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
     var that = this;
     //  高度自适应 
     wx.getSystemInfo({
@@ -144,6 +82,36 @@ Page({
         });
       }
     });
+    if(JSON.stringify(allDataObject) === '{}'){
+      console.log('加载数据')
+      wx.cloud.callFunction({
+        name: 'getOrganization'
+      }).then(res =>{
+        console.log(res.result.data)
+        let allDataList=res.result.data
+        for(let i=0;i<allDataList.length;i++){
+          if(!allDataObject.hasOwnProperty(allDataList[i].type)){
+            allDataObject[allDataList[i].type]=[]
+          }
+          allDataObject[allDataList[i].type].push(allDataList[i]);
+        }
+        that.setData({
+          allData:allDataObject
+        })
+        wx.hideLoading()
+      }).catch(res=>{
+        console.log(res)
+        wx.showToast({
+          title: '网络异常',
+          icon: 'none',
+          duration: 2000
+        })
+      })
+    }else{
+      this.setData({
+        allData:allDataObject
+      })
+    }
   },
   /**
    * 用户点击右上角分享

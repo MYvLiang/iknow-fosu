@@ -54,7 +54,7 @@ page{
     font-size: 16px;  
     white-space: nowrap; 
     position: fixed; 
-    top: 80rpx;  
+    top: 0;  
     left: 0;  
     z-index: 99;
     } 
@@ -141,7 +141,7 @@ page{
   border: 1px solid #4675F9; 
   color:#4675F9;} 
 .tab-content{
-  margin-top: 150rpx;
+  margin-top: 70rpx;
   } 
 .scoll-h{
   height: 100%;

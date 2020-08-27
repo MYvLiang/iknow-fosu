@@ -123,30 +123,16 @@
 					"scene": null
 				},
 				{
-					"id": 10,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
-					"query": "toPage=dorm",
+					"id": -1,
+					"name": "pages/official-account/official-account",
+					"pathName": "pages/official-account/official-account",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/classgroup/classgroup",
 					"pathName": "pages/classgroup/classgroup",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/opinion/opinion",
-					"pathName": "pages/opinion/opinion",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/club/club",
-					"pathName": "pages/club/club",
 					"scene": null
 				}
 			]

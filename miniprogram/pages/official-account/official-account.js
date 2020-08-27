@@ -1,5 +1,6 @@
 const app = getApp()
 const db = wx.cloud.database()
+let allData=[]
 Page({
   data:{
     datalist:[],//所有公众号
@@ -93,34 +94,38 @@ Page({
       })
       wx.hideLoading()
     }, 2000)
+    if(allData.length==0){
+      wx.cloud.callFunction({
+        name:'getOfficialAccount',
+        success(res){
+          console.log("请求云函数成功",res)
+          allData=res.result.data
+          that.setData({
+            datalist: res.result.data,
+            tip:true
+          })
+          wx.hideLoading()
+          //console.log(that.data.datalist)
+          },
+        fail(res) {
+          wx.hideLoading()
+          wx.showToast({ title: "获取数据失败", icon:'none', duration: 2000 })
+          console.log("请求云函数失败", res)
+          }
+      })
+    }else{
+      that.setData({
+        datalist: allData
+      })
+      wx.hideLoading()
+    }
     
-    wx.cloud.callFunction({
-      name:'getOfficialAccount',
-      success(res){
-        console.log("请求云函数成功",res)
-        that.setData({
-          datalist: res.result.data,
-          tip:true
-        })
-        wx.hideLoading()
-        //console.log(that.data.datalist)
-        },
-      fail(res) {
-        wx.hideLoading()
-        wx.showToast({ title: "获取数据失败", icon:'none', duration: 2000 })
-        console.log("请求云函数失败", res)
-        }
-    })
   },
   onLoad: function () {
     this.getData();
-    app.globalData.flushMemo=false
   },
   onShow: function (options) {
-    console.log('刷新:',app.globalData.flushMemo)
-    if(app.globalData.flushMemo){
-      this.getData();
-    }
+    
   },
   /**
    * 生命周期函数--监听页面隐藏

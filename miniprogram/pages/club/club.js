@@ -1,6 +1,7 @@
 // miniprogram/pages/club/club.js
 // 连接数据库
  //const db = wx.cloud.database()
+ let allData
 Page({
 
   /**
@@ -133,12 +134,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.cloud.callFunction({
-    //   name:"getList"
-    // })
-    // .then(res=>{
-    //   console.log(res)
-    // })
+    
+    let that = this
+    wx.showLoading({
+     title: '加载数据',
+    })
+    if(!allData){
+     wx.cloud.callFunction({
+       name:'getList',
+       success(res){
+         console.log("请求云函数成功", res)
+         allData=res
+         that.loadData(res)
+         wx.hideLoading()
+       },
+       fail(res){
+        wx.hideLoading()
+         wx.showToast({
+           title: '获取数据失败',icon:'none',duration:2000
+         })
+         console.log("请求云函数失败",res)
+       }
+     })
+    }else{
+     that.loadData(allData)
+     wx.hideLoading()
+    }
   },
 
   /**
@@ -147,67 +168,57 @@ Page({
   onReady: function () {
    
   },
-
+  loadData(res){
+    let that = this
+    var jw = new Array()
+    var xx = new Array()
+    var hb = new Array()
+    for(var i=0;i<res.result.data.length;i++){
+     if(res.result.data[i].school=="江湾校区"){
+       console.log(res.result.data[i].school)
+       
+       jw.push(res.result.data[i])
+      
+     }
+     if(res.result.data[i].school=="仙溪校区"){
+      
+       xx.push(res.result.data[i])
+      
+    }
+    if(res.result.data[i].school=="河滨校区"){
+    
+     hb.push(res.result.data[i])
+     
+    }
+   }
+   that.setData({
+     jiangwan:jw,
+     xianxi:xx,
+     hebin:hb
+   })
+   for(var i=0;i<that.data.jiangwan.length;i++){
+     that.data.all.push(that.data.jiangwan[i])
+   }
+   for(var i=0;i<that.data.xianxi.length;i++){
+     that.data.all.push(that.data.xianxi[i])
+   }
+   for(var i=0;i<that.data.hebin.length;i++){
+     that.data.all.push(that.data.hebin[i])
+   }
+   console.log(that.data.all)
+ 
+    /*that.setData({
+      dataClub:res.result.data
+    })
+    console.log(that.data.dataClub)*/
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   // 获取云数据
   onShow: function () {
-     let that = this
-     wx.cloud.callFunction({
-       name:'getList',
-       success(res){
-         console.log("请求云函数成功", res)
-         var jw = new Array()
-         var xx = new Array()
-         var hb = new Array()
-         for(var i=0;i<res.result.data.length;i++){
-          if(res.result.data[i].school=="江湾校区"){
-            console.log(res.result.data[i].school)
-            
-            jw.push(res.result.data[i])
-           
-          }
-          if(res.result.data[i].school=="仙溪校区"){
-           
-            xx.push(res.result.data[i])
-           
-         }
-         if(res.result.data[i].school=="河滨校区"){
-         
-          hb.push(res.result.data[i])
-          
-         }
-        }
-        that.setData({
-          jiangwan:jw,
-          xianxi:xx,
-          hebin:hb
-        })
-        for(var i=0;i<that.data.jiangwan.length;i++){
-          that.data.all.push(that.data.jiangwan[i])
-        }
-        for(var i=0;i<that.data.xianxi.length;i++){
-          that.data.all.push(that.data.xianxi[i])
-        }
-        for(var i=0;i<that.data.hebin.length;i++){
-          that.data.all.push(that.data.hebin[i])
-        }
-        console.log(that.data.all)
-      
-         /*that.setData({
-           dataClub:res.result.data
-         })
-         console.log(that.data.dataClub)*/
-         
-       },
-       fail(res){
-         wx.showToast({
-           title: '获取数据失败',icon:'none',duration:2000
-         })
-         console.log("请求云函数失败",res)
-       }
-     })
+    
+     
 
   },
 

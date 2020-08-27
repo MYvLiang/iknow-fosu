@@ -63,9 +63,6 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 2000)
     var that = this;
     //  高度自适应 
     wx.getSystemInfo({
@@ -99,6 +96,7 @@ Page({
         })
         wx.hideLoading()
       }).catch(res=>{
+        wx.hideLoading()
         console.log(res)
         wx.showToast({
           title: '网络异常',

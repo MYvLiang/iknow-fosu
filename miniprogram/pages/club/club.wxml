@@ -15,7 +15,7 @@
             <form class="weui-search-bar__form">
               <view class="weui-search-bar__box">
                 <!-- 搜索功能的实现 -->
-                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="getinputvalue" />
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="getinputvalue" />
                 <view class="searchresult" wx:if="{{inputValue==''}}">
                   <view class="result" wx:for="{{all}}" catchtap="searchbegin" wx:key="index" bindtap="getinputvalue" data-postname="{{item.name}}">
                     <view class="jwLogo">
@@ -28,7 +28,7 @@
                     {{item.data}}
                   </view>
                 </view>
-                <view class="searchresult" wx:if="{{searchresult == true}}">
+                <view class="clublist" wx:if="{{searchresult == true}}">
                   <view class="result" wx:for="{{search}}" catchtap="searchbegin" wx:key="index" bindtap="getinputvalue" data-postname="{{item.name}}">
                     <view class="jwLogo">
                       <image src="{{item.pic}}" mode="aspectFit"></image>

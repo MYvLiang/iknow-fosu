@@ -15,7 +15,7 @@ Page({
     inputShowed: false,
     inputValue: "",
     search: [],
-    all: "",
+    all: [],
     click: false,
     afterclick: ""
     // dataClub:" "
@@ -29,9 +29,17 @@ Page({
   },
   //搜索框获取信息并判断
   getinputvalue(e) {
+    
     this.setData({
-      inputValue: e.detail.value
+      inputValue: e.detail.value,
+      active:3
     })
+    if(e.detail.value==''){
+      this.setData({
+        active:0
+      })
+    }
+    console.log(this.data.inputValue)
     if (e.detail.value != this.data.afterclick.name) {
       this.setData({
         click: false
@@ -44,8 +52,9 @@ Page({
       }
     }
     this.setData({
-      search: newlists
+      search: newlists,
     })
+    console.log(this.data.all)
     if (e.detail.value != "") {
       this.setData({
         searchresult: true,
@@ -58,6 +67,7 @@ Page({
     };
   },
   searchbegin: function (e) {
+
     this.setData({
       searchresult: false,
       inputValue: e.currentTarget.dataset.postname,
@@ -127,14 +137,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    db.collection("clubList").get({
-      success: res => {
-        console.log(res)
-        this.setData({
-          all: res.data
-        })
-      }
-    })
+   
   },
 
   /**
@@ -173,7 +176,17 @@ Page({
           xianxi:xx,
           hebin:hb
         })
-        console.log(that.data.jiangwan)
+        for(var i=0;i<that.data.jiangwan.length;i++){
+          that.data.all.push(that.data.jiangwan[i])
+        }
+        for(var i=0;i<that.data.xianxi.length;i++){
+          that.data.all.push(that.data.xianxi[i])
+        }
+        for(var i=0;i<that.data.hebin.length;i++){
+          that.data.all.push(that.data.hebin[i])
+        }
+        console.log(that.data.all)
+      
          /*that.setData({
            dataClub:res.result.data
          })

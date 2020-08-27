@@ -25,7 +25,7 @@ Page({
     let that=this
     var date = that.data.date;  //备忘日期
     console.log(title,dimension,date)
-    if (!title || !dimension){
+    if (!title){
       wx.showToast({ title: "备忘不能为空", icon:'none', duration: 2000 })
     }else{
       db.collection("memoList").add({

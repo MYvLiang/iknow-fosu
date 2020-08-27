@@ -1,0 +1,42 @@
+<!--miniprogram/pages/tongxianghui/tongxianghui.wxml-->
+<view class="search">
+  <icon type="search"></icon>
+  <input type="text" class="search-box" placeholder="请输入同乡会名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
+</view>
+
+<view class="searchresult" wx:if="{{inputValue==''}}">
+  <view class="result" wx:for="{{all}}" catchtap="searchbegin" wx:key="index" bindtap="getInputValue" data-postname="{{item.city}}">
+    <view>{{item.city}}</view>
+  </view>
+</view>
+
+
+<view class="searchresult" wx:if="{{searchresult == true}}">
+  <view class="result" wx:for="{{search}}" catchtap="searchbegin" wx:key="index" bindtap="getInputValue" data-postname="{{item.city}}">
+    <view>{{item.city}}</view>
+  </view>
+</view>
+
+<view class="show" wx:if="{{click == true}}" bindtap="getInputValue">
+    <view class="title">{{afterclick.city}}</view>
+    <!--<view class="title-type">{{afterclick.qun.length}}个群</view>-->
+    <view class="list" wx:for="{{afterclick.qun}}" wx:key="index">
+      <view class="list-txt">{{item.name}} <text selectable="true">{{item.qq}}</text></view>
+      <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
+    </view>
+    <!--<view class="pic" wx:for="{{afterclick.pic}}" wx:key="index"> 
+      <image src="{{item}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item}}"></image>
+    </view>-->
+    <!--<view class="title-type">{{afterclick.zhuban.length}}个助班微信</view>-->
+    <view class="list" wx:for="{{afterclick.xz}}" wx:key="index">
+      <!--<view class="list-txt">{{item.class}}</view>-->
+      <view class="list-txt">{{item.name}} <text selectable="true">{{item.wx}}</text></view>
+      <image src="{{item.pic}}" mode="aspectFit" bindtap="previewImage" bindlongtap="longPressSaveImg" data-src="{{item.pic}}"></image>
+    </view>
+    
+</view>
+<view class="bottom">
+  <navigator url="../opinion/opinion" class="call">
+  感谢各位同学向我们提供信息，若信息需要删除、修改、添加请联系我们（点击此处可反馈）
+  </navigator>
+</view>

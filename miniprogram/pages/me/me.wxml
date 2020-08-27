@@ -9,7 +9,7 @@
 
 <view class="list">
 	<navigator class="list-content" url="/pages/my-info/my-info">
-		<view class="list-letf">绑定个人信息</view>
+		<view class="list-letf">个人信息</view>
 		<view class='arrow'></view>
 	</navigator>
 

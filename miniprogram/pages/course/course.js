@@ -17,13 +17,16 @@
  *  },
  * }
  */
-
+const app = getApp()
 const db = wx.cloud.database()
 console.log('初始化course.js')
-let allCourseData = {};//所有学期的课程数据
-
+// let allCourseData = {};//所有学期的课程数据
+//app.globalData.allCourseData
 async function getMyCourse(myClass, term, flush) {
-  // console.log(allCourseData)
+  console.log(app.globalData.allCourseData)
+  if(!app.globalData.allCourseData){
+    app.globalData.allCourseData={}
+  }
   let coursesList = [];//当前所选学期课程数据
   let courseKey = myClass + '-' + term
   const res = wx.getStorageInfoSync()
@@ -32,11 +35,11 @@ async function getMyCourse(myClass, term, flush) {
   if (flush) {
     //刷新数据
     coursesList = await getCourse(myClass, term);
-    allCourseData[courseKey] = coursesList;
+    app.globalData.allCourseData[courseKey] = coursesList;
     return coursesList;
   } else {
     //内存中没有数据时
-    if (!allCourseData.hasOwnProperty(courseKey)) {
+    if (!app.globalData.allCourseData.hasOwnProperty(courseKey)) {
       //从缓存获取
       coursesList = await getCourseStorage(courseKey);
 
@@ -44,11 +47,11 @@ async function getMyCourse(myClass, term, flush) {
         //缓存没有数据时
         coursesList = await getCourse(myClass, term);
       }
-      // console.log(coursesList)
-      allCourseData[courseKey] = coursesList;
+      console.log('coursesList:',coursesList)
+      app.globalData.allCourseData[courseKey] = coursesList;
       return coursesList;
     } else {
-      return allCourseData[courseKey];
+      return app.globalData.allCourseData[courseKey];
     }
   }
 }
@@ -128,6 +131,27 @@ function checkWeek(weeks, beginWeek, endWeek) {
     }
   }
   return false;
+}
+
+async function getCurrentWeek(termStr){
+  let date = new Date();
+  let currentWeek=-1
+  if(!app.globalData.currentWeek){
+    await db.collection('termBeginDate').where({
+      term: termStr,
+    }).get().then(res => {
+      // res.data 包含该记录的数据
+      console.log('dateStart',res.data[0].dateStart)
+      let dateStart = new Date(res.data[0].dateStart);
+      app.globalData.currentWeek = Math.floor((date - dateStart) / (1000 * 60 * 60 * 24) / 7 + 1);
+      currentWeek=app.globalData.currentWeek
+      console.log('currentWeek',currentWeek);
+    })
+  }else{
+    console.log('已经获取过本周')
+    currentWeek=app.globalData.currentWeek
+  }
+  return currentWeek;
 }
 
 Page({
@@ -298,7 +322,7 @@ Page({
         wx.showToast({
           title: '设置失败',
           icon: 'none',
-          duration: 500
+          duration: 2000
         })
       },
     })
@@ -400,7 +424,7 @@ Page({
           wx.showToast({
             title: '刷新失败',
             icon: 'none',
-            duration: 1000
+            duration: 2000
           })
         } else {
           wx.showToast({
@@ -414,17 +438,18 @@ Page({
       }
       if(coursesList.length==0){
         wx.showToast({
-          title: '暂无该班级课程信息',
+          title: '本学期暂无您的班级课程信息',
           icon: 'none',
-          duration: 1000
+          duration: 2000
         })
       }
     }).catch(res => {
+      console.log(res)
       wx.stopPullDownRefresh();
       wx.showToast({
         title: '网络异常',
         icon: 'none',
-        duration: 1000
+        duration: 2000
       })
       wx.hideLoading();
     })
@@ -435,13 +460,7 @@ Page({
     let date = new Date();
     let that=this
     //查询当前学期的开学时间，初始化当前是第几周
-    db.collection('termBeginDate').where({
-      term: termStr,
-    }).get().then(res => {
-      // res.data 包含该记录的数据
-      console.log(res.data[0].dateStart)
-      let dateStart = new Date(res.data[0].dateStart);
-      let currentWeek = Math.floor((date - dateStart) / (1000 * 60 * 60 * 24) / 7 + 1);
+    getCurrentWeek(termStr).then(currentWeek=> {
       let beginWeek = 1;
       let endWeek = 16;
       if (currentWeek <= 16 && currentWeek > 0) {
@@ -545,42 +564,51 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.clearS()
     let that = this
     console.log('onLoad')
-    wx.cloud.callFunction({
-      name: 'getUserInfo'
-    }).then(res => {
-      let info = res.result.info
-      console.log(info)
-      if (info && info.length > 0) {
-        that.setData({
-          myClass:info[0].myClass
-        })
-        this.loadData(info[0].myClass)
-      }else{
-        wx.showModal({
-          title: '提示',
-          content: '未绑定班级信息，请在个人中心绑定',
-          success (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-              wx.switchTab({
-                url: '/pages/me/me'
-              })
-            } else if (res.cancel) {
-              console.log('用户点击取消')
+    if(!app.globalData.myClass){
+      wx.cloud.callFunction({
+        name: 'getUserInfo'
+      }).then(res => {
+        let info = res.result.info
+        console.log(info)
+        if (info && info.length > 0) {
+          app.globalData.myClass=info[0].myClass
+          that.setData({
+            myClass:info[0].myClass
+          })
+          this.loadData(info[0].myClass)
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '未绑定班级信息，请在个人信息中绑定',
+            success (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wx.switchTab({
+                  url: '/pages/me/me'
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
             }
-          }
+          })
+        }
+      }).catch(res => {
+        console.log(res)
+        wx.showToast({
+          title: '网络异常',
+          icon: 'none',
+          duration: 2000
         })
-      }
-    }).catch(res => {
-      console.log(res)
-      wx.showToast({
-        title: '网络异常',
-        icon: 'none',
-        duration: 1000
       })
-    })
+    }else{
+      that.setData({
+        myClass:app.globalData.myClass
+      })
+      this.loadData(app.globalData.myClass)
+    }
   },
 
   /**
@@ -636,8 +664,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '佛大课程表',
-      path: '/pages/index/index'
+      title: '邀你使用佛大课程表',
+      path: '/pages/index/index?toPage=course'
     }
   }
 })

@@ -149,16 +149,24 @@
   width: 400rpx;
 }
 
+.course-details-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rpx;
+}
+
 .course-details-name {
   font-size: 44rpx;
   text-align: center;
-  margin: 20rpx 20rpx 50rpx 20rpx;
+  margin: 20rpx;
   word-break: break-all;
 }
 
 .course-details-other {
-  font-size: 30rpx;
-  margin: 5rpx 40rpx;
+  font-size: 32rpx;
+  margin: 5rpx 50rpx;
   word-break: break-all;
 }
 
@@ -172,7 +180,7 @@
   border-top-left-radius: 35rpx;
   min-height: 100rpx;
   background-color: #fff;
-  padding-top: 50rpx;
+  padding-top: 30rpx;
   padding-bottom: 50rpx;
 }
 
@@ -198,11 +206,11 @@
 }
 
 .list-content{
-  height: 120rpx;
+  height: 106rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 30rpx;
+  margin-left: 36rpx;
   border-bottom: 0.1px solid #ddd;
   background-color: #fff;
 }
@@ -224,4 +232,37 @@
   /* position: absolute; */
   /* right: 20rpx; */
   margin: 5rpx 40rpx 0rpx 10rpx;
+}
+
+.test-week{
+  background-color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 30rpx;
+}
+.statement{
+  padding: 40rpx;
+  font-size: 26rpx;
+  color: #777;
+  text-align: center;
+}
+
+.setting-top{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50rpx;
+  margin-bottom: 20rpx;
+}
+
+.setting-top-txt{
+  font-size: 34rpx;
+  font-weight: 700;
+  margin-right: 270rpx;
+}
+
+.close-img{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 40rpx;
 }

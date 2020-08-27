@@ -43,4 +43,4 @@
   </picker>
 
 </view>
-<button bindtap="saveInfo" type="primary">保存</button>
+<button open-type="getUserInfo" bindgetuserinfo="saveInfo" type="primary">保存</button>

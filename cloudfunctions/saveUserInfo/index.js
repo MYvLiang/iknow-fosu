@@ -22,7 +22,8 @@ exports.main = async (event, context) => {
         data: {
           myClass: event.myClass,
           myDepartment: event.myDepartment,
-          myGrade: event.myGrade
+          myGrade: event.myGrade,
+          userInfo:event.userInfo
         }
       })
   } else {

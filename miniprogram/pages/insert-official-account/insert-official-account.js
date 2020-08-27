@@ -8,8 +8,6 @@ Page({
   },
   onLoad: function(options) {
     id = options.id
-  },
-  onShow:function(e){
     let that = this
     //console.log('edid:',editid)
     console.log('id:',id)
@@ -37,6 +35,9 @@ Page({
         urls:res.data.pic
       })
     })
+  },
+  onShow:function(e){
+    
   },
   //放大预览图片
   preview(e){

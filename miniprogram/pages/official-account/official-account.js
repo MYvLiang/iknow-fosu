@@ -136,4 +136,13 @@ Page({
       url: '/pages/insert-official-account/insert-official-account?id='+id,
     })
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '邀你使用佛大新生小助手查询公众号',
+      path: '/pages/index/index?toPage=official-account'
+    }
+  }
 })

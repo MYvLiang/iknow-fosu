@@ -8,7 +8,6 @@ Page({
     winHeight: "",//窗口高度 
     currentTab: 0, //预设当前项的值 
     scrollLeft: 0, //tab标题的滚动条位置 
-    showDataList:[1,2,3,4,5,6,7,8,9,10,11,12],
     allData:{}
   },
   selectOrganization(e){
@@ -111,6 +110,7 @@ Page({
       this.setData({
         allData:allDataObject
       })
+      wx.hideLoading()
     }
   },
   /**

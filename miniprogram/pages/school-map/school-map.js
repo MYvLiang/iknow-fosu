@@ -450,7 +450,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '邀你查看佛大校园地图、VR地图',
-      path: '/pages/index/index?toPage=map'
+      path: '/pages/index/index?toPage=school-map'
     }
   }
 })

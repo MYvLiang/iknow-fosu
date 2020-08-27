@@ -112,13 +112,21 @@ Page({
   
   //点击事件 点击列表查看详情
   selectClub:function(e){
-    // console.log(res.currentTarget)
-    this.setData({
-      searchresult: false,
-      inputValue: e.currentTarget.dataset.postname,
-      click: true,
-      afterclick: ""
-    })
+    console.log(e.currentTarget.dataset.club)
+    let club=e.currentTarget.dataset.club
+    if(club.img&&club.img.length>0){
+      wx.previewImage({
+        current: club.img[0], 
+        urls: club.img
+      })
+    }else{
+      wx.showToast({
+        title: '暂无该社团详情内容',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+    
   },
 
   /**
@@ -244,10 +252,18 @@ Page({
     });
   },
   hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
+    console.log('取消')
+    let that=this
+    setTimeout(function () {
+      that.setData({
+        inputVal: "",
+        inputValue:"",
+        inputShowed: false,
+        searchresult: false,
+        active:0
+      });
+    }, 100)
+    
   },
   clearInput: function () {
     this.setData({
@@ -265,7 +281,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '邀你使用佛大新生小助手查询佛大社团',
-      path: '/pages/index/index?toPage=tongxianghui'
+      path: '/pages/index/index?toPage=club'
     }
   }
 })

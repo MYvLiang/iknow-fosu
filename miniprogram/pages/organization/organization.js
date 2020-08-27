@@ -3,8 +3,8 @@ var app = getApp();
 let allDataObject={}
 Page({
   data: {
-    typeList:['校级','医学','法学','数学','经管',
-    '环化','材能','工陶','粤台','机电','食品','交建','物电','生科','电信','人文'],
+    typeList:['校级','数学','电信','医学','法学','人文','经管',
+    '环化','材能','工陶','机电','食品','交建','物电','生科','粤台'],
     winHeight: "",//窗口高度 
     currentTab: 0, //预设当前项的值 
     scrollLeft: 0, //tab标题的滚动条位置 
@@ -13,16 +13,16 @@ Page({
   selectOrganization(e){
     console.log(e.currentTarget.dataset.organization)
     let organization=e.currentTarget.dataset.organization
-    if(organization.img.length>0){
+    if(organization.img&&organization.img.length>0){
       wx.previewImage({
         current: organization.img[0], 
         urls: organization.img
       })
     }else{
       wx.showToast({
-        title: '无该机构详情内容',
+        title: '暂无该机构详情内容',
         icon: 'none',
-        duration: 1000
+        duration: 1500
       })
     }
     

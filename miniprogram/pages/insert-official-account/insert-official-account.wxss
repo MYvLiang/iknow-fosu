@@ -17,15 +17,14 @@
   background: white;
   padding: 0 50rpx;
   font-size: 16px;
-  padding-bottom: 10rpx;
-  text-decoration-line: underline;
+  padding-bottom: 30rpx;
 }
 .tishi{
   margin-top: 10rpx;
   margin-left: 10rpx;
   margin-right: 10rpx;
   border-radius: 5rpx;
-  padding-top: 10rpx;
+  padding-top: 30rpx;
   background: white;
   text-align: center;
 }

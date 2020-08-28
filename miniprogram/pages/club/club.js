@@ -1,6 +1,7 @@
 // miniprogram/pages/club/club.js
 // 连接数据库
  //const db = wx.cloud.database()
+ let allData
 Page({
 
   /**
@@ -112,25 +113,53 @@ Page({
   
   //点击事件 点击列表查看详情
   selectClub:function(e){
-    // console.log(res.currentTarget)
-    this.setData({
-      searchresult: false,
-      inputValue: e.currentTarget.dataset.postname,
-      click: true,
-      afterclick: ""
-    })
+    console.log(e.currentTarget.dataset.club)
+    let club=e.currentTarget.dataset.club
+    if(club.img&&club.img.length>0){
+      wx.previewImage({
+        current: club.img[0], 
+        urls: club.img
+      })
+    }else{
+      wx.showToast({
+        title: '暂无该社团详情内容',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.cloud.callFunction({
-    //   name:"getList"
-    // })
-    // .then(res=>{
-    //   console.log(res)
-    // })
+    
+    let that = this
+    wx.showLoading({
+     title: '加载数据',
+    })
+    if(!allData){
+     wx.cloud.callFunction({
+       name:'getList',
+       success(res){
+         console.log("请求云函数成功", res)
+         allData=res
+         that.loadData(res)
+         wx.hideLoading()
+       },
+       fail(res){
+        wx.hideLoading()
+         wx.showToast({
+           title: '获取数据失败',icon:'none',duration:2000
+         })
+         console.log("请求云函数失败",res)
+       }
+     })
+    }else{
+     that.loadData(allData)
+     wx.hideLoading()
+    }
   },
 
   /**
@@ -139,67 +168,57 @@ Page({
   onReady: function () {
    
   },
-
+  loadData(res){
+    let that = this
+    var jw = new Array()
+    var xx = new Array()
+    var hb = new Array()
+    for(var i=0;i<res.result.data.length;i++){
+     if(res.result.data[i].school=="江湾校区"){
+       console.log(res.result.data[i].school)
+       
+       jw.push(res.result.data[i])
+      
+     }
+     if(res.result.data[i].school=="仙溪校区"){
+      
+       xx.push(res.result.data[i])
+      
+    }
+    if(res.result.data[i].school=="河滨校区"){
+    
+     hb.push(res.result.data[i])
+     
+    }
+   }
+   that.setData({
+     jiangwan:jw,
+     xianxi:xx,
+     hebin:hb
+   })
+   for(var i=0;i<that.data.jiangwan.length;i++){
+     that.data.all.push(that.data.jiangwan[i])
+   }
+   for(var i=0;i<that.data.xianxi.length;i++){
+     that.data.all.push(that.data.xianxi[i])
+   }
+   for(var i=0;i<that.data.hebin.length;i++){
+     that.data.all.push(that.data.hebin[i])
+   }
+   console.log(that.data.all)
+ 
+    /*that.setData({
+      dataClub:res.result.data
+    })
+    console.log(that.data.dataClub)*/
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   // 获取云数据
   onShow: function () {
-     let that = this
-     wx.cloud.callFunction({
-       name:'getList',
-       success(res){
-         console.log("请求云函数成功", res)
-         var jw = new Array()
-         var xx = new Array()
-         var hb = new Array()
-         for(var i=0;i<res.result.data.length;i++){
-          if(res.result.data[i].school=="江湾校区"){
-            console.log(res.result.data[i].school)
-            
-            jw.push(res.result.data[i])
-           
-          }
-          if(res.result.data[i].school=="仙溪校区"){
-           
-            xx.push(res.result.data[i])
-           
-         }
-         if(res.result.data[i].school=="河滨校区"){
-         
-          hb.push(res.result.data[i])
-          
-         }
-        }
-        that.setData({
-          jiangwan:jw,
-          xianxi:xx,
-          hebin:hb
-        })
-        for(var i=0;i<that.data.jiangwan.length;i++){
-          that.data.all.push(that.data.jiangwan[i])
-        }
-        for(var i=0;i<that.data.xianxi.length;i++){
-          that.data.all.push(that.data.xianxi[i])
-        }
-        for(var i=0;i<that.data.hebin.length;i++){
-          that.data.all.push(that.data.hebin[i])
-        }
-        console.log(that.data.all)
-      
-         /*that.setData({
-           dataClub:res.result.data
-         })
-         console.log(that.data.dataClub)*/
-         
-       },
-       fail(res){
-         wx.showToast({
-           title: '获取数据失败',icon:'none',duration:2000
-         })
-         console.log("请求云函数失败",res)
-       }
-     })
+    
+     
 
   },
 
@@ -244,10 +263,18 @@ Page({
     });
   },
   hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
+    console.log('取消')
+    let that=this
+    setTimeout(function () {
+      that.setData({
+        inputVal: "",
+        inputValue:"",
+        inputShowed: false,
+        searchresult: false,
+        active:0
+      });
+    }, 100)
+    
   },
   clearInput: function () {
     this.setData({
@@ -258,6 +285,14 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '邀你使用佛大新生小助手查询佛大社团',
+      path: '/pages/index/index?toPage=club'
+    }
   }
-  // 搜索框 四个函数
 })

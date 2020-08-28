@@ -1,5 +1,6 @@
 // miniprogram/pages/classgroup/classgroup.js
 const db = wx.cloud.database()
+let allData=[]
 Page({
 
   /**
@@ -13,7 +14,12 @@ Page({
     afterclick:"",
     pic:[]
   },
-
+  clearInput(e){
+    this.setData({
+      inputValue: '',
+      click:false
+    })
+  },
   getinputvalue(e){
     this.setData({
       inputValue: e.detail.value
@@ -129,14 +135,33 @@ saveImg1(url){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    db.collection("classgroup").get({
-      success:res=>{
+    wx.showLoading({
+      title: '加载中',
+    })
+    if(allData.length==0){
+      db.collection("classgroup").get().then(res=>{
         console.log(res)
+        allData=res.data
         this.setData({
           all:res.data
         })
-      }
-    })
+        wx.hideLoading()
+      }).catch(res=>{
+        wx.hideLoading()
+        console.log(res)
+        wx.showToast({
+          title: '网络异常',
+          icon: 'none',
+          duration: 2000
+        })
+      })
+    }else{
+      this.setData({
+        all:allData
+      })
+      wx.hideLoading()
+    }
+    
   },
 
   /**

@@ -8,8 +8,6 @@ Page({
   },
   onLoad: function(options) {
     id = options.id
-  },
-  onShow:function(e){
     let that = this
     //console.log('edid:',editid)
     console.log('id:',id)
@@ -27,7 +25,7 @@ Page({
         tip:true
       })
       wx.hideLoading()
-    }, 2000)
+    }, 1000)
     console.log('edid:',this.data.editid)
     db.collection('officialAccountList').doc(id).get().then(res => {
       // res.data 包含该记录的数据
@@ -36,7 +34,11 @@ Page({
         datalist: res.data,
         urls:res.data.pic
       })
+      wx.hideLoading()
     })
+  },
+  onShow:function(e){
+    
   },
   //放大预览图片
   preview(e){

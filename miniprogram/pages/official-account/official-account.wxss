@@ -2,7 +2,7 @@
   height: 90rpx;
 }
 .search input{
-  margin-top: 10rpx;
+  margin-top: 12rpx;
   margin-left: 10rpx;
   margin-right: 10rpx;
   height: 70rpx;
@@ -11,18 +11,25 @@
   text-align: center;
 }
 .list{
-  height: 120rpx;
-  background: white;
+  height: 140rpx;
+  background: #fff;
   display: flex;
+  align-items: center;
+}
+.logo-img{
+  margin: 0rpx 30rpx;
 }
 .list image{
-  height: 70rpx;
-  width: 70rpx;
-  border-radius:100%;
-  padding: 20rpx 20rpx;
+  height: 90rpx;
+  width: 90rpx;
+  border-radius: 100%;
 }
 .text{
-  padding: 30rpx 0 10rpx 0;
+  padding-left: 20rpx;
+  padding-bottom: 30rpx;
+  padding-top: 30rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #eee;
 }
 .text1{
   -webkit-line-clamp: 1;
@@ -31,16 +38,4 @@
   display: -webkit-box;
   font-size: 14px;
   color: darkgrey;
-  padding-left: 10rpx;
-}
-.divline{
-  width: 100%;
-  height:2rpx;
-  background: white;
-}
-.line{
-  width: 100%;
-  height:2rpx;
-  background:#f0f3f8;
-  margin-left: 100rpx;
 }

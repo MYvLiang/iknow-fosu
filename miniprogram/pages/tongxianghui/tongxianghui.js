@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+let allData=[]
 Page({
 
   /**
@@ -12,7 +13,12 @@ Page({
     afterclick: "",
     pic: []
   },
-
+  clearInput(e){
+    this.setData({
+      inputValue: '',
+      click:false
+    })
+  },
   getinputvalue(e) {
     this.setData({
       inputValue: e.detail.value
@@ -128,22 +134,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '加载中',
+    })
+    if(allData.length==0){
+      wx.cloud.callFunction({
+        name: 'getTXH'
+      }).then(res=>{
+        console.log(res.result.data.data)
+        allData=res.result.data.data
+        this.setData({
+          all: allData
+        })
+        wx.hideLoading()
+      }).catch(e=>{
+        wx.hideLoading()
+      })
+    }else{
+      this.setData({
+        all: allData
+      })
+      wx.hideLoading()
+    }
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    db.collection("tongxianghui").get({
-      success:res=>{
-        console.log(res)
-        this.setData({
-          all: res.data
-        })
-        console.log(this.data.all)
-      }
-    })
+    
   },
 
   /**
@@ -186,7 +206,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '佛大新生小助手--同乡会查询',
+      title: '邀你使用佛大新生小助手查询同乡会',
       path: '/pages/index/index?toPage=tongxianghui'
     }
   }

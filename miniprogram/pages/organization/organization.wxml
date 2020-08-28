@@ -1,11 +1,11 @@
 <!--miniprogram/pages/organization/organization.wxml-->
 <!-- 搜索框 -->
-<view class="top-search">
+<!-- <view class="top-search">
 	<view class="search">
 		<icon type="search"></icon>
 		<input type="text" class="search-box" placeholder="请输入机构名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
 	</view>
-</view>
+</view> -->
 
 <!-- 导航栏 -->
 <scroll-view id="scrollx1" scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="true">
@@ -18,9 +18,9 @@
 	<swiper-item wx:for="{{typeList}}" wx:key="*this" wx:for-index="type">
 		<scroll-view scroll-y="true" class="scoll-h">
 			<view class="scroll-content">
-				<view class="none-tip" wx:if="{{allData[typeList[type]].length==0}}">暂无信息</view>
+				<view class="none-tip" wx:if="{{!allData[typeList[type]]||allData[typeList[type]].length==0}}">暂无信息</view>
 				<block wx:for="{{allData[typeList[type]]}}"  wx:for-item="organization" wx:key="_id" >
-					<view class="item-ans">
+					<view class="item-ans" bindtap="selectOrganization" data-organization="{{organization}}">
 						<view class="avatar">
 							<image class="img" src="{{organization.logo}}"></image>
 						</view>

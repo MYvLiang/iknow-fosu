@@ -12,6 +12,7 @@ page{
 }
 .search .search-box{
   margin-left: 20rpx;
+  width: 70%;
 }
 .searchresult {
   width: 100%;
@@ -69,4 +70,10 @@ page{
 
 .list-txt{
   margin-bottom: 20rpx;
+}
+.clear-input{
+  color: #666;
+  font-size: 22rpx;
+  background-color: #eee;
+  padding: 10rpx 20rpx;
 }

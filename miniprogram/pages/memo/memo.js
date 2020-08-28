@@ -3,7 +3,8 @@ const db = wx.cloud.database()
 Page({
   data:{
     datalist:[],
-    tip:false
+    tip:false,
+    select:-1
   },
   //获取云数据库数据
   getData:function(e){
@@ -48,6 +49,9 @@ Page({
     if(app.globalData.flushMemo){
       this.getData();
     }
+    this.setData({
+      select:-1
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -68,8 +72,12 @@ Page({
   longPress:function(e){
     // wx.hideTabBar();
     var id = e.currentTarget.dataset.id;
+    var index = e.currentTarget.dataset.index;
     console.log(id)
     let that = this
+    this.setData({
+      select:index
+    })
     wx.showActionSheet({
       itemList: ['查看','编辑','删除'],
       success(res){
@@ -103,6 +111,9 @@ Page({
               } else if (res.cancel) {
                 console.log('用户点击取消')
               }
+              that.setData({
+                select:-1
+              })
             }
           })
           console.log("点击了删除");
@@ -112,6 +123,9 @@ Page({
       fail(res){
         console.log("点击了取消")
         // wx.showTabBar();
+        that.setData({
+          select:-1
+        })
       }
     })
   }

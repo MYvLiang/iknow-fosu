@@ -5,7 +5,7 @@
 
 <!--公众号列表-->
 <view wx:if="{{inputValue==''}}">
-	<view wx:for="{{datalist}}" data-id="{{item._id}}" bindtap="shortTap">
+	<view wx:for="{{datalist}}" wx:key="_id" data-id="{{item._id}}" bindtap="shortTap">
 		<view class="list">
 			<view class="logo-img">
 				<image  src="{{item.logo}}"></image>

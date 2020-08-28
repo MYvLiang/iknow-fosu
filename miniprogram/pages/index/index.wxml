@@ -8,7 +8,7 @@
 <!--轮播图 -->
 <view class="banner">
 	<swiper indicator-dots="true" autoplay="true" interval="3000" circular="true">
-		<swiper-item wx:for="{{indexlist}}" wx:key="*this">
+		<swiper-item wx:for="{{indexlist}}" wx:key="_id">
 			<image bindload="loadImage" binderror="loadImageErr" src="{{item.img}}" bindtap="bindSwiper" data-swi="{{index}}"></image>
 		</swiper-item>
 	</swiper>

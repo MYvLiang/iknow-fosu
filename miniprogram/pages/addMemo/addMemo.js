@@ -8,8 +8,18 @@ Page({
   },
   onLoad: function() {
     let d=new Date()
+    let month=(d.getMonth()+1)
+    let m='-'+month
+    if(month<10){
+      m='-0'+month
+    }
+    let date=d.getDate()
+    let dateStr='-'+date
+    if(date<10){
+      dateStr='-0'+date
+    }
     this.setData({
-      date: d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
+      date: d.getFullYear()+m+dateStr
     })
   },
   bindDateChange: function (e) {
@@ -18,15 +28,15 @@ Page({
       date: e.detail.value
     })
   },
-  //添加备忘
+  //添加日程
   addData(e) {
     var title=e.detail.value.title;
     var dimension = e.detail.value.dimension;
     let that=this
-    var date = that.data.date;  //备忘日期
+    var date = that.data.date;  //日程日期
     console.log(title,dimension,date)
     if (!title){
-      wx.showToast({ title: "备忘不能为空", icon:'none', duration: 2000 })
+      wx.showToast({ title: "标题不能为空", icon:'none', duration: 2000 })
     }else{
       db.collection("memoList").add({
         data:{

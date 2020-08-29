@@ -26,7 +26,7 @@
   letter-spacing: 5rpx;
 }
 
-/* 备忘列表 */
+/* 列表 */
 .memolist{
   background-color: white;
   height: 130rpx;

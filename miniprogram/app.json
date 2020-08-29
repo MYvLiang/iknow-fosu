@@ -31,7 +31,7 @@
         "selectedIconPath": "images/icons/in_index.png"
       },
       {
-        "text": "备忘录",
+        "text": "日程",
         "pagePath": "pages/memo/memo",
         "iconPath": "images/icons/out_memo.png",
         "selectedIconPath": "images/icons/in_memo.png"

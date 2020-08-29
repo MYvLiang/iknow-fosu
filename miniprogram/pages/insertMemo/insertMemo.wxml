@@ -6,12 +6,12 @@
 	<view class="lines"></view>
 	<view class="vw">
 		<image src="/images/memo/date.png"></image>
-		<text>日期时间：{{datalist.date}}</text>
+		<text>截止日期：{{datalist.date}}</text>
 	</view>
 	<view class="lines"></view>
 	<view class="vw">
 		<image src="/images/memo/dimension.png"></image>
-		<text>备忘内容</text>
+		<text>详情</text>
 	</view>
 	<textarea class="dimension" auto-height="true" value="{{datalist.dimension}}" disabled="true"></textarea>
 </view>

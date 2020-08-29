@@ -1,19 +1,19 @@
 <view class="hd">
   <form class="hd-con" bindsubmit="editData">
-    <!-- 备忘标题 -->
-    <input class="title" placeholder="备忘标题" name="title" maxlength="20" bindinput="getWords" value="{{datalist.title}}"></input>
+    <!-- 日程标题 -->
+    <input class="title" placeholder="请输入标题" name="title" maxlength="20" bindinput="getWords" value="{{datalist.title}}"></input>
     <view class='text-count-display'>{{textLen}}/20</view>
 
-    <!-- 备忘内容 -->
-    <textarea auto-height="true" class="txt" placeholder="备忘..." name="dimension" value="{{datalist.dimension}}" bindinput="getWords2">
+    <!-- 日程内容 -->
+    <textarea auto-height="true" class="txt" placeholder="详情..." name="dimension" value="{{datalist.dimension}}" bindinput="getWords2">
     </textarea>
     <view class='text-count-display'>{{textLen2}}/1000</view>
-    <!-- 备忘日期 -->
+    <!-- 日程日期 -->
     <picker mode="date" value="{{date}}" start="2020-01-01" end="2050-01-01" bindchange="bindDateChange">
       <view class="pubTitle">
       <view class="date">
       <image src="/images/memo/date.png"></image>
-      <text class="words">备忘日期</text>
+      <text class="words">截止日期</text>
       </view>
         <text>{{date}}></text>
       </view>

@@ -1,20 +1,20 @@
 <view class="hd">
 	<form class="hd-con" bindsubmit="addData">
-		<!-- 备忘标题 -->
+		<!-- 日程标题 -->
 		<view style="">
-		<input class="title" placeholder="备忘标题" name="title" maxlength="20" bindinput="getWords"></input>
+		<input class="title" placeholder="请输入标题" name="title" maxlength="20" bindinput="getWords"></input>
 		<view class='text-count-display'>{{textLen}}/20</view>
 		</view>
-		<!-- 备忘内容 -->
-		<textarea auto-height="true" class="txt" placeholder="备忘..." name="dimension" maxlength="1000" bindinput="getWords2">
+		<!-- 日程内容 -->
+		<textarea auto-height="true" class="txt" placeholder="请输入详情..." name="dimension" maxlength="1000" bindinput="getWords2">
     </textarea>
 		<view class='text-count-display'>{{textLen2}}/1000</view>
-		<!-- 备忘日期 -->
+		<!-- 日程日期 -->
 		<picker mode="date" value="" start="2020-01-01" end="2050-01-01" bindchange="bindDateChange">
 			<view class="pubTitle">
 				<view class="date">
 					<image src="/images/memo/date.png"></image>
-					<text class="words">备忘日期</text>
+					<text class="words">截止日期</text>
 				</view>
 				<text>{{date}}></text>
 			</view>

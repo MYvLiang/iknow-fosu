@@ -25,22 +25,22 @@ data:{
     })
     //console.log(datalist)
   },
-  //备忘日期
+  //日程日期
   bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
     })
   },
-  //更新备忘
+  //更新日程
   editData(e){
     var title = e.detail.value.title;
     var dimension = e.detail.value.dimension;
     let that = this
-    var date = that.data.date;  //备忘日期
+    var date = that.data.date;  //日程日期
     console.log(title, dimension, date, updateid)
     if (!title){
-      wx.showToast({ title: "备忘不能为空", icon:'none', duration: 2000 })
+      wx.showToast({ title: "标题不能为空", icon:'none', duration: 2000 })
     }else{
       db.collection("memoList").doc(updateid).update({
         data:{

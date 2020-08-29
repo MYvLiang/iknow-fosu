@@ -59,7 +59,7 @@ Page({
   onHide: function () {
     app.globalData.flushMemo=false
   },
-  //点击查看备忘录内容
+  //点击查看日程内容
   shortTap:function(e){
     var id = e.currentTarget.dataset.id;
     console.log(id)
@@ -98,7 +98,7 @@ Page({
           // wx.showTabBar();
           //删除操作
           wx.showModal({
-            content: '确定删除该条备忘？',
+            content: '确定删除该条日程？',
             success (res) {
               if (res.confirm) {
                 db.collection("memoList").doc(id).remove().then(res=>{

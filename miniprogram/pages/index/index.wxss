@@ -96,7 +96,7 @@
 .works .txt{
   font-size: 34rpx;
   padding: 0 10rpx;
-  border-left: 8rpx solid #c8020b;
+  border-left: 8rpx solid #0b92ec;
 }
 
 .works .more{
@@ -134,7 +134,7 @@
 .course-contnet{
   background-color: #fff;
   border-radius: 10rpx;
-  margin: 20rpx;
+  margin: 0rpx 20rpx 30rpx 20rpx;
   padding: 20rpx 30rpx;
   box-shadow: 2rpx 2rpx 10rpx 2rpx #ddd;
   min-height: 120rpx;

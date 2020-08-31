@@ -214,18 +214,7 @@ Page({
     myClass: '',
     courseData: [],
     /*默认加载的indexlist数据*/
-    indexlist: [
-      {
-        img:"cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/one.jpg",
-        data:["cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/one.jpg"]
-      },{
-        img:"cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/two.jpg",
-        data:["cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/two.jpg"]
-      },{
-        img:"cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/three.jpg",
-        data:["cloud://develop-fx3l0.6465-develop-fx3l0-1301738912/images/lunbotu/three.jpg"]
-      }
-    ],
+    indexlist: [],
     days: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     time: [
       ['08:00', '08:40'],
@@ -284,14 +273,20 @@ Page({
     })
   },
   loadIndexImg:function(){
-    db.collection('indexList').get().then(res=>{
+    let that=this
+    db.collection('indexList').where({
+        show:1
+      })
+      .orderBy('weight', 'desc').get().then(res=>{
       console.log('indexList',res.data)
       if(res.data.length>0){
-        this.setData({
+        that.setData({
           indexlist:res.data
         })
+        console.log(that.data.indexlist)
       }
     })
+    
   },
   onLoad: function (query) {
     console.log(query)
@@ -383,7 +378,9 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手'
+      title: '邀你使用佛大新生小助手',
+      path: '/pages/index/index',
+      imageUrl: 'https://fosuwxapp.gitee.io/wxapp-images/shareapp.png'
     }
   }
 })

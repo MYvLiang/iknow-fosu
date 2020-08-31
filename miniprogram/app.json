@@ -5,10 +5,6 @@
     "pages/school-map/school-map",
     "pages/me/me",
     "pages/jxrl/jxrl",
-    "pages/memo/memo",
-    "pages/addMemo/addMemo",
-    "pages/editMemo/editMemo",
-    "pages/insertMemo/insertMemo",
     "pages/about-us/about-us",
     "pages/update-log/update-log",
     "pages/my-info/my-info",
@@ -29,12 +25,6 @@
         "pagePath": "pages/index/index",
         "iconPath": "images/icons/out_index.png",
         "selectedIconPath": "images/icons/in_index.png"
-      },
-      {
-        "text": "备忘录",
-        "pagePath": "pages/memo/memo",
-        "iconPath": "images/icons/out_memo.png",
-        "selectedIconPath": "images/icons/in_memo.png"
       },
       {
         "text": "我的",

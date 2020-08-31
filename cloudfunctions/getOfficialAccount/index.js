@@ -14,7 +14,7 @@ exports.main = async (event, context) => {
     unionid: wxContext.UNIONID,
   }
  */
-  return db.collection('officialAccountList').get({
+  return db.collection('officialAccountList').orderBy('weight', 'desc').get({
     success(e) {
       console.log('获取数据成功')
       return e

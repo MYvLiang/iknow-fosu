@@ -274,13 +274,16 @@ Page({
   },
   loadIndexImg:function(){
     let that=this
-    db.collection('indexList').get().then(res=>{
+    db.collection('indexList').where({
+        show:1
+      })
+      .orderBy('weight', 'desc').get().then(res=>{
       console.log('indexList',res.data)
       if(res.data.length>0){
-        this.setData({
+        that.setData({
           indexlist:res.data
         })
-        console.log(this.data.indexlist)
+        console.log(that.data.indexlist)
       }
     })
     
@@ -375,7 +378,9 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手'
+      title: '邀你使用佛大新生小助手',
+      path: '/pages/index/index',
+      imageUrl: 'https://fosuwxapp.gitee.io/wxapp-images/shareapp.png'
     }
   }
 })

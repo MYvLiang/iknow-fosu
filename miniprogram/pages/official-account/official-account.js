@@ -131,7 +131,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    app.globalData.flushMemo=false
+    
   },
   //点击查看公众号内容
   shortTap:function(e){

@@ -91,6 +91,13 @@ Page({
         setTimeout(function () {
           wx.hideLoading()
         }, 6000)
+        opinions.add({
+          data: {
+            title: this.data.title,
+            details: this.data.details,
+            img: this.data.imglist
+          }
+        })
         var fujian = new Array()
         wx.cloud.callFunction({
           name: "sendemail",

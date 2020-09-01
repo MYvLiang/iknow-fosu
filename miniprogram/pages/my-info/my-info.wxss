@@ -17,7 +17,7 @@
 
 .list{
   background-color: #fff;
-  margin-bottom: 30rpx;
+  margin-bottom: 130rpx;
 }
 .list-letf{
   font-size: 34rpx;
@@ -50,4 +50,11 @@
   /* position: absolute; */
   /* right: 20rpx; */
   margin: 0 40rpx 0 10rpx;
+}
+.save-tip{
+  text-align: center;
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 30rpx;
+  padding: 30rpx;
 }

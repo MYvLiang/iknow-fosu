@@ -43,4 +43,6 @@
   </picker>
 
 </view>
-<button open-type="getUserInfo" bindgetuserinfo="saveInfo" type="primary">保存</button>
+<button wx:if="{{count<3}}" open-type="getUserInfo" bindgetuserinfo="saveInfo" type="primary">保存</button>
+
+<text class="save-tip">用户信息只允许修改3次 \n{{count==0?'':'已修改'+count+'次'}}{{count==3?'  若操作失误可在反馈处联系我们修改':''}}</text>

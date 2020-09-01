@@ -1,5 +1,12 @@
 <view class="log-list">
   <view class="log-content">
+    <view class="log-title">2020.9.2版（v2.1.0）</view>
+    <view class="log-type">新增</view>
+    <view class="log-details">为了保障课表数据安全，增加用户信息修改次数限制，只允许修改3次，若操作失误可在反馈处联系我们修改。</view>
+    <view class="log-type">优化</view>
+    <view class="log-details">在课表页面分享小程序时将关闭“设置”弹窗，分享页面更美观</view>
+  </view>
+  <view class="log-content">
     <view class="log-title">2020.9.1版（v2.0.0）</view>
     <view class="log-type">功能调整</view>
     <view class="log-details">由于微信小程序开放的服务类目限制，该版本开始下架备忘录功能。</view>

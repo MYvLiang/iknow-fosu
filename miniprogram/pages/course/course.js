@@ -663,6 +663,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    this.setData({
+      showSetDialog: false
+    })
     return {
       title: '邀你使用佛大课程表',
       path: '/pages/index/index?toPage=course'

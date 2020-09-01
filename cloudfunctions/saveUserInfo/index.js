@@ -48,6 +48,7 @@ exports.main = async (event, context) => {
           openid: wxContext.OPENID,
           myDepartment: event.myDepartment,
           myGrade: event.myGrade,
+          userInfo:event.userInfo,
           count:1
         }
       ]

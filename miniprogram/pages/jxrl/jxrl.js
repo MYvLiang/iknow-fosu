@@ -80,7 +80,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '邀你查看佛大周历',
+      title: '邀你查看佛大教学周历',
       path: '/pages/index/index?toPage=jxrl'
     }
   }

@@ -40,7 +40,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "佛大新生小助手",
+    "navigationBarTitleText": "佛大校园助手",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

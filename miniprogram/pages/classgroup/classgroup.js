@@ -204,7 +204,7 @@ saveImg1(url){
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手查询新生群',
+      title: '邀你查询佛大新生群',
       path: '/pages/index/index?toPage=classgroup'
     }
   }

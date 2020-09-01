@@ -55,7 +55,7 @@ Page({
     this.setData({
       search: newlists,
     })
-    console.log(this.data.all)
+    // console.log(this.data.all)
     if (e.detail.value != "") {
       this.setData({
         searchresult: true,
@@ -174,18 +174,18 @@ Page({
     var xx = new Array()
     var hb = new Array()
     for(var i=0;i<res.result.data.length;i++){
-     if(res.result.data[i].school=="江湾校区"){
-       console.log(res.result.data[i].school)
+     if(res.result.data[i].school.indexOf("江湾") != -1){
+      //  console.log(res.result.data[i].school)
        
        jw.push(res.result.data[i])
       
      }
-     if(res.result.data[i].school=="仙溪校区"){
+     if(res.result.data[i].school.indexOf("仙溪") != -1){
       
        xx.push(res.result.data[i])
       
     }
-    if(res.result.data[i].school=="河滨校区"){
+    if(res.result.data[i].school.indexOf("河滨")!= -1){
     
      hb.push(res.result.data[i])
      
@@ -250,12 +250,7 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
+  
   // 搜索框 四个函数
   showInput: function () {
     this.setData({
@@ -291,7 +286,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手查询佛大社团',
+      title: '邀你查询佛大社团',
       path: '/pages/index/index?toPage=club'
     }
   }

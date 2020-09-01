@@ -59,6 +59,7 @@ page{
     z-index: 99;
     } 
 .tab-item{ 
+  font-size: 34rpx;
   padding:0 36rpx; 
   display: inline-block;} 
   
@@ -69,12 +70,13 @@ page{
   content: ""; 
   display: block; 
   height: 3rpx; 
-  width: 58rpx; 
+  width: 68rpx; 
   background: #4675F9; 
   position: absolute; 
   bottom: 0;
   /* left: 5rpx; */
-  border-radius: 16rpx;} 
+  /* border-radius: 16rpx; */
+} 
 .item-ans{ 
   width: 100%;
   display: flex; 

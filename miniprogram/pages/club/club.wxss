@@ -378,14 +378,27 @@ page {
   background: #fff;
   text-align: center;
   line-height: 100rpx;
-  margin: 0rpx 60rpx;
+  /* margin: 0rpx 80rpx; */
+  font-size: 34rpx;
+  /* padding:0 36rpx;  */
 }
 
 .tab .cur {
   color: #10aeff;
-  border-bottom: 1rpx solid #10aeff;
+  position: relative;
+  /* border-bottom: 1rpx solid #10aeff; */
 }
-
+.tab .cur:after{  
+  content: ""; 
+  display: block; 
+  height: 3rpx; 
+  width: 130rpx; 
+  background: #10aeff; 
+  position: absolute; 
+  bottom: 0;
+  left: 62rpx;
+  /* border-radius: 16rpx; */
+} 
 
 /* 列表 */
 /* .list{

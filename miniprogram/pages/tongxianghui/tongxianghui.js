@@ -206,7 +206,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手查询同乡会',
+      title: '邀你查询佛大同乡会',
       path: '/pages/index/index?toPage=tongxianghui'
     }
   }

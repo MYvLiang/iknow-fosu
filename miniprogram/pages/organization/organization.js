@@ -116,7 +116,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手查询学校机构',
+      title: '邀你查询佛大学校机构',
       path: '/pages/index/index?toPage=organization'
     }
   }

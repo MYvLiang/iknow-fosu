@@ -18,7 +18,7 @@ exports.main = async(event, context) => {
   // 创建一个邮件对象
   var mail = {
     // 发件人
-    from: '佛大新生小助手 <13030235667@163.com>',
+    from: '佛大校园助手 <13030235667@163.com>',
     // 主题
     subject: event.title,
     // 收件人

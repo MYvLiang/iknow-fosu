@@ -1,3 +1,4 @@
+ <view wx:if="{{all.length>0}}">
  <view class="search">
   <icon type="search"></icon>
   <input type="text" class="search-box" placeholder="请输入学院名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
@@ -39,3 +40,5 @@
   感谢为我们提供以上信息的同学，若信息需要修改、添加请联系我们（点击此处可反馈）
   </navigator>
 </view>
+</view>
+<view wx:else class="more-tip">敬请期待更多功能。</view>

@@ -1,5 +1,7 @@
 const cloud = require('wx-server-sdk')
-cloud.init()
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
 //引入发送邮件的类库
 var nodemailer = require('nodemailer')
 // 创建一个SMTP客户端配置

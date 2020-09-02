@@ -135,31 +135,30 @@ saveImg1(url){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中',
-    })
     if(allData.length==0){
       db.collection("classgroup").get().then(res=>{
         console.log(res)
         allData=res.data
-        this.setData({
-          all:res.data
-        })
-        wx.hideLoading()
+        if(allData.length>0){
+          this.setData({
+            all:res.data
+          })
+          wx.setNavigationBarTitle({
+            title: '新生群查询'
+          })
+        }
       }).catch(res=>{
-        wx.hideLoading()
         console.log(res)
-        wx.showToast({
-          title: '网络异常',
-          icon: 'none',
-          duration: 2000
-        })
       })
     }else{
       this.setData({
         all:allData
       })
-      wx.hideLoading()
+      if(allData.length>0){
+        wx.setNavigationBarTitle({
+          title: '新生群查询'
+        })
+      }
     }
     
   },

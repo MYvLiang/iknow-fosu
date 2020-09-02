@@ -2,7 +2,7 @@
   <view class="log-content">
     <view class="log-title">2020.9.3版（v3.0.0）</view>
     <view class="log-type">改名</view>
-    <view class="log-details">改名为佛大校园助手。</view>
+    <view class="log-details">改名为iknow佛大。</view>
     <view class="log-type">修复问题</view>
     <view class="log-details">修复社团查询模块顶部选择栏在小尺寸屏幕下文字溢出的问题。</view>
     <view class="log-details">修复多校区社团只在一个校区处显示的问题。</view>

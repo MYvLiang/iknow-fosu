@@ -1,6 +1,7 @@
 // miniprogram/pages/classgroup/classgroup.js
 const db = wx.cloud.database()
 let allData=[]
+let shareText='邀你使用iknow佛大'
 Page({
 
   /**
@@ -12,7 +13,8 @@ Page({
     all:[],
     click:false,
     afterclick:"",
-    pic:[]
+    pic:[],
+    tipText:''
   },
   clearInput(e){
     this.setData({
@@ -143,20 +145,33 @@ saveImg1(url){
           this.setData({
             all:res.data
           })
+          shareText='邀你查询佛大新生群'
           wx.setNavigationBarTitle({
             title: '新生群查询'
+          })
+        }else{
+          this.setData({
+            tipText:'系统维护中,敬请期待后续更新'
           })
         }
       }).catch(res=>{
         console.log(res)
+        this.setData({
+          tipText:'系统维护中,敬请期待后续更新'
+        })
       })
     }else{
       this.setData({
         all:allData
       })
       if(allData.length>0){
+        shareText='邀你查询佛大新生群'
         wx.setNavigationBarTitle({
           title: '新生群查询'
+        })
+      }else{
+        this.setData({
+          tipText:'系统维护中,敬请期待后续更新'
         })
       }
     }
@@ -203,7 +218,7 @@ saveImg1(url){
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你查询佛大新生群',
+      title: shareText,
       path: '/pages/index/index?toPage=classgroup'
     }
   }

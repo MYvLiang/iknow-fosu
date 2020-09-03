@@ -41,4 +41,4 @@
   </navigator>
 </view>
 </view>
-<view wx:else class="more-tip">敬请期待更多功能。</view>
+<view wx:else class="more-tip">{{tipText}}</view>

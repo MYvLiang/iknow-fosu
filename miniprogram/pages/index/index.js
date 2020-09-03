@@ -209,6 +209,7 @@ Page({
   data: {
     showHeader:true,
     showTip:false,
+    showApp:false,
     tipStr:'今天没课，去看看完整课表吧',
     currentWeek:'',
     myClass: '',
@@ -232,6 +233,11 @@ Page({
       ['20:05', '20:45'],
       ['20:50', '21:30'],
     ]
+  },
+  toMyInfo(e){
+    wx.navigateTo({
+      url: '/pages/my-info/my-info'
+    })
   },
   bindSwiper: function(e){
     let i=e.target.dataset.swi
@@ -283,12 +289,18 @@ Page({
         that.setData({
           indexlist:res.data
         })
-        console.log(that.data.indexlist)
+        // console.log(that.data.indexlist)
       }
     })
     
   },
   onLoad: function (query) {
+    db.collection('indexShow').doc('index2020').get().then(res=>{
+      // console.log(res.data.show)
+      this.setData({
+        showApp:res.data.show
+      })
+    })
     console.log(query)
     if(query.toPage){
       wx.navigateTo({

@@ -21,11 +21,11 @@
   enable-scroll="{{enableScroll}}" 
   polygons="{{polygons}}" 
   show-location="true"
-  
+  bindtap="bindtapMap" 
+  bindmarkertap="bindmarkertapMap" 
   bindregionchange="bindregionchangeMap" >
 	</map>
- <!-- bindtap="bindtapMap" 
-  bindmarkertap="bindmarkertapMap"  -->
+ 
   <view class="vr-map" bindtap="vrMap">
     <image class="vr-map-image" src="/images/vrmap.png"></image>
   </view>

@@ -353,7 +353,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    if(app.globalData.markers){
+    if(false){
       this.setData({
         markers: app.globalData.markers
       })

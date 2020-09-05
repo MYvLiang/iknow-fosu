@@ -16,7 +16,7 @@
 
 <!-- 图标 -->
 <view class="major">
-	<view class="majorCon">
+	<view class="majorCon" style="{{showApp?'':'padding:0rpx 50rpx;'}}">
 		<navigator class="box" url="/pages/jxrl/jxrl" open-type="navigate">
 			<image class="pic" src="/images/tubiao/zhouli.png"></image>
 			<view class="txt">教学周历</view>
@@ -32,21 +32,22 @@
 			<view class="txt">学校社团</view>
 		</navigator>
 
-		<navigator class="box" url="/pages/official-account/official-account" open-type="navigate">
-			<image class="pic" src="/images/tubiao/gzh.png"></image>
-			<view class="txt">公众号</view>
+		<navigator wx:if="{{showApp}}" class="box" url="/pages/tongxianghui/tongxianghui" open-type="navigate">
+			<image class="pic" src="/images/tubiao/tongxiang.png"></image>
+			<view class="txt">同乡会</view>
 		</navigator>
+		
 	</view>
 
-	<view class="majorCon">
+	<view class="majorCon" style="{{showApp?'':'padding:0rpx 50rpx;'}}">
 		<navigator class="box" url="/pages/school-map/school-map" open-type="navigate">
 			<image class="pic" src="/images/tubiao/ditu.png"></image>
 			<view class="txt">校园地图</view>
 		</navigator>
 
-		<navigator class="box" url="/pages/tongxianghui/tongxianghui" open-type="navigate">
-			<image class="pic" src="/images/tubiao/tongxiang.png"></image>
-			<view class="txt">同乡会</view>
+		<navigator class="box" url="/pages/official-account/official-account" open-type="navigate">
+			<image class="pic" src="/images/tubiao/gzh.png"></image>
+			<view class="txt">公众号</view>
 		</navigator>
 
 		<navigator class="box" url="/pages/dorm/dorm" open-type="navigate">
@@ -54,7 +55,7 @@
 			<view class="txt">宿舍安排</view>
 		</navigator>
 
-		<navigator class="box" url="/pages/classgroup/classgroup" open-type="navigate">
+		<navigator wx:if="{{showApp}}" class="box" url="/pages/classgroup/classgroup" open-type="navigate">
 			<image class="pic" src="/images/tubiao/banqun.png"></image>
 			<view class="txt">新生群</view>
 		</navigator>
@@ -72,7 +73,7 @@
 	</navigator>
 </view>
 <view class="course-body">
-	<view class="course-tip" wx:if="{{!myClass&&showTip}}">未绑定班级信息，请在个人信息中绑定</view>
+	<view class="course-tip" wx:if="{{!myClass&&showTip}}" bindtap="toMyInfo">您未绑定班级信息，点我绑定</view>
 	<view class="course-tip" wx:elif="{{courseData.length==0&&showTip}}">{{tipStr}}</view>
 	<view class="course-list" wx:else>
 		<view class="course-contnet" wx:for="{{courseData}}" wx:for-item="course" wx:for-index="i" wx:key="_id">

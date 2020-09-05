@@ -1,6 +1,7 @@
 // miniprogram/pages/classgroup/classgroup.js
 const db = wx.cloud.database()
 let allData=[]
+let shareText='邀你使用iknow佛大'
 Page({
 
   /**
@@ -12,7 +13,8 @@ Page({
     all:[],
     click:false,
     afterclick:"",
-    pic:[]
+    pic:[],
+    tipText:''
   },
   clearInput(e){
     this.setData({
@@ -135,31 +137,43 @@ saveImg1(url){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中',
-    })
     if(allData.length==0){
       db.collection("classgroup").get().then(res=>{
         console.log(res)
         allData=res.data
-        this.setData({
-          all:res.data
-        })
-        wx.hideLoading()
+        if(allData.length>0){
+          this.setData({
+            all:res.data
+          })
+          shareText='邀你查询佛大新生群'
+          wx.setNavigationBarTitle({
+            title: '新生群查询'
+          })
+        }else{
+          this.setData({
+            tipText:'系统维护中,敬请期待后续更新'
+          })
+        }
       }).catch(res=>{
-        wx.hideLoading()
         console.log(res)
-        wx.showToast({
-          title: '网络异常',
-          icon: 'none',
-          duration: 2000
+        this.setData({
+          tipText:'系统维护中,敬请期待后续更新'
         })
       })
     }else{
       this.setData({
         all:allData
       })
-      wx.hideLoading()
+      if(allData.length>0){
+        shareText='邀你查询佛大新生群'
+        wx.setNavigationBarTitle({
+          title: '新生群查询'
+        })
+      }else{
+        this.setData({
+          tipText:'系统维护中,敬请期待后续更新'
+        })
+      }
     }
     
   },
@@ -204,7 +218,7 @@ saveImg1(url){
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手查询新生群',
+      title: shareText,
       path: '/pages/index/index?toPage=classgroup'
     }
   }

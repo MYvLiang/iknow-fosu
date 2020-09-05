@@ -582,12 +582,13 @@ Page({
         }else{
           wx.showModal({
             title: '提示',
-            content: '未绑定班级信息，请在个人信息中绑定',
+            content: '您未绑定班级信息，无法查询课表数据',
+            confirmText:'去绑定',
             success (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
-                wx.switchTab({
-                  url: '/pages/me/me'
+                wx.navigateTo({
+                  url: '/pages/my-info/my-info'
                 })
               } else if (res.cancel) {
                 console.log('用户点击取消')
@@ -663,6 +664,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    this.setData({
+      showSetDialog: false
+    })
     return {
       title: '邀你使用佛大课程表',
       path: '/pages/index/index?toPage=course'

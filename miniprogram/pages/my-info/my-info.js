@@ -15,7 +15,8 @@ Page({
     gradesIndex: 0,
     classesObject: {},
     classes: ['请先选择学院与年级'],
-    classesIndex: 0
+    classesIndex: 0,
+    count:0
   },
   selectDepartment: function (e) {
     let departmentsIndex = e.detail.value
@@ -90,18 +91,25 @@ Page({
         console.log(res.result)
         wx.hideLoading()
         app.globalData.myClass=myClass;
-        wx.showToast({
-          title: '设置成功',
-          icon: 'success',
-          duration: 500
-        })
-        setTimeout(function () {
-          wx.switchTab({
-            url: '/pages/me/me'
+        if(res.result.result.count){
+          wx.showToast({
+            title: '已达到修改次数限制',
+            icon: 'none',
+            duration: 1500
           })
-        }, 500)
-      })
-        .catch(res => {
+        }else{
+          wx.showToast({
+            title: '设置成功',
+            icon: 'success',
+            duration: 500
+          })
+          setTimeout(function () {
+            wx.switchTab({
+              url: '/pages/me/me'
+            })
+          }, 500)
+        }
+      }).catch(res => {
           console.log(res)
           wx.hideLoading()
           wx.showToast({
@@ -127,6 +135,12 @@ Page({
     let departments=[]
     let grades=[]
     let classesObject={}
+    wx.showLoading({
+      title: ' ',
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1000)
     db.collection('studentInfo')
       .doc('studentInfo123456')
       .get().then(res => {
@@ -166,6 +180,9 @@ Page({
                 break;
               }
             }
+            if(!info[0].count){
+              info[0].count=1
+            }
             that.setData({
               myClass: info[0].myClass,
               myDepartment: info[0].myDepartment,
@@ -173,7 +190,8 @@ Page({
               departmentsIndex,
               gradesIndex,
               classesIndex,
-              classes:classesObject[info[0].myDepartment + info[0].myGrade]
+              classes:classesObject[info[0].myDepartment + info[0].myGrade],
+              count:info[0].count
             })
           }
         }).catch(res => {

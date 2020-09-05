@@ -76,3 +76,9 @@ page{
   background-color: #eee;
   padding: 10rpx 20rpx;
 }
+.more-tip{
+  margin-top: 400rpx;
+  font-size: 40rpx;
+  text-align: center;
+  color: #666;
+}

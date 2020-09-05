@@ -1,7 +1,9 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
-cloud.init()
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
 const db = cloud.database()
 
 // 云函数入口函数
@@ -14,7 +16,7 @@ exports.main = async (event, context) => {
     unionid: wxContext.UNIONID,
   }
  */
-  return db.collection('officialAccountList').get({
+  return db.collection('officialAccountList').orderBy('weight', 'desc').get({
     success(e) {
       console.log('获取数据成功')
       return e

@@ -102,7 +102,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手查询宿舍安排',
+      title: '邀你查询新生宿舍安排',
       path: '/pages/index/index?toPage=dorm'
     }
   }

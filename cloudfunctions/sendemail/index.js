@@ -1,5 +1,7 @@
 const cloud = require('wx-server-sdk')
-cloud.init()
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
 //引入发送邮件的类库
 var nodemailer = require('nodemailer')
 // 创建一个SMTP客户端配置
@@ -18,7 +20,7 @@ exports.main = async(event, context) => {
   // 创建一个邮件对象
   var mail = {
     // 发件人
-    from: '佛大新生小助手 <13030235667@163.com>',
+    from: '佛大校园助手 <13030235667@163.com>',
     // 主题
     subject: event.title,
     // 收件人

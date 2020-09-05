@@ -1,7 +1,9 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
-cloud.init()
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -11,10 +13,20 @@ exports.main = async (event, context) => {
     openid: wxContext.OPENID
   }).get()
   let type = ''
-  let result=''
+  let result={}
   if (info.data.length > 0) {
     type = 'update'
-    result=await db.collection('userInfo')
+    if(info.data[0].count>2){
+      result={
+        count:true
+      }
+    }else{
+      if(!info.data[0].count){
+        info.data[0].count=2
+      }else{
+        info.data[0].count=info.data[0].count+1
+      }
+      result=await db.collection('userInfo')
       .where({
         openid: wxContext.OPENID
       })
@@ -23,9 +35,12 @@ exports.main = async (event, context) => {
           myClass: event.myClass,
           myDepartment: event.myDepartment,
           myGrade: event.myGrade,
-          userInfo:event.userInfo
+          userInfo:event.userInfo,
+          count:info.data[0].count
         }
       })
+    }
+    
   } else {
     type = 'add'
     result=await db.collection('userInfo').add({
@@ -34,7 +49,9 @@ exports.main = async (event, context) => {
           myClass: event.myClass,
           openid: wxContext.OPENID,
           myDepartment: event.myDepartment,
-          myGrade: event.myGrade
+          myGrade: event.myGrade,
+          userInfo:event.userInfo,
+          count:1
         }
       ]
     })

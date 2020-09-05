@@ -1,5 +1,6 @@
 const db = wx.cloud.database()
 let allData=[]
+let shareText='邀你使用iknow佛大'
 Page({
 
   /**
@@ -134,27 +135,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中',
-    })
     if(allData.length==0){
       wx.cloud.callFunction({
         name: 'getTXH'
       }).then(res=>{
         console.log(res.result.data.data)
         allData=res.result.data.data
-        this.setData({
-          all: allData
-        })
-        wx.hideLoading()
+        if(allData.length>0){
+          this.setData({
+            all:allData
+          })
+          shareText='邀你查询佛大同乡会'
+          wx.setNavigationBarTitle({
+            title: "同乡会查询"
+          })
+        }else{
+          this.setData({
+            tipText:'系统维护中,敬请期待后续更新'
+          })
+        }
       }).catch(e=>{
-        wx.hideLoading()
+        this.setData({
+          tipText:'系统维护中,敬请期待后续更新'
+        })
       })
     }else{
       this.setData({
         all: allData
       })
-      wx.hideLoading()
+      if(allData.length>0){
+        shareText='邀你查询佛大同乡会'
+        wx.setNavigationBarTitle({
+          title: '同乡会查询'
+        })
+      }else{
+        this.setData({
+          tipText:'系统维护中,敬请期待后续更新'
+        })
+      }
     }
    
   },
@@ -206,7 +224,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '邀你使用佛大新生小助手查询同乡会',
+      title: shareText,
       path: '/pages/index/index?toPage=tongxianghui'
     }
   }

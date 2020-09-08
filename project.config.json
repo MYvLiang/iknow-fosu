@@ -135,6 +135,13 @@
 					"pathName": "pages/organization/organization",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/import-course/import-course",
+					"pathName": "pages/import-course/import-course",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

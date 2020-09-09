@@ -29,10 +29,10 @@
   </view>
 </view>
 <view class="test-week">
-实践周备注：暂无
+备注：{{beizhu}}
 </view>
 <view class="statement">
-课程数据来自 100网-我的课表-班级课表查询 公开的全校课表，可能跟您的个人课表信息有所差异，敬请期待后续的数据更新（拉下刷新可获取最新课表数据）和导入个人课表功能。
+课程数据来自 100网-我的课表-班级课表查询 公开的全校课表，可能跟您的个人课表信息有所差异，敬请期待后续的数据更新（下拉刷新）或导入100网的个人课表（点左上角设置导入课表）。
 </view>
 <view  hidden="{{!showCourseDialog}}">
   <view class="dialog" bindtap="closeCourseDialog"></view>

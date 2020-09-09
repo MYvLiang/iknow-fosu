@@ -1,1 +1,32 @@
 /* miniprogram/pages/import-course/import-course.wxss */
+.title {
+  font-size: 38rpx;
+  text-align: center;
+  padding: 30rpx;
+  font-family: 700;
+}
+
+.content {
+  text-indent: 2em;
+  font-size: 32rpx;
+  color: #555;
+  padding: 0rpx 50rpx;
+  line-height: 1.5em;
+}
+
+button {
+  margin-top: 100rpx;
+}
+
+image {
+  width: 90%;
+  height: 100rpx;
+  margin: auto;
+}
+.tip-text{
+  margin-top: 50rpx;
+  font-size: 32rpx;
+  color: red;
+  text-align: center;
+  padding: 50rpx;
+}

@@ -1,1 +1,7 @@
-<view style="text-align: center;" >暂不开放导入个人课表功能，敬请期待</view>
+<view class="title">导入个人课表</view>
+<view class="content">请从100网下载个人课表Excel表格文件，在微信上发给文件传输助手或好友，点击下面的“上传课表文件”从聊天记录中选择课表文件即可。</view>
+<view class="content">下载方式：培养管理--我的课表--学期理论课表--打印</view>
+<image src="/images/course/importcourse.png" mode="aspectFit"></image>
+<view class="content">导入成功后若课表无变化可下拉刷新一下</view>
+<button type="primary" bindtap="chooseExcel">上传课表文件</button>
+<view class="tip-text">{{tip}}</view>

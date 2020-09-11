@@ -24,34 +24,57 @@ console.log('初始化course.js')
 //app.globalData.allCourseData
 async function getMyCourse(myClass, term, flush) {
   console.log(app.globalData.allCourseData)
-  if(!app.globalData.allCourseData){
-    app.globalData.allCourseData={}
+  if (!app.globalData.allCourseData) {
+    app.globalData.allCourseData = {}
+  }
+  if (!app.globalData.beizhu) {
+    app.globalData.beizhu = {}
   }
   let coursesList = [];//当前所选学期课程数据
   let courseKey = myClass + '-' + term
+  let beizhu = ''
   const res = wx.getStorageInfoSync()
   console.log(res)
 
   if (flush) {
     //刷新数据
-    coursesList = await getCourse(myClass, term);
+    let dataObj
+    dataObj = await getCourse(myClass, term);
+    coursesList = dataObj.coursesList
+    beizhu = dataObj.beizhu
+    app.globalData.beizhu[courseKey + 'bz']=beizhu
     app.globalData.allCourseData[courseKey] = coursesList;
-    return coursesList;
+    return {
+      coursesList,
+      beizhu
+    }
   } else {
     //内存中没有数据时
-    if (!app.globalData.allCourseData.hasOwnProperty(courseKey)) {
+    if (!app.globalData.allCourseData.hasOwnProperty(courseKey)||!app.globalData.beizhu.hasOwnProperty(courseKey + 'bz')) {
       //从缓存获取
-      coursesList = await getCourseStorage(courseKey);
+      let dataObj
+      dataObj = await getCourseStorage(courseKey);
 
-      if (coursesList.length == 0) {
+      if (dataObj.coursesList.length == 0) {
         //缓存没有数据时
-        coursesList = await getCourse(myClass, term);
+        dataObj = await getCourse(myClass, term);
       }
-      console.log('coursesList:',coursesList)
+      console.log(dataObj)
+      coursesList = dataObj.coursesList
+      beizhu = dataObj.beizhu
+      console.log('coursesList:', coursesList)
       app.globalData.allCourseData[courseKey] = coursesList;
-      return coursesList;
+      console.log(app.globalData.beizhu)
+      app.globalData.beizhu[courseKey + 'bz']=beizhu
+      return {
+        coursesList,
+        beizhu
+      }
     } else {
-      return app.globalData.allCourseData[courseKey];
+      return {
+        coursesList:app.globalData.allCourseData[courseKey],
+        beizhu:app.globalData.beizhu[courseKey + 'bz']
+      }
     }
   }
 }
@@ -69,7 +92,11 @@ async function getCourseStorage(courseKey) {
     console.log('获取缓存失败')
     console.log(err)
   })
-  return coursesList;
+  var beizhu = wx.getStorageSync(courseKey + 'bz')
+  return {
+    coursesList,
+    beizhu
+  }
 }
 /**
  * 从数据库获取课表,并写入缓存
@@ -78,6 +105,7 @@ async function getCourse(myClass, term) {
   console.log('从数据库获取课表')
   let courseKey = myClass + '-' + term
   let coursesList = []
+  let beizhu = ''
   await wx.cloud.callFunction({
     name: 'getCourse',
     data: {
@@ -87,9 +115,21 @@ async function getCourse(myClass, term) {
   }).then(res => {
     coursesList = setCourseColor(res.result.data);
     console.log('写入缓存' + courseKey)
+    console.log(res.result.beizhu)
+    beizhu = res.result.beizhu
     wx.setStorage({
       key: courseKey,
       data: coursesList,
+      success: res => {
+        console.log(res)
+      },
+      fail: err => {
+        console.log(err)
+      },
+    })
+    wx.setStorage({
+      key: courseKey + 'bz',
+      data: beizhu,
       success: res => {
         console.log(res)
       },
@@ -102,7 +142,10 @@ async function getCourse(myClass, term) {
     .catch(res => {
       console.log(res)
     })
-  return coursesList;
+  return {
+    coursesList,
+    beizhu
+  }
 }
 
 
@@ -133,23 +176,23 @@ function checkWeek(weeks, beginWeek, endWeek) {
   return false;
 }
 
-async function getCurrentWeek(termStr){
+async function getCurrentWeek(termStr) {
   let date = new Date();
-  let currentWeek=-1
-  if(!app.globalData.currentWeek){
+  let currentWeek = -1
+  if (!app.globalData.currentWeek) {
     await db.collection('termBeginDate').where({
       term: termStr,
     }).get().then(res => {
       // res.data 包含该记录的数据
-      console.log('dateStart',res.data[0].dateStart)
+      console.log('dateStart', res.data[0].dateStart)
       let dateStart = new Date(res.data[0].dateStart);
       app.globalData.currentWeek = Math.floor((date - dateStart) / (1000 * 60 * 60 * 24) / 7 + 1);
-      currentWeek=app.globalData.currentWeek
-      console.log('currentWeek',currentWeek);
+      currentWeek = app.globalData.currentWeek
+      console.log('currentWeek', currentWeek);
     })
-  }else{
+  } else {
     console.log('已经获取过本周')
-    currentWeek=app.globalData.currentWeek
+    currentWeek = app.globalData.currentWeek
   }
   return currentWeek;
 }
@@ -187,6 +230,7 @@ Page({
       ['20:50', '21:30'],
     ],
     courses: [[], [], [], [], [], [], []],
+    beizhu:'暂无',
     selectCourses: [],
     term: 0,
     termStr: '2019-2020-2',
@@ -370,7 +414,10 @@ Page({
     }
     let that = this
     getMyCourse(myClass, that.data.termStr, flush).then((res) => {
-      let coursesList = res
+      let coursesList = res.coursesList
+      that.setData({
+        beizhu:res.beizhu
+      })
       console.log('loadCourse')
       console.log(res)
       // console.log(coursesList)
@@ -416,7 +463,7 @@ Page({
         courses: coursesArray,
         moreCourse
       })
-      
+
       if (flush) {
         wx.hideLoading();
         wx.stopPullDownRefresh();
@@ -433,10 +480,10 @@ Page({
             duration: 500
           })
         }
-      }else{
+      } else {
         wx.hideLoading()
       }
-      if(coursesList.length==0){
+      if (coursesList.length == 0) {
         wx.showToast({
           title: '本学期暂无您的班级课程信息',
           icon: 'none',
@@ -454,13 +501,13 @@ Page({
       wx.hideLoading();
     })
   },
-  
-  toCurrentWeek:function(termStr){
+
+  toCurrentWeek: function (termStr) {
     console.log('toCurrentWeek')
     let date = new Date();
-    let that=this
+    let that = this
     //查询当前学期的开学时间，初始化当前是第几周
-    getCurrentWeek(termStr).then(currentWeek=> {
+    getCurrentWeek(termStr).then(currentWeek => {
       let beginWeek = 1;
       let endWeek = 16;
       if (currentWeek <= 16 && currentWeek > 0) {
@@ -485,7 +532,7 @@ Page({
       wx.hideLoading();
     })
   },
-  loadData:function(myClass){
+  loadData: function (myClass) {
     console.log(myClass)
     wx.showLoading({
       title: '加载中',
@@ -546,11 +593,11 @@ Page({
             title: '第' + weekStr + '周(' + termList[0] + ')'
           })
           this.loadCourse(false);
-        }else{
+        } else {
           console.log(termList[0])
           this.toCurrentWeek(termList[0]);
         }
-      }else{
+      } else {
         console.log(termList[0])
         this.toCurrentWeek(termList[0]);
       }
@@ -560,6 +607,13 @@ Page({
       console.log(err)
     }
   },
+  flushCoures() {
+    console.log('刷新')
+    wx.showLoading({
+      title: '刷新中',
+    })
+    this.loadCourse(true);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -567,24 +621,24 @@ Page({
     // this.clearS()
     let that = this
     console.log('onLoad')
-    if(!app.globalData.myClass){
+    if (!app.globalData.myClass) {
       wx.cloud.callFunction({
         name: 'getUserInfo'
       }).then(res => {
         let info = res.result.info
         console.log(info)
         if (info && info.length > 0) {
-          app.globalData.myClass=info[0].myClass
+          app.globalData.myClass = info[0].myClass
           that.setData({
-            myClass:info[0].myClass
+            myClass: info[0].myClass
           })
           this.loadData(info[0].myClass)
-        }else{
+        } else {
           wx.showModal({
             title: '提示',
             content: '您未绑定班级信息，无法查询课表数据',
-            confirmText:'去绑定',
-            success (res) {
+            confirmText: '去绑定',
+            success(res) {
               if (res.confirm) {
                 console.log('用户点击确定')
                 wx.navigateTo({
@@ -604,9 +658,9 @@ Page({
           duration: 2000
         })
       })
-    }else{
+    } else {
       that.setData({
-        myClass:app.globalData.myClass
+        myClass: app.globalData.myClass
       })
       this.loadData(app.globalData.myClass)
     }
@@ -624,12 +678,18 @@ Page({
    */
   onShow: function () {
     // console.log('onShow')
+    if (app.globalData.flushC) {
+      this.flushCoures()
+      app.globalData.flushC = false
+    }
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+    // console.log('onHide')
     this.setData({
       showSetDialog: false
     })
@@ -646,11 +706,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    // console.log('刷新')
-    wx.showLoading({
-      title: '刷新中',
-    })
-    this.loadCourse(true);
+    this.flushCoures()
   },
 
   /**

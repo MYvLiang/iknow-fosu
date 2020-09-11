@@ -7,28 +7,41 @@ async function getMyCourse(myClass, term, flush) {
   if(!app.globalData.allCourseData){
     app.globalData.allCourseData={}
   }
+  if (!app.globalData.beizhu) {
+    app.globalData.beizhu = {}
+  }
   let coursesList = [];//当前所选学期课程数据
   let courseKey = myClass + '-' + term
   const res = wx.getStorageInfoSync()
   console.log(res)
-
+  let beizhu = ''
   if (flush) {
     //刷新数据
-    coursesList = await getCourse(myClass, term);
+    //刷新数据
+    let dataObj
+    dataObj = await getCourse(myClass, term);
+    coursesList = dataObj.coursesList
+    beizhu = dataObj.beizhu
+    app.globalData.beizhu[courseKey + 'bz']=beizhu
     app.globalData.allCourseData[courseKey] = coursesList;
+    
     return coursesList;
   } else {
     //内存中没有数据时
     if (!app.globalData.allCourseData.hasOwnProperty(courseKey)) {
       //从缓存获取
-      coursesList = await getCourseStorage(courseKey);
+      let dataObj
+      dataObj = await getCourseStorage(courseKey);
 
-      if (coursesList.length == 0) {
+      if (dataObj.coursesList.length == 0) {
         //缓存没有数据时
-        coursesList = await getCourse(myClass, term);
+        dataObj = await getCourse(myClass, term);
       }
+      coursesList = dataObj.coursesList
+      beizhu = dataObj.beizhu
       console.log('coursesList:',coursesList)
       app.globalData.allCourseData[courseKey] = coursesList;
+      app.globalData.beizhu[courseKey + 'bz']=beizhu
       return coursesList;
     } else {
       return app.globalData.allCourseData[courseKey];
@@ -49,7 +62,11 @@ async function getCourseStorage(courseKey) {
     console.log('获取缓存失败')
     console.log(err)
   })
-  return coursesList;
+  var beizhu = wx.getStorageSync(courseKey + 'bz')
+  return {
+    coursesList,
+    beizhu
+  }
 }
 /**
  * 从数据库获取课表,并写入缓存
@@ -58,6 +75,7 @@ async function getCourse(myClass, term) {
   console.log('从数据库获取课表')
   let courseKey = myClass + '-' + term
   let coursesList = []
+  let beizhu = ''
   await wx.cloud.callFunction({
     name: 'getCourse',
     data: {
@@ -67,6 +85,7 @@ async function getCourse(myClass, term) {
   }).then(res => {
     coursesList = setCourseColor(res.result.data);
     console.log('写入缓存' + courseKey)
+    beizhu = res.result.beizhu
     wx.setStorage({
       key: courseKey,
       data: coursesList,
@@ -77,11 +96,23 @@ async function getCourse(myClass, term) {
         console.log(err)
       },
     })
-
+    wx.setStorage({
+      key: courseKey + 'bz',
+      data: beizhu,
+      success: res => {
+        console.log(res)
+      },
+      fail: err => {
+        console.log(err)
+      },
+    })
   }).catch(res => {
       console.log(res)
     })
-  return coursesList;
+  return {
+    coursesList,
+    beizhu
+  }
 }
 
 
@@ -295,7 +326,7 @@ Page({
     
   },
   onLoad: function (query) {
-    db.collection('indexShow').doc('index2020').get().then(res=>{
+    db.collection('indexShow').doc('index20200909').get().then(res=>{
       // console.log(res.data.show)
       this.setData({
         showApp:res.data.show

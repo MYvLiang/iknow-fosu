@@ -208,8 +208,8 @@ Page({
     keepWeek: false,
     days: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     weeks: [
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19],
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,17,18,19]],
     weeksIndex: [0, 0],
     colors: ['#eccc68', '#60a3bc', '#079992', '#2ed573', '#ff6b81', '#3498db',
       '#9b59b6', '#ff7f50', '#1abc9c', '#d35400', '#1e90ff', '#fff'],
@@ -236,7 +236,7 @@ Page({
     termStr: '2019-2020-2',
     termList: ['2019-2020-2', '2019-2020-1'],
     beginWeek: 1,
-    endWeek: 16,
+    endWeek: 19,
     myClass: '',
     moreCourse: [{}, {}, {}, {}, {}, {}, {}]//重复的课程中选出周次最早的课程
   },
@@ -323,7 +323,7 @@ Page({
     let weeksIndex = this.data.weeksIndex
     weeksIndex[e.detail.column] = e.detail.value;
     if (e.detail.column == 0) {
-      weeks[1] = Array(16 - e.detail.value);
+      weeks[1] = Array(19 - e.detail.value);
       for (let i = 0; i < weeks[1].length; i++) {
         weeks[1][i] = i + e.detail.value + 1;
       }
@@ -509,8 +509,8 @@ Page({
     //查询当前学期的开学时间，初始化当前是第几周
     getCurrentWeek(termStr).then(currentWeek => {
       let beginWeek = 1;
-      let endWeek = 16;
-      if (currentWeek <= 16 && currentWeek > 0) {
+      let endWeek = 19;
+      if (currentWeek <= 19 && currentWeek > 0) {
         beginWeek = currentWeek;
         endWeek = currentWeek;
       }

@@ -66,7 +66,7 @@
 
 <view class="works">
 	<view class="txt">今日课表</view>
-	<view>{{currentWeek}}</view>
+	<view>{{currentWeek}}  {{days[todayWeek-1]}}</view>
   <navigator class="more" url="/pages/course/course">
 		<view>查看完整课表</view>
 		<view class='arrow'></view>
@@ -79,8 +79,9 @@
 		<view class="course-contnet" wx:for="{{courseData}}" wx:for-item="course" wx:for-index="i" wx:key="_id">
 			<view class="course-contnet-title">{{time[course.beginTime-1][0]}}-{{time[course.endTime-1][1]}} {{course.name}}</view>
 			<view class="course-contnet-txt">
-			 {{course.teacher}}| {{course.place}} | {{course.weeks}} | {{days[course.day-1]}}
+			 {{course.teacher}}| {{course.place}} | {{course.weeks}}
 			</view>
 		</view>
+		<view class="course-explain" wx:if="{{courseData.length>0}}">由于100网的全校班级课表查询只显示第几大节，因此第二大节和第四大节都设为3小节，若与自己的课表不符，可导入个人课表纠正。</view>
 	</view>
 </view>

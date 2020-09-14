@@ -1,5 +1,10 @@
 <view class="log-list">
-<view class="log-content">
+  <view class="log-content">
+    <view class="log-title">2020.9.14版（v3.1.2）</view>
+    <view class="log-type">修复问题</view>
+    <view class="log-details">修复今日课表同名不同节次的课不显示的问题。</view>
+  </view>
+  <view class="log-content">
     <view class="log-title">2020.9.13版（v3.1.1）</view>
     <view class="log-type">修复问题</view>
     <view class="log-details">修复16周后的课程不显示的问题。</view>

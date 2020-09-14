@@ -2,6 +2,7 @@
 <view class="content">请从100网下载个人课表Excel表格文件，在微信上发给文件传输助手或好友，点击下面的“上传课表文件”从聊天记录中选择课表文件即可。</view>
 <view class="content">下载方式：培养管理--我的课表--学期理论课表--打印</view>
 <image src="/images/course/importcourse.png" mode="aspectFit"></image>
-<view class="content">导入成功后若课表无变化可下拉刷新一下</view>
+<view class="content">注意事项：要导入个人信息中绑定的班级的课表，否则不显示。</view>
+<view class="content" bindtap="copyQQ">导入成功后若课表无变化可下拉刷新一下,若依然不显示，可加反馈与交流QQ群，点击复制群号：1035264989</view>
 <button type="primary" bindtap="chooseExcel">上传课表文件</button>
 <view class="tip-text">{{tip}}</view>

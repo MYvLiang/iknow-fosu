@@ -183,10 +183,10 @@ async function getTodayCourse(myClass,term){
     let courseObject={}
     let list=[]
     for(let i=0;i<todayCourse.length;i++){
-      if(!courseObject.hasOwnProperty(todayCourse[i].name)
+      if(!courseObject.hasOwnProperty(todayCourse[i].name+todayCourse[i].beginTime)
       &&checkWeek(todayCourse[i].weeksNum,currentWeek,currentWeek)){
         list.push(todayCourse[i]);
-        courseObject[todayCourse[i].name]=1;
+        courseObject[todayCourse[i].name+todayCourse[i].beginTime]=1;
       }
     }
     list.sort(function(a, b){return a.beginTime - b.beginTime});
@@ -234,10 +234,14 @@ async function getUserClass(){
   console.log('app.globalData.myClass:',app.globalData.myClass)
   return app.globalData.myClass;
 }
-
+let todayWeek=today.getDay();
+if(todayWeek==0){
+  todayWeek=7;
+}
 
 Page({
   data: {
+    todayWeek:todayWeek,
     showHeader:true,
     showTip:false,
     showApp:false,
@@ -247,7 +251,7 @@ Page({
     courseData: [],
     /*默认加载的indexlist数据*/
     indexlist: [],
-    days: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+    days: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
     time: [
       ['08:00', '08:40'],
       ['08:45', '09:25'],
@@ -326,7 +330,7 @@ Page({
     
   },
   onLoad: function (query) {
-    db.collection('indexShow').doc('index20200909').get().then(res=>{
+    db.collection('indexShow').doc('index20200914').get().then(res=>{
       // console.log(res.data.show)
       this.setData({
         showApp:res.data.show

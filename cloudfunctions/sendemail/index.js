@@ -1,6 +1,6 @@
 const cloud = require('wx-server-sdk')
 cloud.init({
-  env: cloud.DYNAMIC_CURRENT_ENV
+  env: 'online-fosuapp'
 })
 //引入发送邮件的类库
 var nodemailer = require('nodemailer')

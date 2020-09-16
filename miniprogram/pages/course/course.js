@@ -419,7 +419,7 @@ Page({
         beizhu:res.beizhu
       })
       console.log('loadCourse')
-      console.log(res)
+      console.log(coursesList.length)
       // console.log(coursesList)
       /**
        * 根据设置的周次范围筛选课程
@@ -428,10 +428,12 @@ Page({
       let coursesArray = [[], [], [], [], [], [], []];//用于渲染页面的课程数据
       let flag = [{}, {}, {}, {}, {}, {}, {}];//同时开始的课程的标记
       let moreCourse = [{}, {}, {}, {}, {}, {}, {}];//重复的课程中选出周次最早的课程
+      let count=0;
       for (let i = 0; i < coursesList.length; i++) {
         let course = coursesList[i];
         let d = coursesList[i].day - 1;
         if (checkWeek(course.weeksNum, this.data.beginWeek, this.data.endWeek)) {
+          count++;
           //根据day添加进二维数组渲染到页面
           if (flag[d].hasOwnProperty(course.beginTime) &&
             course.weeksNum[0] > flag[d][course.beginTime]) {
@@ -456,7 +458,7 @@ Page({
           }
         }
       }
-      // console.log(coursesArray);
+      console.log(coursesArray);
       // console.log(flag)
       // console.log(moreCourse)
       that.setData({
@@ -488,6 +490,14 @@ Page({
           title: '本学期暂无您的班级课程信息',
           icon: 'none',
           duration: 2000
+        })
+      }
+      if(count==0&&coursesList.length>0){
+        // console.log('今周没有课，可修改周次范围查看全部课');
+        wx.showToast({
+          title: '今周没有课，可修改周次范围查看全部课',
+          icon: 'none',
+          duration: 3000
         })
       }
     }).catch(res => {

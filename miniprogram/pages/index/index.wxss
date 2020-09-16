@@ -119,6 +119,12 @@
   font-size: 32rpx;
   color: #666;
 }
+.course-explain{
+  text-align: center;
+  color: #666;
+  padding: 0rpx 100rpx 80rpx 100rpx;
+  font-size: 24rpx;
+}
 .arrow {
   width: 18rpx;
   height: 18rpx;

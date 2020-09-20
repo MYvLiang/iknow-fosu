@@ -10,9 +10,9 @@
 
 
 
-**码云：**https://gitee.com/fosuwxapp/iknow-fosu
+**码云** https://gitee.com/fosuwxapp/iknow-fosu
 
-**GitHub：**https://github.com/MYvLiang/iknow-fosu
+**GitHub** https://github.com/MYvLiang/iknow-fosu
 
 优先更新GitHub
 

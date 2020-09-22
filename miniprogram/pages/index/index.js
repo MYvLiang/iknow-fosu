@@ -183,6 +183,12 @@ async function getTodayCourse(myClass,term){
     let courseObject={}
     let list=[]
     for(let i=0;i<todayCourse.length;i++){
+      if(todayCourse[i].name.indexOf("大学体育")!=-1){
+        console.log(todayCourse[i].name)
+        todayCourse[i].name="大学体育";
+        todayCourse[i].teacher="体育老师";
+        todayCourse[i].place="按照体育老师安排";
+      }
       if(!courseObject.hasOwnProperty(todayCourse[i].name+todayCourse[i].beginTime)
       &&checkWeek(todayCourse[i].weeksNum,currentWeek,currentWeek)){
         list.push(todayCourse[i]);
@@ -281,6 +287,12 @@ Page({
     wx.previewImage({
       current: item.img, // 当前显示图片的http链接
       urls: item.data // 需要预览的图片http链接列表
+    })
+    db.collection('indexClickCount').add({
+      data: {
+        item:item,
+        clickTime:new Date()
+      }
     })
   },
   colseHeader:function(e){

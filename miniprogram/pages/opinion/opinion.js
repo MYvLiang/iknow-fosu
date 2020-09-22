@@ -1,6 +1,5 @@
 //index.js
 //获取应用实例
-wx.cloud.init({})
 const db = wx.cloud.database()
 const opinions = db.collection('opinions')
 const app = getApp()

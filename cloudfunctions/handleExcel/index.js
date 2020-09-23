@@ -2,7 +2,7 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init({
-  env: 'online-fosuapp'
+  env: cloud.DYNAMIC_CURRENT_ENV
 })
 var xlsx = require('node-xlsx');
 

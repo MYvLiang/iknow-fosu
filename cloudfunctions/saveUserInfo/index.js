@@ -16,7 +16,7 @@ exports.main = async (event, context) => {
   let result={}
   if (info.data.length > 0) {
     type = 'update'
-    if(info.data[0].count>2){
+    if(info.data[0].count>9){
       result={
         count:true
       }

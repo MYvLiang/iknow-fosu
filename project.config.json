@@ -26,7 +26,7 @@
 	},
 	"appid": "wx97f301d850f98b13",
 	"projectname": "freshman-helper",
-	"libVersion": "2.12.2",
+	"libVersion": "2.13.0",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",

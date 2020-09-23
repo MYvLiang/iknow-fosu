@@ -342,7 +342,7 @@ Page({
     
   },
   onLoad: function (query) {
-    db.collection('indexShow').doc('index20200914').get().then(res=>{
+    db.collection('indexShow').doc('index20200922').get().then(res=>{
       // console.log(res.data.show)
       this.setData({
         showApp:res.data.show

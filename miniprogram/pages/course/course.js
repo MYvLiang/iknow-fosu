@@ -561,7 +561,7 @@ Page({
      */
     let termList = []
     let num = 1//第一学期
-    if (month < 9) {
+    if (month < 7 & month >2) {
       num = 2//第二学期
     }
     let termS = ''
@@ -575,6 +575,7 @@ Page({
       num = (num % 2 + 1);
       termList.push(termS);
     }
+    console.log(date.getFullYear())
     console.log(termList)
     //初始化学期，班级
     this.setData({
